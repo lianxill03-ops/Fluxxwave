@@ -2,6 +2,7 @@
 //! component that reads the active [`Theme`](crate::theme::Theme), carries
 //! its accessible role and name, and takes part in keyboard traversal.
 
+mod brand_mark;
 mod button;
 mod card;
 mod combo_box;
@@ -22,6 +23,7 @@ mod toggle_switch;
 mod tooltip;
 mod typography;
 
+pub use brand_mark::brand_mark;
 pub use button::Button;
 pub use card::card;
 pub use combo_box::{ComboBox, ComboItem};

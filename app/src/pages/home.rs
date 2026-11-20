@@ -3,7 +3,7 @@
 
 use gpui::{
     AnyElement, App, Context, Div, ElementId, Entity, FocusHandle, IntoElement, ParentElement, Pixels,
-    Render, Role, ScrollHandle, Stateful, Styled, Window, div, prelude::*, px, rems, svg,
+    Render, Role, ScrollHandle, Stateful, Styled, Window, div, prelude::*, px, rems,
 };
 
 use super::stepper::step_marker;
@@ -21,8 +21,8 @@ use crate::t;
 use crate::theme::{ActiveTheme, FONT_TEXT};
 use crate::ui::{
     BODY_LINE_HEIGHT, Button, CapCenteredText, Icon, InfoBar, LightState, Markdown, MarkdownBlock,
-    ScrollbarState, Severity, StatusLight, Typography, a11y_text, card, dismiss_button, icon_sized,
-    parse_markdown,
+    ScrollbarState, Severity, StatusLight, Typography, a11y_text, brand_mark, card, dismiss_button,
+    icon_sized, parse_markdown,
 };
 
 /// Release note blocks shown before "Show full notes".
@@ -252,11 +252,12 @@ impl HomePage {
                     .child(
                         div()
                             .flex_shrink_0()
-                            .size(px(72.))
+                            .w(px(104.))
+                            .h(px(72.))
                             .flex()
                             .items_center()
                             .justify_center()
-                            .child(svg().path("brand/atlas-mark.svg").size(px(64.)).text_color(theme.brand)),
+                            .child(brand_mark(px(96.), cx)),
                     )
                     .child(text),
             )

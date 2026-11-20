@@ -10,6 +10,7 @@ use gpui::{
     WindowControlArea, div, prelude::*, px, svg,
 };
 
+use super::brand_mark::MARK;
 use super::tooltip::{self, TooltipState};
 use super::typography::{CAPTION_SIZE, cap_center_offset};
 use super::{ClickHandler, Icon, Typography, focus_ring, icon_sized, on_activate, pointer_hover};
@@ -76,11 +77,8 @@ impl RenderOnce for TitleBar {
                     .pl(px(16.))
                     .window_control_area(WindowControlArea::Drag)
                     .child(
-                        svg()
-                            .path("brand/atlas-mark.svg")
-                            .size(px(16.))
-                            .text_color(theme.brand)
-                            .with_transformation(gpui::Transformation::translate(gpui::point(
+                        svg().path(MARK).w(px(22.)).h(px(16.)).text_color(theme.brand).with_transformation(
+                            gpui::Transformation::translate(gpui::point(
                                 px(0.),
                                 cap_center_offset(
                                     gpui::font(FONT_TEXT),
@@ -88,7 +86,8 @@ impl RenderOnce for TitleBar {
                                     window,
                                     cx,
                                 ),
-                            ))),
+                            )),
+                        ),
                     )
                     .child(div().type_caption().text_color(text).child(self.title)),
             )

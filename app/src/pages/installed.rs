@@ -6,7 +6,7 @@
 
 use gpui::{
     AnyElement, Context, Entity, IntoElement, ParentElement, Render, ScrollHandle, Styled, Window, div,
-    prelude::*, px, svg,
+    prelude::*, px,
 };
 
 use super::home::{defender_not_restored_bar, protection_reminder_bar};
@@ -23,7 +23,7 @@ use crate::t;
 use crate::theme::ActiveTheme;
 use crate::ui::{
     Button, CompletionBackdrop, FocusHandles, Icon, InfoBar, KeepOut, ScrollbarState, Severity, Typography,
-    a11y_text, card, icon_sized, scrollbar,
+    a11y_text, brand_mark, card, icon_sized, scrollbar,
 };
 
 pub struct InstalledPage {
@@ -178,16 +178,9 @@ impl Render for InstalledPage {
             .child(
                 div()
                     .relative()
-                    .w(px(72.))
+                    .w(px(112.))
                     .h(px(72.))
-                    .child(
-                        svg()
-                            .path("brand/atlas-mark.svg")
-                            .absolute()
-                            .bottom(px(0.))
-                            .size(px(72.))
-                            .text_color(theme.brand),
-                    )
+                    .child(div().absolute().left(px(0.)).bottom(px(0.)).child(brand_mark(px(112.), cx)))
                     .child(
                         div()
                             .absolute()

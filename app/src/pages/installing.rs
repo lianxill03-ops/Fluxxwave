@@ -4,7 +4,7 @@
 
 use gpui::{
     AnyElement, Context, Entity, IntoElement, ParentElement, Render, Role, ScrollHandle, Styled, Window, div,
-    prelude::*, px, svg,
+    prelude::*, px,
 };
 
 use super::install::details_toggle;
@@ -16,7 +16,7 @@ use crate::t;
 use crate::theme::ActiveTheme;
 use crate::ui::{
     Button, FocusHandles, Icon, InfoBar, ProgressBar, ProgressRing, ScrollbarState, Severity, Typography,
-    a11y_text, card, focus_reveal, icon_sized, scrollbar,
+    a11y_text, brand_mark, card, focus_reveal, icon_sized, scrollbar,
 };
 
 /// Log lines drawn; the whole log is in the file.
@@ -182,7 +182,7 @@ impl Render for InstallingPage {
             .child(if succeeded {
                 icon_sized(Icon::Completed, 48.).text_color(theme.success).into_any_element()
             } else {
-                svg().path("brand/atlas-mark.svg").size(px(48.)).text_color(theme.brand).into_any_element()
+                brand_mark(px(80.), cx)
             })
             .child(
                 focusable_heading("installing-heading", 1, title, &heading_focus, cx)
