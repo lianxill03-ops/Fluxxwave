@@ -241,7 +241,7 @@ src/
                   and model/tests/ drives it headless on model/test_harness.rs
   environment.rs  what the model needs from the process: paths, machine adapters, restart timing
   flow.rs         the install flow's state machine (steps, run state, allowed transitions)
-  theme.rs        Fluent tokens for light, dark and contrast themes, Atlas blue accent
+  theme.rs        Fluent tokens for light, dark and contrast themes, Fluxxwave violet accent
   assets.rs       SVGs and the window icon compiled into the binary
   i18n/           language choice, message lookup (t!), words for semantic state,
                   regional formatting, catalog checks

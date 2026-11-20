@@ -1,9 +1,9 @@
-//! Fluent design tokens for Windows 11, in Atlas blue.
+//! Fluent design tokens for Windows 11, in Fluxxwave violet.
 //!
 //! Every colour the UI paints comes from here. The values follow the WinUI 3
 //! common resource dictionary (text, control, card, layer and subtle fills as
 //! black/white at fixed opacities) so the app reads as native next to Settings,
-//! with the brand blue standing in for the system accent. When a Windows
+//! with the brand violet standing in for the system accent. When a Windows
 //! contrast theme is active the palette is built from the system colours
 //! instead, and the Ease of Access text size and animation preferences are
 //! carried here so every control can honour them.
@@ -33,16 +33,17 @@ pub fn text_font(cx: &App) -> Font {
     }
 }
 
-/// Brand blue from the website and logo. Used for artwork; control fills use
-/// a shade that keeps white text readable.
-pub const ATLAS_BLUE: u32 = 0x1A91FF;
-/// The light-mode accent fill: Atlas blue darkened until white text on it
-/// clears the 4.5:1 contrast benchmark, as WinUI does with AccentDark1.
-pub const ATLAS_BLUE_DARK1: u32 = 0x0A6BD4;
-pub const ATLAS_BLUE_DARK2: u32 = 0x0862C2;
-pub const ATLAS_BLUE_DARK3: u32 = 0x0759AF;
+/// Brand violet, the start of the logo's violet-to-cyan gradient. Used for
+/// artwork; control fills use a shade that keeps white text readable.
+pub const BRAND_VIOLET: u32 = 0x8B3DFF;
+/// The light-mode accent fill: the brand violet darkened so white text on it
+/// clears the 4.5:1 contrast benchmark with room to spare (5.9:1), as WinUI
+/// does with AccentDark1. Each further step is the same hue, darker.
+pub const BRAND_VIOLET_DARK1: u32 = 0x7D37E6;
+pub const BRAND_VIOLET_DARK2: u32 = 0x7232D1;
+pub const BRAND_VIOLET_DARK3: u32 = 0x672DBD;
 /// The dark-mode accent: lifted so near-black text sits on it.
-pub const ATLAS_BLUE_LIGHT2: u32 = 0x5EB5FF;
+pub const BRAND_VIOLET_LIGHT2: u32 = 0xB79CFF;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Appearance {
@@ -179,7 +180,7 @@ impl Theme {
             reduce_motion: false,
             text_scale: 1.0,
 
-            brand: c(ATLAS_BLUE),
+            brand: c(BRAND_VIOLET),
 
             text_primary: tint(0x000000, 0.896),
             text_secondary: tint(0x000000, 0.606),
@@ -188,12 +189,12 @@ impl Theme {
             text_on_accent: c(0xFFFFFF),
             text_on_accent_disabled: c(0xFFFFFF),
 
-            accent: c(ATLAS_BLUE_DARK1),
-            accent_hover: c(ATLAS_BLUE_DARK2),
-            accent_pressed: c(ATLAS_BLUE_DARK3),
+            accent: c(BRAND_VIOLET_DARK1),
+            accent_hover: c(BRAND_VIOLET_DARK2),
+            accent_pressed: c(BRAND_VIOLET_DARK3),
             accent_disabled: tint(0x000000, 0.217),
-            accent_text: c(ATLAS_BLUE_DARK1),
-            accent_text_hover: c(0x0857AD),
+            accent_text: c(BRAND_VIOLET_DARK1),
+            accent_text_hover: c(0x5F27B3),
 
             control_fill: tint(0xFFFFFF, 0.7),
             control_fill_hover: tint(0xF9F9F9, 0.5),
@@ -227,7 +228,7 @@ impl Theme {
             caution_fill: c(0xFFF4CE),
             critical: c(0xC42B1C),
             critical_fill: c(0xFDE7E9),
-            info: c(0x0A6BD4),
+            info: c(BRAND_VIOLET_DARK1),
             info_fill: tint(0xFFFFFF, 0.5),
         }
     }
@@ -240,7 +241,7 @@ impl Theme {
             reduce_motion: false,
             text_scale: 1.0,
 
-            brand: c(ATLAS_BLUE_LIGHT2),
+            brand: c(BRAND_VIOLET_LIGHT2),
 
             text_primary: c(0xFFFFFF),
             text_secondary: tint(0xFFFFFF, 0.786),
@@ -250,12 +251,12 @@ impl Theme {
             text_on_accent_disabled: tint(0xFFFFFF, 0.53),
 
             // Windows lifts the accent in dark mode so black text sits on it.
-            accent: c(ATLAS_BLUE_LIGHT2),
-            accent_hover: c(0x4FA8F5),
-            accent_pressed: c(0x3F97E0),
+            accent: c(BRAND_VIOLET_LIGHT2),
+            accent_hover: c(0xA98BF5),
+            accent_pressed: c(0x9A7BE6),
             accent_disabled: tint(0xFFFFFF, 0.158),
-            accent_text: c(0x7CC2FF),
-            accent_text_hover: c(0x9BD0FF),
+            accent_text: c(0xC4B0FF),
+            accent_text_hover: c(0xD6C8FF),
 
             control_fill: tint(0xFFFFFF, 0.0605),
             control_fill_hover: tint(0xFFFFFF, 0.0837),
@@ -289,7 +290,7 @@ impl Theme {
             caution_fill: c(0x433519),
             critical: c(0xFF99A4),
             critical_fill: c(0x442726),
-            info: c(0x7CC2FF),
+            info: c(0xC4B0FF),
             info_fill: tint(0xFFFFFF, 0.0326),
         }
     }
