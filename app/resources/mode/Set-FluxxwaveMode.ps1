@@ -564,7 +564,8 @@ function Show-FluxxwaveModeMenu {
     Write-Host (Get-FluxxwaveModeText -Key 'MenuOn')
     Write-Host (Get-FluxxwaveModeText -Key 'MenuOff')
     Write-Host (Get-FluxxwaveModeText -Key 'MenuQuit')
-    $choice = Read-Host (Get-FluxxwaveModeText -Key 'Prompt')
+    # A space typed before or after the number still counts.
+    $choice = "$(Read-Host (Get-FluxxwaveModeText -Key 'Prompt'))".Trim()
     $code = 0
     if ($choice -eq '1') {
         Write-Host (Get-FluxxwaveModeText -Key 'TurningOn')

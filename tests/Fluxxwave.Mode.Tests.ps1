@@ -831,16 +831,15 @@ Describe 'Fluxxwave mode on a real Windows installation' -Skip:($env:GITHUB_ACTI
             foreach ($choice in @('3', '1', '2')) {
                 $start = New-Object System.Diagnostics.ProcessStartInfo
                 $start.FileName = $env:ComSpec
-                $start.Arguments = '/d /c ""' + $launcher + '""'
+                # The answer is piped in by echo: written from here, it would
+                # arrive with a byte-order mark in front of it.
+                $start.Arguments = '/d /c "echo ' + $choice + '| "' + $launcher + '""'
                 $start.UseShellExecute = $false
                 $start.CreateNoWindow = $true
-                $start.RedirectStandardInput = $true
                 $start.RedirectStandardOutput = $true
                 $process = [System.Diagnostics.Process]::Start($start)
                 try {
                     $reading = $process.StandardOutput.ReadToEndAsync()
-                    $process.StandardInput.WriteLine($choice)
-                    $process.StandardInput.Close()
                     $code = 'none, it did not finish'
                     if ($process.WaitForExit(180000)) { $code = $process.ExitCode } else { [void](taskkill.exe /T /F /PID $process.Id) }
                     $runs += @{ Choice = $choice; Code = $code; Text = $reading.Result.Replace("`r", '') }
