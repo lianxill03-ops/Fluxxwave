@@ -26,6 +26,7 @@ the install flow's Your choices (`step-options`).
 | zh-Hans | Atlas 安装包, 安装包 | 准备, 你的选择, Windows 安全中心, 安装 | 文件, Windows 安装设置, 检查 |
 | zh-Hant | Atlas 套件, 套件 | 準備, 您的選擇, Windows 安全性, 安裝 | 檔案, Windows 安裝, 檢閱 |
 | ja | Atlas パッケージ, パッケージ | 準備, 設定の選択, Windows セキュリティ, インストール | ファイル, Windows のセットアップ, 確認 |
+| ko | Fluxxwave 패키지, 패키지 | 준비, 선택 사항, Windows 보안, 설치 | 파일, Windows 설치, 검토 |
 | id | paket Atlas, paket | Persiapan, Pilihan Anda, Keamanan Windows, Instal | File, Penyiapan Windows, Tinjau |
 | th | แพ็กเกจ Atlas, แพ็กเกจ | เตรียมความพร้อม, ตัวเลือกของคุณ, ความปลอดภัยของ Windows, ติดตั้ง | ไฟล์, การตั้งค่า Windows, ตรวจทาน |
 | hi | Atlas पैकेज (masculine), पैकेज | तैयारी, आपके विकल्प, Windows सुरक्षा, इंस्टॉल | फ़ाइलें, Windows सेटअप, समीक्षा |
@@ -50,6 +51,7 @@ yet confirmed on a localized Windows are in the
 | zh-Hans | Exploit Protection (English, as Chinese Windows shows it) | 控制流保护 (CFG) | 智能应用控制 | 增强型网络钓鱼防护 | 查找我的设备 |
 | zh-Hant | 惡意探索保護 | 控制流程防護（CFG） | 智慧型應用程式控制 | 增強式網路釣魚保護 (the Group Policy name) | 尋找我的裝置 |
 | ja | Exploit Protection (Latin letters, as Japanese Windows shows it) | 制御フロー ガード | スマート アプリ コントロール | 拡張フィッシング保護 | デバイスの検索 |
+| ko | Exploit Protection (Latin letters; unconfirmed) | 제어 흐름 보호(CFG) | 스마트 앱 컨트롤 | 향상된 피싱 방지 | 내 장치 찾기 |
 | id | Perlindungan eksploitasi | Control Flow Guard (English) | Kontrol Aplikasi Pintar | Perlindungan pengelabuan (the switch's own label) | Temukan perangkat saya |
 | th | การป้องกัน Exploit | Control Flow Guard (English) | การควบคุมแอปแบบอัจฉริยะ | การป้องกันฟิชชิ่งขั้นสูง | ค้นหาอุปกรณ์ของฉัน |
 | hi | शोषण से सुरक्षा | नियंत्रण प्रवाह गार्ड (CFG) | स्मार्ट ऐप नियंत्रण | उन्नत फ़िशिंग सुरक्षा | मेरा डिवाइस ढूँढें |
@@ -223,6 +225,18 @@ Each language's own choices:
     ウイルス対策アプリ; ソフト only where the English says "software". Edge
     bookmarks are お気に入り. Status words are 進行中, 失敗, 未開始 and 完了,
     and stage names end in 〜中. ログ フォルダーを開く, 更新を停止.
+- **ko** — 합니다/하세요; noun or verb-stem buttons (다시 시도, 취소, 완료);
+  a button, card or step named in a sentence goes in ‘ ’; no particle
+  straight after a variable where the sentence allows, otherwise the paired
+  form (을(를), (으)로); 다시 실행 = app, 다시 시작 = PC; step 2 "선택 사항".
+  Windows names: 변조 보호, 실시간 보호, 클라우드 전송 보호, 자동 샘플 전송;
+  바이러스 및 위협 방지 설정; Windows Update is "Windows 업데이트". Sources:
+  none checked in this revision; the names are the translator's recollection
+  of Korean Windows 11 and need confirming on a Korean install.
+  - The three Check again buttons share one label, 다시 확인, so text can name
+    it wherever it appears. Metered is "데이터 통신 연결", regional format
+    "사용지역 언어". The Atlas team, community, guide and Toolbox keep the name
+    Atlas, as in the source.
 - **id** — Anda; formal-neutral register; "jalankan ulang" = app, "mulai
   ulang" = PC, "buka kembali" after a restart; the switches are
   "pengaturan (perlindungan)"; only `other` plurals; step 2 "Pilihan Anda".
@@ -286,6 +300,7 @@ translated for several languages and disagree with each other):
 | zh-Hans | security-list-title, protection-samples, protection-cloud, consequence-mitigations-disable, playbook-page-defender-enable-description | Quotation marks in the page title; 样本 vs 示例; 云提供的保护 vs 云保护. "Exploit Protection" left in English and 控制流保护 (CFG) to confirm on a zh-CN build. The Windows Security switch reads 网络钓鱼防护, not 增强型网络钓鱼防护. |
 | zh-Hant | protection-samples, protection-tamper (Windows 10), consequence-mitigations-disable, playbook-page-defender-enable-description, iso-network-inbox, iso-step-review, usb-review, report-review | 自動提交範例 / 提交自動樣本 / 自動提交樣本; older builds wrote 防竄改保護. 惡意探索保護, 控制流程防護, 智慧型應用程式控制, 增強式網路釣魚保護 (the switch reads 網路釣魚保護), 尋找我的裝置 and 網路介面卡 need a zh-TW build. Review is 檢閱 in the ISO flow but 檢查 for the USB and the report ZIP. The Release Preview channel stays Latin in detail-windows-release-unlisted and iso-release-unlisted: a Taiwanese guide's screenshots say 版本預覽通道, while Microsoft's zh-tw pages mix 發行預覽, 版本預覽 and Release Preview. |
 | ja | protection-cloud, protection-samples, security-list-title, playbook-page-defender-enable-description | Live-UI sources vs the machine-translated ja-jp support page; also 再実行 vs 開き直す for relaunch. 拡張フィッシング保護 is the title of Microsoft's Japanese docs page; other docs say 強化されたフィッシング保護, and the switch reads フィッシング対策. The Release Preview channel stays Latin in detail-windows-release-unlisted and iso-release-unlisted; Microsoft's machine-translated ja-jp Insider pages write リリース プレビュー as if it were the Settings label, so check a ja-JP build. |
+| ko | all four protection-*, security-list-title, consequence-mitigations-disable, playbook-page-defender-enable-description, settings-language-formats, windows-card-undo, prepare-network-metered, prepare-reason-servicing | Nothing was checked against a Korean Windows 11 build. Confirm 변조 보호, 실시간 보호, 클라우드 전송 보호, 자동 샘플 전송 and the page title; whether Windows shows "Exploit Protection" in Latin letters; 향상된 피싱 방지 (the switch may read 피싱 방지); 사용지역 언어 for the regional format; 업데이트 기록, 복구 and 되돌리기; 데이터 통신 연결; and a better word than "Windows 서비스 작업" for Windows servicing. |
 | id | protection-tamper, protection-cloud, security-list-title, Fast Startup, consequence-mitigations-disable, playbook-page-defender-enable-description, prepare-description, check-fix-apps, list-and | All Microsoft id-ID pages are MT and give eight renderings of Tamper Protection between them. Perlindungan eksploitasi, Perlindungan pengelabuan, Temukan perangkat saya and Aplikasi yang diinstal are unconfirmed; Control Flow Guard, Notepad, Paint and Windows Terminal stay English until confirmed (Kontrol Aplikasi Pintar is confirmed by the id-ID Smart App Control FAQ). `list-and` gives "A, B dan C", but PUEBI and CLDR want "A, B, dan C", which needs a separate message for the last of three or more. |
 | th | protection-tamper, protection-cloud, security-list-title, memory integrity, Fast Startup, playbook-page-defender-enable-description, prepare-description, check-fix-apps, sign-in | Only MT support pages available; "และ" vs "&"; ความสมบูรณ์ vs ความถูกต้อง ของหน่วยความจำ. Only ฟิชชิ่ง in การป้องกันฟิชชิ่งขั้นสูง is confirmed. Whether Notepad, Paint and Windows Terminal show in Thai; แอปที่ติดตั้ง. Microsoft's Thai pages say ลงชื่อเข้าใช้ for "sign in"; the catalog says เข้าสู่ระบบ. |
 | hi | all four protection-*, security-list-title, Windows Update vs Windows अपडेट, Start button name, Snipping Tool, consequence-mitigations-disable, playbook-page-defender-enable-description, prepare-description, check-fix-apps, consequence-disable-hibernation, consequence-disable-core-isolation | No Hindi Microsoft text could be fetched and Hindi Windows coverage is partial; a Hindi PC may show some switches in English. Every feature name in the table above is reasoned, as are कार्य प्रबंधक, नोटपैड/पेंट/Windows टर्मिनल, the folder names and इंस्टॉल किए गए ऐप्स; शोषण usually means the exploitation of people. "मेमोरी अखंडता (Memory integrity)" and "तेज़ स्टार्टअप (Fast Startup)" keep English in brackets until confirmed. The nukta is applied to क़ only in मुताबिक़; pick one rule. |

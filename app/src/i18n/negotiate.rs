@@ -149,6 +149,7 @@ mod tests {
         assert_eq!(chain(&["de-AT"]), ["de", "en-GB"]);
         assert_eq!(chain(&["de-CH", "fr-CH"]), ["de", "fr", "en-GB"]);
         assert_eq!(chain(&["ja-JP"]), ["ja", "en-GB"]);
+        assert_eq!(chain(&["ko-KR"]), ["ko", "en-GB"]);
         assert_eq!(chain(&["tr-TR"]), ["tr", "en-GB"]);
         assert_eq!(chain(&["ru-RU"]), ["ru", "en-GB"]);
         assert_eq!(chain(&["pl-PL"]), ["pl", "en-GB"]);

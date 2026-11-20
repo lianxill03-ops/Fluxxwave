@@ -79,6 +79,7 @@ const SOURCE_FTL: &str = include_str!("../../i18n/en-GB/atlas.ftl");
 const CJK_HANS: &[&str] = &["Microsoft YaHei UI"];
 const CJK_HANT: &[&str] = &["Microsoft JhengHei UI"];
 const CJK_JA: &[&str] = &["Yu Gothic UI", "Meiryo UI"];
+const CJK_KO: &[&str] = &["Malgun Gothic"];
 
 /// Every included locale, source first. Order matters for negotiation ties:
 /// a request that matches several entries equally well takes the first.
@@ -201,6 +202,16 @@ pub static LOCALES: &[Locale] = &[
         readiness: Readiness::Preview,
         font_fallbacks: CJK_JA,
         ftl: include_str!("../../i18n/ja/atlas.ftl"),
+        pseudo: false,
+    },
+    Locale {
+        tag: "ko",
+        native_name: "한국어",
+        english_name: "Korean",
+        direction: Direction::LeftToRight,
+        readiness: Readiness::Preview,
+        font_fallbacks: CJK_KO,
+        ftl: include_str!("../../i18n/ko/atlas.ftl"),
         pseudo: false,
     },
     Locale {
