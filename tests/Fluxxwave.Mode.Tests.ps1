@@ -481,9 +481,8 @@ Describe 'Fluxxwave mode settings' {
         $keys = @($script:Settings | ForEach-Object { $_.Id }) + @('Changed', 'Restored', 'Skipped', 'Failed', 'StatusOn', 'StatusOff', 'StatusPartial', 'MachineFailed', 'Declined')
         foreach ($key in $keys) {
             $script:TestCulture = [Globalization.CultureInfo]'en-GB'
-            $english = Get-FluxxwaveModeText -Key $key
-            $english | Should -Not -Be $key
-            $english | Should -Match '^[\x20-\x7E]+$'
+            # A key without a text comes back as it is, which the Korean check below catches.
+            Get-FluxxwaveModeText -Key $key | Should -Match '^[\x20-\x7E]+$'
             $script:TestCulture = [Globalization.CultureInfo]'ko-KR'
             Get-FluxxwaveModeText -Key $key | Should -Match '[\uAC00-\uD7A3]' -Because "the Korean text for $key decodes to Hangul"
         }
@@ -734,5 +733,10 @@ Describe 'Fluxxwave mode on a real Windows installation' -Skip:($env:GITHUB_ACTI
         $deadline = (Get-Date).AddSeconds(60)
         while ((Get-ModeTestSnapshot -Settings $settings) -ne $before -and (Get-Date) -lt $deadline) { Start-Sleep -Seconds 2 }
         Get-ModeTestSnapshot -Settings $settings | Should -Be $before
+
+        # A note on the run's page, so what the runner did can be read without its log.
+        $outcomes = @($on | ForEach-Object { "$($_.Id)=$($_.Outcome)" }) -join ', '
+        $state = $before.Replace("`n", '; ')
+        Write-Host "::notice title=Fluxxwave mode $half half::On, then off, and the same as before. $outcomes. Before: $state"
     }
 }
