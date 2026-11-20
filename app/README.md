@@ -165,6 +165,10 @@ neither holds anything back.
 | `ATLAS_ISO_PREVIEW=<state>`, `ATLAS_DESKTOP_PREVIEW=1` | ISO, USB and before-desktop states; `tools\Review-Iso.ps1` sets them ([ISO creation](docs/iso-creation.md#review-and-localization)). |
 
 `tools\Capture-Window.ps1 -OutFile shot.png` screenshots the running window.
+`tools\Capture-Pages.ps1 -Executable <debug build> -OutDir shots` opens each page
+in turn, in Korean and English and in both themes, and saves a picture of each;
+the App screenshots workflow runs it on CI and publishes the pictures on the
+`ci-screenshots` branch.
 `tools\Get-AccessibilityTree.ps1 [-Invoke <name>]` prints what UI Automation
 (and so Narrator) sees, with focus and toggle states; `-Invoke` presses a
 control through its accessible action.

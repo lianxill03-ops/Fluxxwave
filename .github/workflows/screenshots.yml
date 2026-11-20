@@ -1,0 +1,112 @@
+name: App screenshots
+
+# A review aid for Fluxxwave, separate from the build and test workflows: it opens a debug
+# build's pages on the runner's desktop and saves a picture of each, so the look of the app
+# can be checked without running it locally. Nothing is installed: past Home, every page
+# comes from the debug review previews, whose package is a stand-in.
+on:
+  push:
+    paths:
+      - "app/**"
+      - ".github/workflows/screenshots.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: app-screenshots-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  capture:
+    name: Capture the app's pages (Windows)
+    runs-on: windows-latest
+    timeout-minutes: 60
+    env:
+      CARGO_INCREMENTAL: 0
+
+    steps:
+      - name: Checkout code
+        # gh api repos/actions/checkout/commits/v7.0.0 --jq '.sha'
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Install the Rust toolchain
+        # The version comes from app/rust-toolchain.toml, as in app.yml.
+        # gh api repos/dtolnay/rust-toolchain/commits/stable --jq '.sha'
+        uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87 # stable
+        with:
+          toolchain: 1.98.1
+
+      - name: Cache Cargo registry and build output
+        # gh api repos/Swatinem/rust-cache/commits/v2 --jq '.sha'
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
+        with:
+          workspaces: app
+          cache-workspace-crates: true
+
+      - name: Build the debug executable
+        # Debug builds carry the review previews the capture relies on.
+        working-directory: app
+        run: cargo build --locked
+
+      - name: Capture each page
+        shell: pwsh
+        run: ./app/tools/Capture-Pages.ps1 -Executable app/target/debug/FluxxwaveManager.exe -OutDir screenshots
+
+      - name: Save the screenshots
+        if: always()
+        # gh api repos/actions/upload-artifact/commits/v7.0.1 --jq '.sha'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: fluxxwave-screenshots
+          path: screenshots/
+          if-no-files-found: warn
+          retention-days: 14
+
+  publish:
+    name: Publish the screenshots branch
+    # Runs no repository code: it only moves the pictures the capture job saved onto the
+    # ci-screenshots branch, so the write token never meets the build.
+    needs: capture
+    if: always() && needs.capture.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Fetch the screenshots
+        # gh api repos/actions/download-artifact/commits/v8.0.1 --jq '.sha'
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: fluxxwave-screenshots
+          path: screenshots
+
+      - name: Replace the ci-screenshots branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        working-directory: screenshots
+        run: |
+          set -euo pipefail
+          {
+            echo "# Fluxxwave Manager screenshots"
+            echo
+            echo "Taken by the App screenshots workflow from commit \`${GITHUB_SHA}\` on \`${GITHUB_REF_NAME}\` (run ${GITHUB_RUN_ID})."
+            echo
+            for file in *.png; do
+              [ -e "$file" ] || continue
+              echo "## ${file%.png}"
+              echo
+              echo "![${file%.png}](${file})"
+              echo
+            done
+          } > README.md
+          git init --quiet --initial-branch=ci-screenshots
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          git commit --quiet --message "Screenshots of ${GITHUB_SHA}"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ci-screenshots
