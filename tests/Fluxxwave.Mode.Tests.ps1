@@ -739,4 +739,79 @@ Describe 'Fluxxwave mode on a real Windows installation' -Skip:($env:GITHUB_ACTI
         $state = $before.Replace("`n", '; ')
         Write-Host "::notice title=Fluxxwave mode $half half::On, then off, and the same as before. $outcomes. Before: $state"
     }
+
+    # The whole run as a double-click starts it: the user half in this session,
+    # the machine half in the real elevated copy, the records where they really
+    # go. A hosted runner is already elevated, so the copy starts without a
+    # prompt. The runner is first set up like a home PC, where the indexer runs
+    # and the plan is Balanced, so stopping the service and switching the plan
+    # really happen.
+    It 'works from start to finish on a runner set up like a home PC' {
+        if (-not (Test-FluxxwaveAdministrator)) {
+            Set-ItResult -Skipped -Because 'the elevated copy needs an administrator'
+            return
+        }
+        $settings = @(Get-FluxxwaveModeSettings)
+        $indexer = @($settings | Where-Object { $_.Kind -eq 'Service' })[0]
+        $plan = @($settings | Where-Object { $_.Kind -eq 'PowerPlan' })[0]
+        $runnerService = Get-FluxxwaveServiceState -Name $indexer.Name
+        $runnerPlan = (Get-FluxxwavePowerSchemes).Active
+        $note = ''
+        try {
+            if ($runnerService.Present) {
+                try {
+                    Set-FluxxwaveServiceStart -Name $indexer.Name -StartMode 'Auto' -Delayed $true
+                    Start-Service -Name $indexer.Name -WarningAction SilentlyContinue -ErrorAction Stop
+                } catch {
+                    $reason = "$($_.Exception.Message)".Replace("`r", ' ').Replace("`n", ' ')
+                    $note = "The indexer could not be started here ($reason). "
+                }
+            } else {
+                $note = 'This runner has no indexer. '
+            }
+            [void](Set-FluxxwavePowerScheme -Scheme '381b4222-f694-41f0-9685-ff5bb260df2e')
+            $before = Get-ModeTestSnapshot -Settings $settings
+
+            # This session stands in for one that is not elevated, so it starts the copy.
+            Mock Test-FluxxwaveAdministrator { $false }
+            $onCode = Invoke-FluxxwaveMode -State 'On'
+            $onStatus = Get-FluxxwaveModeStatus
+            $on = Get-ModeTestSnapshot -Settings $settings
+            $offCode = Invoke-FluxxwaveMode -State 'Off'
+            $offStatus = Get-FluxxwaveModeStatus
+            # The indexer is started again without waiting for it.
+            $deadline = (Get-Date).AddSeconds(90)
+            while ((Get-ModeTestSnapshot -Settings $settings) -ne $before -and (Get-Date) -lt $deadline) { Start-Sleep -Seconds 2 }
+            $after = Get-ModeTestSnapshot -Settings $settings
+
+            # Written before anything is asserted, so a failure can be read from the run's page too.
+            $beforeText = $before.Replace("`n", '; ')
+            $onText = $on.Replace("`n", '; ')
+            Write-Host "::notice title=Fluxxwave mode from start to finish::$($note)On: exit $onCode and $onStatus. Off: exit $offCode and $offStatus. Same as before: $($after -eq $before). Before: $beforeText || While on: $onText"
+
+            $onCode | Should -Be 0
+            $onStatus | Should -Be 'On'
+            $lines = @($on -split "`n")
+            foreach ($setting in @($settings | Where-Object { $_.Kind -eq 'Registry' -and -not $_.Optional })) {
+                $lines | Should -Contain "$($setting.Id) ValueKind=DWord"
+                $lines | Should -Contain "$($setting.Id) Data=$($setting.Data)"
+            }
+            if ($runnerService.Present) {
+                $lines | Should -Contain "$($indexer.Id) StartMode=Disabled"
+                $lines | Should -Contain "$($indexer.Id) Running=False"
+            }
+            $lines | Should -Contain "$($plan.Id) Previous=$($plan.Scheme)" -Because 'Balanced is swapped for High performance'
+            $offCode | Should -Be 0
+            $offStatus | Should -Be 'Off'
+            $after | Should -Be $before
+        } finally {
+            # The runner as it was found.
+            if ((Get-FluxxwaveModeStatus) -ne 'Off') { [void](Invoke-FluxxwaveMode -State 'Off') }
+            if ($runnerService.Present) {
+                Set-FluxxwaveServiceStart -Name $indexer.Name -StartMode $runnerService.StartMode -Delayed $runnerService.Delayed
+                if (-not $runnerService.Running) { Stop-Service -Name $indexer.Name -Force -WarningAction SilentlyContinue -ErrorAction SilentlyContinue }
+            }
+            if ($runnerPlan) { [void](Set-FluxxwavePowerScheme -Scheme $runnerPlan) }
+        }
+    }
 }
