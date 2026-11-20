@@ -30,18 +30,18 @@ Describe 'Links on recovery paths' {
     It 'refuses a path that passes through a junction' {
         $target = Join-Path $TestDrive 'target'
         [void][IO.Directory]::CreateDirectory($target)
-        [IO.File]::WriteAllBytes((Join-Path $target 'AtlasManager.exe'), [byte[]](1, 2, 3))
+        [IO.File]::WriteAllBytes((Join-Path $target 'FluxxwaveManager.exe'), [byte[]](1, 2, 3))
         $junction = Join-Path $TestDrive 'linked'
         $null = cmd.exe /d /c mklink /J "$junction" "$target"
         try {
-            { Assert-AtlasRecoveryPath (Join-Path $junction 'AtlasManager.exe') } | Should -Throw '*Linked*'
+            { Assert-AtlasRecoveryPath (Join-Path $junction 'FluxxwaveManager.exe') } | Should -Throw '*Linked*'
         }
         finally { [IO.Directory]::Delete($junction) }
-        { Assert-AtlasRecoveryPath (Join-Path $target 'AtlasManager.exe') } | Should -Not -Throw
+        { Assert-AtlasRecoveryPath (Join-Path $target 'FluxxwaveManager.exe') } | Should -Not -Throw
     }
     It 'accepts a reparse point that is not a link, such as a OneDrive folder' {
         Mock Get-Item { [pscustomobject]@{ Attributes = [IO.FileAttributes]'Archive, ReparsePoint'; LinkType = $null; Parent = $null } }
-        { Assert-AtlasRecoveryPath 'C:\Users\Someone\OneDrive\Desktop\AtlasManager.exe' } | Should -Not -Throw
+        { Assert-AtlasRecoveryPath 'C:\Users\Someone\OneDrive\Desktop\FluxxwaveManager.exe' } | Should -Not -Throw
     }
 }
 
@@ -205,11 +205,11 @@ Describe 'Staging request dispatch' {
     It 'exits with the linked-source code for an executable reached through a junction' {
         $target = Join-Path $TestDrive 'staged-target'
         [void][IO.Directory]::CreateDirectory($target)
-        [IO.File]::WriteAllBytes((Join-Path $target 'AtlasManager.exe'), [byte[]](1, 2, 3))
+        [IO.File]::WriteAllBytes((Join-Path $target 'FluxxwaveManager.exe'), [byte[]](1, 2, 3))
         $junction = Join-Path $TestDrive 'staged-linked'
         $null = cmd.exe /d /c mklink /J "$junction" "$target"
         try {
-            $result = Invoke-StageApp @{ operation = 'executable'; source = (Join-Path $junction 'AtlasManager.exe') }
+            $result = Invoke-StageApp @{ operation = 'executable'; source = (Join-Path $junction 'FluxxwaveManager.exe') }
         }
         finally { [IO.Directory]::Delete($junction) }
         $result.ExitCode | Should -Be $AtlasSourceLinkedExitCode

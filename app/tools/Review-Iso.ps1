@@ -53,7 +53,7 @@ $env:ATLAS_ISO_PREVIEW = $State
 if ($State.StartsWith('prepare-')) { $env:ATLAS_PREPARATION_PREVIEW = $State.Substring(8) }
 $process = $null
 try {
-    $exe = Join-Path $PSScriptRoot '..\target\debug\AtlasManager.exe'
+    $exe = Join-Path $PSScriptRoot '..\target\debug\FluxxwaveManager.exe'
     $page = if ($State.StartsWith('prepare-')) { 'install' } elseif ($State -eq 'home') { 'home' } else { 'iso' }
     $process = Start-Process -FilePath $exe -ArgumentList @('--page',$page,'--language',$Language) -PassThru -WindowStyle Hidden -RedirectStandardError (Join-Path $root 'app.log')
     $deadline = [DateTime]::UtcNow.AddSeconds(15)

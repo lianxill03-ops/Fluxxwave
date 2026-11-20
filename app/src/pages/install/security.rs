@@ -466,9 +466,12 @@ mod tests {
             assert_eq!(titles.len(), 4, "each says why in its own words: {banners:?}");
             // Only where Atlas's package removed it does the bar say Atlas did.
             for (title, message) in &banners[2..] {
-                assert!(!title.contains("Atlas removed") && !message.contains("Atlas removed"), "{title}");
+                assert!(
+                    !title.contains("Fluxxwave removed") && !message.contains("Fluxxwave removed"),
+                    "{title}"
+                );
             }
-            assert!(banners[1].0.contains("Atlas removed"));
+            assert!(banners[1].0.contains("Fluxxwave removed"));
         });
     }
 

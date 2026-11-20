@@ -130,7 +130,7 @@ jobs:
         with:
           name: atlas-manager-windows-x64
           path: |
-            app/target/x86_64-pc-windows-msvc/release/AtlasManager.exe
+            app/target/x86_64-pc-windows-msvc/release/FluxxwaveManager.exe
             LICENSE
             app/licenses/
             app/vendor/gpui-pre/LICENSE-APACHE

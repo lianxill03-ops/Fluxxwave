@@ -19,7 +19,7 @@ const SHARED_PROFILES: [&str; 4] = ["Public", "Default", "Default User", "All Us
 /// own among them: aliasing them would turn "User account" into "anonymous-1
 /// account" and "module=Atlas.Install" into "module=anonymous-1.Install".
 /// Profile paths with them are still aliased.
-const GENERIC_NAMES: [&str; 10] = [
+const GENERIC_NAMES: [&str; 12] = [
     "WORKGROUP",
     "NT AUTHORITY",
     "SYSTEM",
@@ -30,6 +30,8 @@ const GENERIC_NAMES: [&str; 10] = [
     "Guest",
     "Atlas",
     "AtlasOS",
+    "Fluxxwave",
+    "FluxxwaveOS",
 ];
 /// NUL characters in a row that are taken for padding rather than text: the
 /// zeros a crash or hard reset leaves where a log's length reached the disk
@@ -470,7 +472,7 @@ mod tests {
         let source = format!(
             "following a preparation worker still running: pid 42 in C:\\Program Files\\Atlas Setup Recovery\\Preparation\\{scope}\\1234-5678\n\
              {{\"job\":\"C:\\\\Program Files\\\\Atlas Setup Recovery\\\\Media\\\\{}\\\\99-1\"}}\n\
-             C:\\Program Files\\Atlas Setup Recovery\\{executable}\\AtlasManager.exe\n",
+             C:\\Program Files\\Atlas Setup Recovery\\{executable}\\FluxxwaveManager.exe\n",
             scope.to_uppercase()
         );
         let mut redactor = nameless();
@@ -479,7 +481,7 @@ mod tests {
         assert!(result.contains("Recovery\\Preparation\\anonymous-1\\1234-5678\n"), "{result}");
         assert!(result.contains("Recovery\\\\Media\\\\anonymous-1\\\\99-1"), "{result}");
         // The executable's folder is named by its own digest, which says nothing about anyone.
-        assert!(result.contains(&format!("Recovery\\{executable}\\AtlasManager.exe")), "{result}");
+        assert!(result.contains(&format!("Recovery\\{executable}\\FluxxwaveManager.exe")), "{result}");
         assert_eq!(redactor.text(&result), result);
     }
 

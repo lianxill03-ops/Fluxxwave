@@ -1,4 +1,4 @@
-### Atlas Manager: English (United States).
+### Fluxxwave Manager: English (United States).
 ###
 ### An overlay on the en-GB source: only messages whose spelling differs
 ### (licence/license, colour/color, -ise/-ize, cancelled/canceled). Every
@@ -8,30 +8,30 @@
 ## Optional choices
 consequence-defender-disable = Also removes SmartScreen. Your PC won't have antivirus protection until you install another antivirus app, and Windows won't warn you before you open unrecognized apps or downloads.
 installed-defender-removed-message = Your PC won't have antivirus protection until you install another antivirus app. SmartScreen was removed too, so Windows won't warn you before you open unrecognized apps or downloads.
-change-core-isolation-on = Atlas turns virtualization-based security (VBS) back on, unless a policy on this PC controls it. This takes effect after the restart.
+change-core-isolation-on = Fluxxwave turns virtualization-based security (VBS) back on, unless a policy on this PC controls it. This takes effect after the restart.
 
 ## Shared and settings
-settings-theme-contrast-note = Atlas is using the colors from your Windows contrast theme.
+settings-theme-contrast-note = Fluxxwave is using the colors from your Windows contrast theme.
 settings-about-licence = License
 settings-view-licences = View license notices
 settings-licences-failed = Couldn't open the license notices. Try again, or find them in the source code on GitHub.
 
 ## System checks
-detail-activation-no-licence = Windows didn't report a license. You can continue; Atlas won't change your activation status.
+detail-activation-no-licence = Windows didn't report a license. You can continue; Fluxxwave won't change your activation status.
 
 ## Playbook options
 playbook-option-disable-core-isolation = Turn off virtualization-based security (VBS)
 
 ## Install result
-restart-stopped = Automatic restart canceled. Save your work, then restart your PC to finish setting up Atlas.
+restart-stopped = Automatic restart canceled. Save your work, then restart your PC to finish setting up Fluxxwave.
 
 ## ISO creation (Beta)
-iso-review-description = Creating the ISO doesn't install anything on this PC or change your original ISO. Afterward, Atlas can put the new ISO on a USB drive so you can reinstall Windows from it.
+iso-review-description = Creating the ISO doesn't install anything on this PC or change your original ISO. Afterward, Fluxxwave can put the new ISO on a USB drive so you can reinstall Windows from it.
 iso-cancelled = ISO creation canceled
 iso-close-message = Keep this window open until creation or cancellation finishes. Canceling waits for the current operation to reach a safe stopping point.
 iso-privacy-defaults = This ISO skips the license, Microsoft account and privacy screens in Windows setup, and turns off optional data sharing and personalized offers.
 iso-account-trailing-dot = The name can't end with a period.
-iso-target-this-description = Atlas can add this PC's Wi-Fi and Ethernet drivers to the ISO, so Windows can go online right after it's reinstalled.
+iso-target-this-description = Fluxxwave can add this PC's Wi-Fi and Ethernet drivers to the ISO, so Windows can go online right after it's reinstalled.
 iso-edition-selection = Only supported editions are included. During Windows setup, choose an edition you have a Windows license for.
 
 ## Windows installation USB (Beta)
@@ -42,5 +42,5 @@ windows-terms-link = Read the license terms
 prepare-needs-terms = Available when you accept the license terms in Windows 11, version { $release }.
 ready-banner-terms-title = Accept the license terms to continue
 prepare-failed-feature-terms = Accept the license terms for Windows 11, version { $release }, then choose Try again.
-prepare-failed-feature-managed = This PC gets updates from an organization's update server, so Atlas can't move it to version { $release }. Atlas didn't change anything.
-prepare-failed-feature-policy = Something on this PC keeps changing { $setting } back after Atlas changes it, so Atlas can't update Windows. If an organization manages this PC, ask them. Atlas puts back what it changed when you stop.
+prepare-failed-feature-managed = This PC gets updates from an organization's update server, so Fluxxwave can't move it to version { $release }. Fluxxwave didn't change anything.
+prepare-failed-feature-policy = Something on this PC keeps changing { $setting } back after Fluxxwave changes it, so Fluxxwave can't update Windows. If an organization manages this PC, ask them. Fluxxwave puts back what it changed when you stop.

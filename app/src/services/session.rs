@@ -447,7 +447,7 @@ mod tests {
     #[test]
     fn the_completion_entry_waits_out_its_own_boot_and_shows_only_a_newer_install() {
         let launcher = |written_at: &str| LauncherRecord {
-            exe: PathBuf::from(r"C:\Atlas\AtlasManager.exe"),
+            exe: PathBuf::from(r"C:\Atlas\FluxxwaveManager.exe"),
             version: "0.6.0".into(),
             written_at: written_at.into(),
         };
@@ -479,7 +479,7 @@ mod tests {
     #[test]
     fn a_restart_is_owed_only_after_a_success_in_the_boot_it_started_in() {
         let launcher = LauncherRecord {
-            exe: PathBuf::from(r"C:\Atlas\AtlasManager.exe"),
+            exe: PathBuf::from(r"C:\Atlas\FluxxwaveManager.exe"),
             version: "0.6.0".into(),
             written_at: "2026-10-01T09:00:00Z".into(),
         };
@@ -507,12 +507,12 @@ mod tests {
         let later = (chrono::Local::now() + chrono::Duration::minutes(20)).to_rfc3339();
         assert!(!restart_owed(&paths, Some(&later)), "no install has started");
         // An install armed in this boot that has since finished.
-        write_launcher(&paths, Path::new(r"C:\Atlas\AtlasManager.exe")).unwrap();
+        write_launcher(&paths, Path::new(r"C:\Atlas\FluxxwaveManager.exe")).unwrap();
         assert!(restart_owed(&paths, Some(&later)));
         assert!(!restart_owed(&paths, None));
         // An install armed before this boot.
         let old = LauncherRecord {
-            exe: PathBuf::from(r"C:\Atlas\AtlasManager.exe"),
+            exe: PathBuf::from(r"C:\Atlas\FluxxwaveManager.exe"),
             version: "0.6.0".into(),
             written_at: "2001-01-01T00:00:00Z".into(),
         };
@@ -560,7 +560,7 @@ mod tests {
         let temp = TempDir::new("session-launcher");
         let paths = SessionPaths::under(temp.path());
         assert_eq!(load_launcher(&paths).unwrap(), None);
-        let exe = Path::new(r"C:\Program Files\Atlas Setup Recovery\AtlasManager.exe");
+        let exe = Path::new(r"C:\Program Files\Atlas Setup Recovery\FluxxwaveManager.exe");
         let written = write_launcher(&paths, exe).unwrap();
         assert_eq!(written.exe, exe);
         assert_eq!(written.version, env!("CARGO_PKG_VERSION"));

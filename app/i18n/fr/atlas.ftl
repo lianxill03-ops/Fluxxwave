@@ -1,16 +1,16 @@
-### Atlas Manager: French (fr). Preview translation, revised on 1 October 2026 from the en-GB source (i18n/en-GB/atlas.ftl).
+### Fluxxwave Manager: French (fr). Preview translation, revised on 1 October 2026 from the en-GB source (i18n/en-GB/atlas.ftl).
 ###
 ### Conventions pour cette langue : vouvoiement ; espace insécable (U+00A0) avant
 ### « : ; ? ! » et à l'intérieur des guillemets « » ; apostrophe typographique (’) ;
 ### boutons à l'infinitif ; titres et libellés sans point final ; « relancer »
-### désigne l'application Atlas, « redémarrer » désigne le PC ou Windows.
-### Le fichier .apbx est le « package Atlas » (masculin), puis « le package » ;
+### désigne l'application Fluxxwave, « redémarrer » désigne le PC ou Windows.
+### Le fichier .apbx est le « package Fluxxwave » (masculin), puis « le package » ;
 ### « playbook » seulement là où un texte explique le terme d'AME Wizard. Les
 ### interrupteurs de Sécurité Windows sont des « paramètres de protection ».
 
 ## Partagé
 
-app-name = Atlas Manager
+app-name = Fluxxwave Manager
 common-done = Terminé
 common-cancel = Annuler
 common-back = Retour
@@ -58,36 +58,36 @@ infobar-a11y = { $title }. { $message }
 
 # Boîte de dialogue affichée si la fenêtre est fermée pendant une installation.
 window-close-title = Fermer la fenêtre pendant l’installation ?
-window-close-message = L’installation continue en arrière-plan. Rouvrez Atlas pour suivre sa progression et voir le résultat. Laissez votre PC allumé jusqu’à la fin.
+window-close-message = L’installation continue en arrière-plan. Rouvrez Fluxxwave pour suivre sa progression et voir le résultat. Laissez votre PC allumé jusqu’à la fin.
 # Instead of window-close-message when the installation restarts the PC afterwards: only an
-# open Atlas window restarts it, so closing the window cancels that.
-window-close-message-restart = L’installation continue en arrière-plan, mais votre PC ne redémarrera pas automatiquement tant qu’Atlas est fermé. Rouvrez Atlas pour suivre sa progression et voir le résultat. Laissez votre PC allumé jusqu’à la fin.
+# open Fluxxwave window restarts it, so closing the window cancels that.
+window-close-message-restart = L’installation continue en arrière-plan, mais votre PC ne redémarrera pas automatiquement tant que Fluxxwave est fermé. Rouvrez Fluxxwave pour suivre sa progression et voir le résultat. Laissez votre PC allumé jusqu’à la fin.
 # La réponse sans risque dans toutes les boîtes de dialogue affichées à la fermeture de la fenêtre, y compris celles de la création d'ISO et de clé USB, des mises à jour et de l'accès à Windows Update.
 window-close-keep = Garder la fenêtre ouverte
 window-close-close = Fermer la fenêtre
 # Boîte de dialogue affichée si la fenêtre est fermée pendant les dernières vérifications, avant le démarrage du programme d'installation ; window-close-keep et window-close-close sont ses boutons.
 window-close-preparing-title = Fermer avant le début de l’installation ?
-window-close-preparing-message = Atlas vérifie encore votre PC et n’a pas commencé l’installation. Si vous fermez maintenant, l’installation ne démarrera pas. Rouvrez Atlas pour continuer.
+window-close-preparing-message = Fluxxwave vérifie encore votre PC et n’a pas commencé l’installation. Si vous fermez maintenant, l’installation ne démarrera pas. Rouvrez Fluxxwave pour continuer.
 prepare-close-title = Des mises à jour sont encore en cours
 # "Stop updating" is prepare-stop, the dialog's other button.
-prepare-close-message = Gardez Atlas ouvert pendant les mises à jour. Si vous choisissez Arrêter les mises à jour, elles s’arrêteront après l’opération en cours et vous pourrez alors fermer Atlas.
+prepare-close-message = Gardez Fluxxwave ouvert pendant les mises à jour. Si vous choisissez Arrêter les mises à jour, elles s’arrêteront après l’opération en cours et vous pourrez alors fermer Fluxxwave.
 # Boîte de dialogue affichée si la fenêtre est fermée pendant le compte à rebours du redémarrage après une installation réussie. Ses boutons sont window-close-keep, restart-now et window-close-restart-close.
-window-close-restart-title = Fermer Atlas sans redémarrer ?
+window-close-restart-title = Fermer Fluxxwave sans redémarrer ?
 # « Redémarrer maintenant » est restart-now, l'un des trois boutons de cette boîte de dialogue.
-window-close-restart-message = Votre PC doit redémarrer pour terminer la configuration d’Atlas. Si vous fermez Atlas maintenant, il ne redémarrera pas votre PC : redémarrez-le vous-même quand vous le souhaitez. Enregistrez votre travail avant de choisir Redémarrer maintenant.
+window-close-restart-message = Votre PC doit redémarrer pour terminer la configuration de Fluxxwave. Si vous fermez Fluxxwave maintenant, il ne redémarrera pas votre PC : redémarrez-le vous-même quand vous le souhaitez. Enregistrez votre travail avant de choisir Redémarrer maintenant.
 window-close-restart-close = Fermer sans redémarrer
 # Dialog shown when the window is closed during a setup with Windows Security switches still
 # off. $switches names them as Windows Security does, joined like a list. Its buttons are
 # window-close-keep, common-open-windows-security and window-close-close.
-window-close-protection-title = Fermer Atlas avec la protection désactivée ?
-window-close-protection-message = Certaines protections de Sécurité Windows sont encore désactivées : { $switches }. Si vous ne comptez pas terminer l’installation d’Atlas, réactivez-les avant de fermer. Si vous comptez la terminer, Atlas reprendra votre configuration lorsque vous le rouvrirez.
-# Le bouton Ouvrir du sélecteur de fichier pour un package Atlas (.apbx), à l'étape Préparation et sur la page ISO. C'est le libellé d'un bouton, donc restez bref.
-file-dialog-open-package = Ouvrir un package Atlas (.apbx)
+window-close-protection-title = Fermer Fluxxwave avec la protection désactivée ?
+window-close-protection-message = Certaines protections de Sécurité Windows sont encore désactivées : { $switches }. Si vous ne comptez pas terminer l’installation de Fluxxwave, réactivez-les avant de fermer. Si vous comptez la terminer, Fluxxwave reprendra votre configuration lorsque vous le rouvrirez.
+# Le bouton Ouvrir du sélecteur de fichier pour un package Fluxxwave (.apbx), à l'étape Préparation et sur la page ISO. C'est le libellé d'un bouton, donc restez bref.
+file-dialog-open-package = Ouvrir un package Fluxxwave (.apbx)
 # Message affiché par Windows dans sa notification de redémarrage.
-shutdown-comment = Atlas est installé. Windows redémarre pour terminer la configuration.
+shutdown-comment = Fluxxwave est installé. Windows redémarre pour terminer la configuration.
 # Message affiché par Windows dans sa notification de redémarrage lorsque l'étape
 # Préparation redémarre pour terminer l'installation des mises à jour Windows.
-prepare-shutdown-comment = Atlas redémarre Windows pour terminer l’installation des mises à jour.
+prepare-shutdown-comment = Fluxxwave redémarre Windows pour terminer l’installation des mises à jour.
 
 ## Système
 
@@ -96,11 +96,11 @@ system-description = { $product }, version { $version } (build { $build })
 
 ## Page d'accueil
 
-home-not-installed = Bienvenue dans Atlas
-# Le titre lorsqu'Atlas Manager ne peut pas savoir ce qui est installé sur ce PC.
-home-state-unknown = Atlas sur ce PC
-# Le titre lorsqu'Atlas est installé. $version est du texte.
-home-version = Atlas { $version }
+home-not-installed = Bienvenue dans Fluxxwave
+# Le titre lorsqu'Fluxxwave Manager ne peut pas savoir ce qui est installé sur ce PC.
+home-state-unknown = Fluxxwave sur ce PC
+# Le titre lorsqu'Fluxxwave est installé. $version est du texte.
+home-version = Fluxxwave { $version }
 # $date est une date formatée.
 home-installed-on = Installé le { $date }
 home-status-checking = Recherche de mises à jour
@@ -108,50 +108,50 @@ home-status-checking = Recherche de mises à jour
 home-status-recovering = Recherche d’une installation en cours
 home-status-offline = Impossible de rechercher les mises à jour
 home-status-not-checked = Recherche de mises à jour non effectuée
-home-status-update = Atlas { $version } est disponible
+home-status-update = Fluxxwave { $version } est disponible
 home-status-up-to-date = À jour
-home-status-newest = Dernière version : Atlas { $version }
-# Une installation précédente d'Atlas { $version } s'est arrêtée avant la fin.
-home-status-unfinished = Installation d’Atlas { $version } inachevée
+home-status-newest = Dernière version : Fluxxwave { $version }
+# Une installation précédente d'Fluxxwave { $version } s'est arrêtée avant la fin.
+home-status-unfinished = Installation de Fluxxwave { $version } inachevée
 home-check-again = Vérifier à nouveau
 # Bouton principal pendant qu'une installation est en cours ou en attente.
 home-show-install = Voir la progression
 home-continue-installing = Reprendre la configuration
-home-update-to = Mettre à jour vers Atlas { $version }
-home-reinstall = Réinstaller Atlas
-home-install = Installer Atlas
-home-finish-install = Terminer l’installation d’Atlas { $version }
+home-update-to = Mettre à jour vers Fluxxwave { $version }
+home-reinstall = Réinstaller Fluxxwave
+home-install = Installer Fluxxwave
+home-finish-install = Terminer l’installation de Fluxxwave { $version }
 home-start-over = Recommencer
 home-restart-title = Votre PC doit redémarrer
 home-security-reminder-title = Réactivez votre protection
 # Instead of home-security-reminder-title when no switch reads off but some couldn't be read
 # (with home-security-reminder-unreadable-message).
 home-security-reminder-unreadable-title = Vérifiez que votre protection est activée
-home-security-reminder-message = Atlas n’installe rien en ce moment, mais certaines protections de Sécurité Windows sont encore désactivées. Ouvrez Sécurité Windows et assurez-vous que ces paramètres sont activés : { $switches }.
-home-security-reminder-unreadable-message = Atlas n’a pas pu vérifier tous les paramètres de protection. Vérifiez dans Sécurité Windows que ces paramètres sont activés : { $switches }.
-home-elevation-title = Atlas a besoin d’une autorisation pour lancer l’installation
-home-state-error-title = Impossible de lire les informations sur votre installation d’Atlas
-home-state-error-message = Votre version d’Atlas, vos choix et votre historique risquent de ne pas s’afficher correctement. Choisissez Vérifier à nouveau pour réessayer. Détails : { $error }
-home-whats-new = Nouveautés d’Atlas { $version }
+home-security-reminder-message = Fluxxwave n’installe rien en ce moment, mais certaines protections de Sécurité Windows sont encore désactivées. Ouvrez Sécurité Windows et assurez-vous que ces paramètres sont activés : { $switches }.
+home-security-reminder-unreadable-message = Fluxxwave n’a pas pu vérifier tous les paramètres de protection. Vérifiez dans Sécurité Windows que ces paramètres sont activés : { $switches }.
+home-elevation-title = Fluxxwave a besoin d’une autorisation pour lancer l’installation
+home-state-error-title = Impossible de lire les informations sur votre installation de Fluxxwave
+home-state-error-message = Votre version de Fluxxwave, vos choix et votre historique risquent de ne pas s’afficher correctement. Choisissez Vérifier à nouveau pour réessayer. Détails : { $error }
+home-whats-new = Nouveautés de Fluxxwave { $version }
 home-view-release = Voir les notes de version sur GitHub
 home-released = Publié le { $date }
 home-show-less = Afficher moins
 home-show-full-notes = Afficher toutes les notes de version
-home-your-install = Votre configuration Atlas
-# Atlas est installé, mais sans l'enregistrement que tient Atlas Manager (les anciennes versions n'en écrivaient pas).
-home-install-unrecorded = Ce PC ne conserve aucune trace de la façon dont Atlas a été installé. Vos choix et l’historique des installations ne peuvent donc pas être affichés.
-# Libellé de ligne : comment Atlas a été mis en place.
+home-your-install = Votre configuration Fluxxwave
+# Fluxxwave est installé, mais sans l'enregistrement que tient Fluxxwave Manager (les anciennes versions n'en écrivaient pas).
+home-install-unrecorded = Ce PC ne conserve aucune trace de la façon dont Fluxxwave a été installé. Vos choix et l’historique des installations ne peuvent donc pas être affichés.
+# Libellé de ligne : comment Fluxxwave a été mis en place.
 home-set-up = Méthode de configuration
 home-set-up-during-oobe = Pendant l’installation de Windows
 home-history = Historique des installations
 # Une ligne d'historique. $version est du texte, $mode l'un des messages history-mode-*, $date une date et heure formatées.
-home-history-entry = Atlas { $version } · { $mode } · { $date }
-home-how-it-works = Préparons votre PC pour Atlas
-home-step-1-detail = Atlas vérifie votre PC, installe les mises à jour en attente de Windows et du Microsoft Store, puis télécharge les fichiers d’installation. Les applications du Store peuvent se fermer et un redémarrage peut être nécessaire : enregistrez d’abord votre travail.
-# Version de test : le package Atlas est intégré, rien n'est téléchargé.
-home-step-1-detail-bundled = Atlas vérifie votre PC, installe les mises à jour en attente de Windows et du Microsoft Store, puis prépare les fichiers d’installation intégrés. Les applications du Store peuvent se fermer et un redémarrage peut être nécessaire : enregistrez d’abord votre travail.
+home-history-entry = Fluxxwave { $version } · { $mode } · { $date }
+home-how-it-works = Préparons votre PC pour Fluxxwave
+home-step-1-detail = Fluxxwave vérifie votre PC, installe les mises à jour en attente de Windows et du Microsoft Store, puis télécharge les fichiers d’installation. Les applications du Store peuvent se fermer et un redémarrage peut être nécessaire : enregistrez d’abord votre travail.
+# Version de test : le package Fluxxwave est intégré, rien n'est téléchargé.
+home-step-1-detail-bundled = Fluxxwave vérifie votre PC, installe les mises à jour en attente de Windows et du Microsoft Store, puis prépare les fichiers d’installation intégrés. Les applications du Store peuvent se fermer et un redémarrage peut être nécessaire : enregistrez d’abord votre travail.
 home-step-2-detail = Choisissez si vous conservez Microsoft Defender et les protections du processeur, comment les mises à jour Windows s’installent et quelles options facultatives ajouter.
-home-step-3-detail = Désactivez quatre paramètres de protection dans Sécurité Windows pour qu’ils ne bloquent pas l’installation. Atlas vous montre comment faire.
+home-step-3-detail = Désactivez quatre paramètres de protection dans Sécurité Windows pour qu’ils ne bloquent pas l’installation. Fluxxwave vous montre comment faire.
 home-step-4-detail =
     { $minutes ->
         [one] L’installation prend environ une minute. Votre PC doit ensuite redémarrer.
@@ -177,26 +177,26 @@ history-mode-unknown = installation
 
 ## Avis sur la page d'accueil
 
-notice-settings-reset-title = Atlas utilise ses paramètres par défaut
+notice-settings-reset-title = Fluxxwave utilise ses paramètres par défaut
 # $error est un message d'erreur brut (texte).
-notice-settings-unreadable = Atlas n’a pas pu lire les paramètres enregistrés de l’application. Vos paramètres Windows n’ont pas changé. Détails : { $error }
+notice-settings-unreadable = Fluxxwave n’a pas pu lire les paramètres enregistrés de l’application. Vos paramètres Windows n’ont pas changé. Détails : { $error }
 # $file est un nom de fichier (texte).
 notice-settings-damaged-kept = Le fichier de paramètres de l’application était endommagé et a été réinitialisé. Une copie de l’ancien fichier est conservée sous le nom { $file }. Détails : { $error }
-notice-settings-damaged = Le fichier de paramètres de l’application était endommagé. Atlas utilise les valeurs par défaut pour le moment. Détails : { $error }
+notice-settings-damaged = Le fichier de paramètres de l’application était endommagé. Fluxxwave utilise les valeurs par défaut pour le moment. Détails : { $error }
 notice-settings-not-saved-title = Impossible d’enregistrer les paramètres de l’application
 # $error est un message d'erreur brut (texte).
-notice-settings-not-saved = Atlas n’a pas pu enregistrer vos dernières modifications : elles risquent d’être perdues à la fermeture d’Atlas. Si une autre fenêtre Atlas est ouverte, fermez-la, puis refaites la modification. Détails : { $error }
+notice-settings-not-saved = Fluxxwave n’a pas pu enregistrer vos dernières modifications : elles risquent d’être perdues à la fermeture de Fluxxwave. Si une autre fenêtre Fluxxwave est ouverte, fermez-la, puis refaites la modification. Détails : { $error }
 notice-session-unreadable-title = Impossible de vérifier l’installation précédente
 # $path est un chemin de fichier (texte).
-notice-session-unreadable-message = Atlas n’a pas pu déterminer si une installation précédente est encore en cours. En cas de doute, demandez de l’aide à la communauté Atlas. Ne supprimez { $path } et ne réessayez que si vous avez la certitude qu’aucune installation n’est en cours. Détails : { $error }
+notice-session-unreadable-message = Fluxxwave n’a pas pu déterminer si une installation précédente est encore en cours. En cas de doute, demandez de l’aide à la communauté Atlas. Ne supprimez { $path } et ne réessayez que si vous avez la certitude qu’aucune installation n’est en cours. Détails : { $error }
 
 ## Élévation administrateur
 
-elevation-declined = L’autorisation n’a pas été accordée. Réessayez et choisissez Oui lorsque Windows demande si Atlas peut apporter des modifications.
-elevation-declined-continue = L’autorisation n’a pas été accordée. Réessayez et choisissez Oui lorsque Windows demande si Atlas peut apporter des modifications. Vos choix de configuration sont enregistrés.
-elevation-draft-not-saved = Atlas n’a pas pu enregistrer vos choix de configuration et n’a donc pas été relancé. Réessayez. Détails : { $error }
+elevation-declined = L’autorisation n’a pas été accordée. Réessayez et choisissez Oui lorsque Windows demande si Fluxxwave peut apporter des modifications.
+elevation-declined-continue = L’autorisation n’a pas été accordée. Réessayez et choisissez Oui lorsque Windows demande si Fluxxwave peut apporter des modifications. Vos choix de configuration sont enregistrés.
+elevation-draft-not-saved = Fluxxwave n’a pas pu enregistrer vos choix de configuration et n’a donc pas été relancé. Réessayez. Détails : { $error }
 # Affiché avec le bouton home-start-over.
-elevation-taken-over = Une autre fenêtre Atlas utilise désormais cette configuration, Atlas n’a donc pas été relancé. Continuez dans cette fenêtre ou choisissez Recommencer pour refaire la configuration ici.
+elevation-taken-over = Une autre fenêtre Fluxxwave utilise désormais cette configuration, Fluxxwave n’a donc pas été relancé. Continuez dans cette fenêtre ou choisissez Recommencer pour refaire la configuration ici.
 
 ## Le parcours d'installation
 
@@ -204,9 +204,9 @@ step-ready = Préparation
 step-options = Vos choix
 step-security = Sécurité Windows
 step-install = Installation
-install-title = Configurer Atlas
+install-title = Configurer Fluxxwave
 # Nom accessible de la rangée d'étapes.
-stepper-label = Étapes de la configuration d’Atlas
+stepper-label = Étapes de la configuration de Fluxxwave
 # Nom accessible d'une étape. $status est l'un des messages stepper-status-*.
 stepper-step-a11y = Étape { $number } sur { $total }, { $title }, { $status }
 stepper-status-completed = terminée
@@ -224,24 +224,24 @@ step-heading-extras-a11y = { $heading }. { $progress }
 ## Étape 1 : Préparation
 
 ready-banner-busy-title = Préparation de votre PC
-ready-banner-busy-message = Atlas vérifie votre PC et prépare les fichiers d’installation.
+ready-banner-busy-message = Fluxxwave vérifie votre PC et prépare les fichiers d’installation.
 ready-banner-blocked-title = Votre PC n’est pas encore prêt
 ready-banner-blocked-message = Corrigez les points signalés dans Vérifications du PC, puis choisissez Vérifier à nouveau.
-ready-banner-no-package-title = Téléchargez Atlas pour continuer
-ready-banner-no-package-message = Téléchargez Atlas dans Fichiers d’installation, ou choisissez Ouvrir un fichier de package si vous avez déjà un package Atlas (.apbx).
-# Version de test : le package Atlas intégré n'a pas pu être extrait.
-ready-banner-no-package-bundled-title = Préparez le package Atlas intégré pour continuer
-ready-banner-no-package-bundled-message = Le package Atlas intégré à cette version de test n’est pas encore prêt. Consultez la carte Fichiers d’installation.
+ready-banner-no-package-title = Téléchargez Fluxxwave pour continuer
+ready-banner-no-package-message = Téléchargez Fluxxwave dans Fichiers d’installation, ou choisissez Ouvrir un fichier de package si vous avez déjà un package Fluxxwave (.apbx).
+# Version de test : le package Fluxxwave intégré n'a pas pu être extrait.
+ready-banner-no-package-bundled-title = Préparez le package Fluxxwave intégré pour continuer
+ready-banner-no-package-bundled-message = Le package Fluxxwave intégré à cette version de test n’est pas encore prêt. Consultez la carte Fichiers d’installation.
 ready-banner-updates-title = Mettez à jour Windows et les applications du Store pour continuer
-ready-banner-updates-message = Choisissez Rechercher et installer les mises à jour. Une fois les mises à jour terminées, Atlas vérifie à nouveau votre PC.
+ready-banner-updates-message = Choisissez Rechercher et installer les mises à jour. Une fois les mises à jour terminées, Fluxxwave vérifie à nouveau votre PC.
 # While Windows and Store apps update. "Update Windows and Store apps" is prepare-title, the
 # card further down the page.
 ready-banner-updating-title = Mise à jour de Windows et des applications du Store
-ready-banner-updating-message = Cela peut prendre du temps. Gardez Atlas ouvert. Vous pouvez suivre la progression dans « Mettre à jour Windows et les applications du Store ».
+ready-banner-updating-message = Cela peut prendre du temps. Gardez Fluxxwave ouvert. Vous pouvez suivre la progression dans « Mettre à jour Windows et les applications du Store ».
 # After Stop updating. "Check and install updates" is prepare-start, the card's button.
 ready-banner-updates-stopped-title = Mises à jour arrêtées
 ready-banner-updates-stopped-message = Choisissez Rechercher et installer les mises à jour dans « Mettre à jour Windows et les applications du Store » pour terminer.
-# Atlas reopened after restarting the PC to continue updating. "Continue updates" is
+# Fluxxwave reopened after restarting the PC to continue updating. "Continue updates" is
 # prepare-continue, the card's button.
 ready-banner-updates-resumed-title = Votre PC a redémarré
 ready-banner-updates-resumed-message = Choisissez Poursuivre les mises à jour dans « Mettre à jour Windows et les applications du Store » pour les terminer.
@@ -266,19 +266,19 @@ ready-checks-passed =
 
 package-title = Fichiers d’installation
 # $received et $total sont des nombres de mégaoctets formatés (texte).
-package-downloading = Téléchargement d’Atlas { $version } · { $received } sur { $total } Mo
+package-downloading = Téléchargement de Fluxxwave { $version } · { $received } sur { $total } Mo
 package-unpacking-progress =
     { $total ->
         [one] Extraction · { $done } fichier sur { $total }
        *[other] Extraction · { $done } sur { $total } fichiers
     }
 package-unpacking = Extraction
-package-looking = Recherche de la dernière version d’Atlas.
-# Version de test : le package Atlas intégré est en cours d'extraction, rien n'est téléchargé.
-package-looking-bundled = Préparation du package Atlas intégré.
-package-none = Téléchargez Atlas pour obtenir les fichiers d’installation. Si vous avez déjà un package Atlas (.apbx), ouvrez-le plutôt.
+package-looking = Recherche de la dernière version de Fluxxwave.
+# Version de test : le package Fluxxwave intégré est en cours d'extraction, rien n'est téléchargé.
+package-looking-bundled = Préparation du package Fluxxwave intégré.
+package-none = Téléchargez Fluxxwave pour obtenir les fichiers d’installation. Si vous avez déjà un package Fluxxwave (.apbx), ouvrez-le plutôt.
 # La recherche de version sur GitHub a échoué. « Télécharger la dernière version » est package-download-newest, le bouton proposé dans cet état ; il relance la recherche.
-package-release-failed = Atlas n’a pas pu rechercher la dernière version. Vérifiez votre connexion Internet, puis choisissez Télécharger la dernière version ou ouvrez un package Atlas (.apbx) déjà enregistré.
+package-release-failed = Fluxxwave n’a pas pu rechercher la dernière version. Vérifiez votre connexion Internet, puis choisissez Télécharger la dernière version ou ouvrez un package Fluxxwave (.apbx) déjà enregistré.
 # Mots d'état courts à côté du titre de la carte.
 package-status-downloading = Téléchargement
 package-status-unpacking = Extraction
@@ -290,24 +290,24 @@ package-status-missing = Non téléchargés
 # Nom accessible de la barre de progression.
 package-progress = Progression des fichiers d’installation
 package-download-again = Télécharger à nouveau
-package-download-version = Télécharger Atlas { $version }
+package-download-version = Télécharger Fluxxwave { $version }
 package-download-newest = Télécharger la dernière version
 package-cancel-download = Annuler le téléchargement
 package-open-file = Ouvrir un fichier de package
 # Provenance du package. $file est un nom de fichier, $path un chemin de dossier (texte).
-package-from-release = Atlas { $version } a été téléchargé depuis GitHub et est prêt à être installé.
-package-from-file = Atlas { $version } a été chargé depuis { $file } et est prêt à être installé.
-package-unpacked = Atlas { $version } est prêt à être installé.
+package-from-release = Fluxxwave { $version } a été téléchargé depuis GitHub et est prêt à être installé.
+package-from-file = Fluxxwave { $version } a été chargé depuis { $file } et est prêt à être installé.
+package-unpacked = Fluxxwave { $version } est prêt à être installé.
 package-none-yet = Aucun fichier d’installation sélectionné
-acquire-no-asset = Atlas { $version } ne propose aucun fichier de package à télécharger. Ouvrez un package Atlas (.apbx) déjà enregistré pour continuer.
-acquire-unsupported = Cette application installe Atlas 0.6.0 et versions ultérieures. Pour installer Atlas { $version }, utilisez plutôt AME Wizard.
+acquire-no-asset = Fluxxwave { $version } ne propose aucun fichier de package à télécharger. Ouvrez un package Fluxxwave (.apbx) déjà enregistré pour continuer.
+acquire-unsupported = Cette application installe Fluxxwave 0.6.0 et versions ultérieures. Pour installer Fluxxwave { $version }, utilisez plutôt AME Wizard.
 # Un package assez récent pour inclure le script d'installation que pilote cette application, mais qui ne le contient pas.
-acquire-incomplete = Il manque à Atlas { $version } des fichiers dont cette application a besoin pour l’installer. Téléchargez-le à nouveau ou ouvrez un autre package Atlas (.apbx).
-acquire-failed = Impossible de préparer les fichiers d’installation. Réessayez le téléchargement ou ouvrez un autre package Atlas (.apbx). Détails : { $error }
+acquire-incomplete = Il manque à Fluxxwave { $version } des fichiers dont cette application a besoin pour l’installer. Téléchargez-le à nouveau ou ouvrez un autre package Fluxxwave (.apbx).
+acquire-failed = Impossible de préparer les fichiers d’installation. Réessayez le téléchargement ou ouvrez un autre package Fluxxwave (.apbx). Détails : { $error }
 # Le téléchargement n'a rien reçu pendant une minute et a été arrêté.
-acquire-stalled = Le téléchargement a cessé de répondre. Vérifiez votre connexion Internet, puis réessayez le téléchargement ou ouvrez un package Atlas (.apbx) déjà enregistré.
-# Version de test : le package Atlas intégré n'a pas pu être extrait. Réessayer est le seul bouton proposé.
-acquire-failed-bundled = Impossible de préparer le package Atlas intégré. Choisissez Réessayer. Détails : { $error }
+acquire-stalled = Le téléchargement a cessé de répondre. Vérifiez votre connexion Internet, puis réessayez le téléchargement ou ouvrez un package Fluxxwave (.apbx) déjà enregistré.
+# Version de test : le package Fluxxwave intégré n'a pas pu être extrait. Réessayer est le seul bouton proposé.
+acquire-failed-bundled = Impossible de préparer le package Fluxxwave intégré. Choisissez Réessayer. Détails : { $error }
 
 ## Vérifications du système
 
@@ -336,48 +336,48 @@ check-fix-apps = Ouvrir les applications installées
 # Case que l'utilisateur coche lorsque la recherche Windows Update n'a pas pu s'exécuter.
 check-ack-updates = J’ai vérifié dans Windows Update : aucune mise à jour n’est en attente d’installation
 
-detail-admin-ok = Atlas a l’autorisation d’apporter les modifications nécessaires à l’installation.
-detail-admin-missing = Relancez Atlas en tant qu’administrateur, puis choisissez Oui lorsque Windows demande l’autorisation.
+detail-admin-ok = Fluxxwave a l’autorisation d’apporter les modifications nécessaires à l’installation.
+detail-admin-missing = Relancez Fluxxwave en tant qu’administrateur, puis choisissez Oui lorsque Windows demande l’autorisation.
 # $builds est une liste de numéros de build comme « 26100 ou 26200 » ; $build est celle de ce PC (texte).
-detail-build-unsupported = Cette version d’Atlas nécessite la build Windows { $builds }. Votre PC utilise la build { $build }. Installez une version compatible de Windows avant de continuer.
-detail-build-missing = Ce package Atlas n’indique aucune build Windows prise en charge. Utilisez une build complète du package plutôt qu’une build LocalTest.
+detail-build-unsupported = Cette version de Fluxxwave nécessite la build Windows { $builds }. Votre PC utilise la build { $build }. Installez une version compatible de Windows avant de continuer.
+detail-build-missing = Ce package Fluxxwave n’indique aucune build Windows prise en charge. Utilisez une build complète du package plutôt qu’une build LocalTest.
 detail-updates-none = Aucune mise à jour Windows n’est en attente d’installation.
 # $titles liste jusqu'à deux noms de mises à jour (texte) ; $count est le total.
 detail-updates-pending =
     { $count ->
-        [1] Cette mise à jour est en attente : { $titles }. Atlas l’installe depuis « Mettre à jour Windows et les applications du Store ».
-        [2] Ces mises à jour sont en attente : { $titles }. Atlas les installe depuis « Mettre à jour Windows et les applications du Store ».
-       *[other] { $count } mises à jour sont en attente, dont { $titles }. Atlas les installe depuis « Mettre à jour Windows et les applications du Store ».
+        [1] Cette mise à jour est en attente : { $titles }. Fluxxwave l’installe depuis « Mettre à jour Windows et les applications du Store ».
+        [2] Ces mises à jour sont en attente : { $titles }. Fluxxwave les installe depuis « Mettre à jour Windows et les applications du Store ».
+       *[other] { $count } mises à jour sont en attente, dont { $titles }. Fluxxwave les installe depuis « Mettre à jour Windows et les applications du Store ».
     }
 detail-updates-unknown = Impossible de rechercher les mises à jour Windows. Ouvrez Windows Update puis, si aucune mise à jour n’est en attente, confirmez-le ci-dessous. ({ $error })
 detail-reboot-none = Windows n’a pas besoin de redémarrer pour le moment.
-detail-reboot-pending = Windows doit redémarrer pour terminer des modifications antérieures. Lorsque vous choisissez Rechercher et installer les mises à jour, Atlas vous demande d’abord de redémarrer.
+detail-reboot-pending = Windows doit redémarrer pour terminer des modifications antérieures. Lorsque vous choisissez Rechercher et installer les mises à jour, Fluxxwave vous demande d’abord de redémarrer.
 # $reasons : les marqueurs de redémarrage en attente posés par Windows, d'après les noms prepare-reason-*.
-detail-reboot-pending-reasons = Windows doit redémarrer pour terminer des modifications antérieures ({ $reasons }). Lorsque vous choisissez Rechercher et installer les mises à jour, Atlas vous demande d’abord de redémarrer.
+detail-reboot-pending-reasons = Windows doit redémarrer pour terminer des modifications antérieures ({ $reasons }). Lorsque vous choisissez Rechercher et installer les mises à jour, Fluxxwave vous demande d’abord de redémarrer.
 # Avertissement, pas un blocage : $files liste jusqu'à trois chemins de fichiers que Windows remplacera ou supprimera au prochain redémarrage.
 detail-reboot-file-renames = Vous pouvez continuer. Windows doit remplacer ou supprimer des fichiers au prochain redémarrage ({ $files }). Certaines applications, comme Xbox Gaming Services, font cela après chaque redémarrage.
-detail-reboot-unknown = Impossible de vérifier si Windows doit redémarrer. Redémarrez votre PC, puis rouvrez Atlas et vérifiez à nouveau. ({ $error })
+detail-reboot-unknown = Impossible de vérifier si Windows doit redémarrer. Redémarrez votre PC, puis rouvrez Fluxxwave et vérifiez à nouveau. ({ $error })
 detail-antivirus-none = Aucun autre logiciel antivirus n’a été détecté.
 # $products est une liste de noms de produits (texte).
 detail-antivirus-found = Les applications antivirus autres que Microsoft Defender peuvent bloquer l’installation. Désinstallez { $products }, puis choisissez Vérifier à nouveau.
 # Avertissement, pas un blocage : le Centre de sécurité liste encore le produit, mais ses fichiers ont disparu.
-detail-antivirus-stale = Sécurité Windows liste encore { $products }, mais ses fichiers ont disparu : ce logiciel n’est donc plus installé. Atlas peut quand même être installé.
+detail-antivirus-stale = Sécurité Windows liste encore { $products }, mais ses fichiers ont disparu : ce logiciel n’est donc plus installé. Fluxxwave peut quand même être installé.
 detail-antivirus-unknown = Impossible de vérifier la présence d’autres antivirus. Choisissez Vérifier à nouveau. Si le problème persiste, redémarrez votre PC et vérifiez à nouveau. ({ $error })
-detail-internet-ok = Ce PC est connecté à Internet. Conservez cette connexion pendant qu’Atlas télécharge et installe des logiciels.
+detail-internet-ok = Ce PC est connecté à Internet. Conservez cette connexion pendant que Fluxxwave télécharge et installe des logiciels.
 detail-internet-missing = Connectez-vous à Internet, puis vérifiez à nouveau.
 detail-power-mains = Votre PC est branché sur le secteur. Laissez-le branché jusqu’à la fin de l’installation.
 detail-power-battery = Branchez votre PC sur le secteur pour qu’il reste allumé pendant toute l’installation.
-detail-power-unknown = Atlas n’a pas pu déterminer si votre PC est branché sur le secteur. S’il s’agit d’un ordinateur portable, branchez-le, puis choisissez Vérifier à nouveau. Si cela se reproduit, choisissez Envoyer un rapport.
-detail-activation-ok = Windows est activé. Atlas n’y changera rien.
-detail-activation-missing = Windows n’est pas activé. Vous pouvez continuer, mais Atlas n’activera pas Windows à votre place.
-detail-activation-no-licence = Windows n’a signalé aucune licence. Vous pouvez continuer ; Atlas ne modifiera pas l’état d’activation.
-detail-activation-unknown = Impossible de vérifier l’activation de Windows. Vous pouvez continuer ; Atlas ne modifiera pas l’état d’activation. ({ $error })
+detail-power-unknown = Fluxxwave n’a pas pu déterminer si votre PC est branché sur le secteur. S’il s’agit d’un ordinateur portable, branchez-le, puis choisissez Vérifier à nouveau. Si cela se reproduit, choisissez Envoyer un rapport.
+detail-activation-ok = Windows est activé. Fluxxwave n’y changera rien.
+detail-activation-missing = Windows n’est pas activé. Vous pouvez continuer, mais Fluxxwave n’activera pas Windows à votre place.
+detail-activation-no-licence = Windows n’a signalé aucune licence. Vous pouvez continuer ; Fluxxwave ne modifiera pas l’état d’activation.
+detail-activation-unknown = Impossible de vérifier l’activation de Windows. Vous pouvez continuer ; Fluxxwave ne modifiera pas l’état d’activation. ({ $error })
 
 ## Étape 2 : Vos choix
 
 options-progress = Choix { $number } sur { $total }
 options-progress-extras = Choix { $number } sur { $total } : options facultatives
-options-change-later = Vous pourrez modifier plus tard vos choix pour Microsoft Defender, les protections du processeur et les mises à jour depuis le dossier Atlas de votre bureau.
+options-change-later = Vous pourrez modifier plus tard vos choix pour Microsoft Defender, les protections du processeur et les mises à jour depuis le dossier Fluxxwave de votre bureau.
 # Noms courts de chaque décision (lignes de résumé) et question posée par chaque écran.
 screen-defender-title = Microsoft Defender
 screen-defender-question = Conserver Microsoft Defender ?
@@ -409,8 +409,8 @@ consequence-mitigations-disable = Désactive aussi Exploit Protection pour les a
 consequence-auto-updates-disable = Ouvrez régulièrement Windows Update pour installer les mises à jour. Les notifications de mise à jour restent activées.
 consequence-auto-updates-default = Windows installera les mises à jour automatiquement, y compris les correctifs de sécurité.
 
-## Texte du package Atlas
-## Le package Atlas contient son propre texte anglais pour chaque option. Ces
+## Texte du package Fluxxwave
+## Le package Fluxxwave contient son propre texte anglais pour chaque option. Ces
 ## libellés et explications ne sont utilisés que si le texte du package correspond
 ## à i18n/playbook-source.ftl. Un futur package formulé autrement conserve ses
 ## propres mots plutôt que de recevoir une description peut-être obsolète.
@@ -433,23 +433,23 @@ playbook-option-browser-brave = Brave
 playbook-option-browser-librewolf = LibreWolf
 playbook-option-browser-firefox = Firefox
 playbook-option-browser-chrome = Chrome
-playbook-page-defender-enable-description = Microsoft Defender est l’antivirus intégré à Windows. Ne le supprimez que si vous comprenez les risques et prévoyez d’utiliser une autre application antivirus. Quel que soit votre choix, Atlas désactive le Contrôle intelligent des applications, la Protection renforcée contre l’hameçonnage et Localiser mon appareil.
+playbook-page-defender-enable-description = Microsoft Defender est l’antivirus intégré à Windows. Ne le supprimez que si vous comprenez les risques et prévoyez d’utiliser une autre application antivirus. Quel que soit votre choix, Fluxxwave désactive le Contrôle intelligent des applications, la Protection renforcée contre l’hameçonnage et Localiser mon appareil.
 playbook-page-mitigations-default-description = Ces protections, aussi appelées mesures d’atténuation de sécurité, aident à protéger votre PC contre les failles du processeur, comme Spectre et Meltdown, et contre les attaques qui exploitent des bogues dans les applications. Il est recommandé de conserver les paramètres par défaut de Windows.
-playbook-page-auto-updates-disable-description = Les mises à jour Windows comprennent des correctifs de sécurité. Vous pouvez laisser Windows les installer automatiquement ou les installer vous-même. Dans les deux cas, Atlas maintient Windows sur sa version actuelle, qui ne reçoit des correctifs de sécurité que jusqu’à la fin de son support par Microsoft. Atlas désactive aussi les mises à jour automatiques des applications du Microsoft Store : mettez-les donc à jour dans le Microsoft Store.
-playbook-page-browser-brave-description = Choisissez un navigateur à installer. Atlas ne modifiera pas les paramètres de votre navigateur.
+playbook-page-auto-updates-disable-description = Les mises à jour Windows comprennent des correctifs de sécurité. Vous pouvez laisser Windows les installer automatiquement ou les installer vous-même. Dans les deux cas, Fluxxwave maintient Windows sur sa version actuelle, qui ne reçoit des correctifs de sécurité que jusqu’à la fin de son support par Microsoft. Fluxxwave désactive aussi les mises à jour automatiques des applications du Microsoft Store : mettez-les donc à jour dans le Microsoft Store.
+playbook-page-browser-brave-description = Choisissez un navigateur à installer. Fluxxwave ne modifiera pas les paramètres de votre navigateur.
 
 ## Étape 3 : Sécurité Windows
 
 security-banner-reading-title = Vérification de Sécurité Windows
-security-banner-reading-message = Atlas vérifie les quatre paramètres de protection ci-dessous.
+security-banner-reading-message = Fluxxwave vérifie les quatre paramètres de protection ci-dessous.
 security-banner-off-title = Les quatre paramètres de protection sont désactivés
 # Shown instead of the switch list when Microsoft Defender isn't on this PC and the user
 # chose to remove it.
 security-banner-absent-title = Microsoft Defender n’est pas installé sur ce PC
 security-banner-absent-message = Il n’y a rien à désactiver à cette étape. Choisissez Continuer.
-security-banner-off-message = Choisissez Continuer pour vérifier votre configuration et installer Atlas.
+security-banner-off-message = Choisissez Continuer pour vérifier votre configuration et installer Fluxxwave.
 security-banner-on-title = Désactivez la protection antivirus dans Sécurité Windows
-security-banner-on-message = Microsoft Defender peut bloquer les modifications apportées par Atlas. Choisissez Ouvrir Sécurité Windows et désactivez chacun des paramètres ci-dessous. Si vous conservez Microsoft Defender, réactivez ces paramètres une fois l’installation terminée.
+security-banner-on-message = Microsoft Defender peut bloquer les modifications apportées par Fluxxwave. Choisissez Ouvrir Sécurité Windows et désactivez chacun des paramètres ci-dessous. Si vous conservez Microsoft Defender, réactivez ces paramètres une fois l’installation terminée.
 # Le nom de la page dans Sécurité Windows.
 security-list-title = Paramètres de protection contre les virus et menaces
 security-switch-off = Désactivé
@@ -471,20 +471,20 @@ security-count-unreadable =
        *[other] { $count } non vérifiables
     }
 security-count-join = { $a }, { $b }
-security-unknown-title = Confirmez les paramètres qu’Atlas n’a pas pu vérifier
+security-unknown-title = Confirmez les paramètres que Fluxxwave n’a pas pu vérifier
 security-unknown-message = Assurez-vous que les quatre paramètres sont désactivés dans Sécurité Windows, puis confirmez-le ci-dessous.
 security-acknowledge = J’ai vérifié dans Sécurité Windows que les quatre paramètres sont désactivés
-security-unknown-unelevated-title = Atlas a besoin d’une autorisation pour vérifier la protection
-security-unknown-unelevated-message = Relancez Atlas en tant qu’administrateur pour qu’il puisse lire les paramètres de Microsoft Defender.
+security-unknown-unelevated-title = Fluxxwave a besoin d’une autorisation pour vérifier la protection
+security-unknown-unelevated-message = Relancez Fluxxwave en tant qu’administrateur pour qu’il puisse lire les paramètres de Microsoft Defender.
 # Les quatre paramètres, nommés exactement comme dans Sécurité Windows.
 protection-tamper = Protection contre les falsifications
-protection-tamper-why = Désactivez ce paramètre pour permettre à Atlas de modifier les paramètres de sécurité de Defender.
+protection-tamper-why = Désactivez ce paramètre pour permettre à Fluxxwave de modifier les paramètres de sécurité de Defender.
 protection-realtime = Protection en temps réel
-protection-realtime-why = Désactivez ce paramètre pour que Defender ne bloque pas les fichiers d’installation d’Atlas en les analysant.
+protection-realtime-why = Désactivez ce paramètre pour que Defender ne bloque pas les fichiers d’installation de Fluxxwave en les analysant.
 protection-cloud = Protection dans le cloud
-protection-cloud-why = Désactivez ce paramètre pour que les vérifications en ligne des menaces ne bloquent pas les fichiers d’installation d’Atlas.
+protection-cloud-why = Désactivez ce paramètre pour que les vérifications en ligne des menaces ne bloquent pas les fichiers d’installation de Fluxxwave.
 protection-samples = Envoi automatique d’un échantillon
-protection-samples-why = Empêchez Defender d’envoyer automatiquement des fichiers d’Atlas à Microsoft pour analyse.
+protection-samples-why = Empêchez Defender d’envoyer automatiquement des fichiers de Fluxxwave à Microsoft pour analyse.
 
 ## Étape 4 : Installation
 
@@ -492,17 +492,17 @@ protection-samples-why = Empêchez Defender d’envoyer automatiquement des fich
 install-progress = Progression de l’installation
 # La progression de l'installation affichée à côté de la barre. $percent est un nombre entier de 0 à 99.
 install-percent = { $percent } %
-outcome-succeeded-title = Atlas est installé
+outcome-succeeded-title = Fluxxwave est installé
 outcome-lost-title = Impossible de confirmer le résultat de l’installation
 outcome-failed-title = L’installation ne s’est pas terminée
 outcome-requirements = Votre PC ne répond pas aux conditions requises pour l’installation. Aucune modification n’a été apportée. Revenez à l’étape Préparation et vérifiez à nouveau.
 # Les variantes -resumed suivent une nouvelle tentative d'une installation qu'une tentative précédente avait déjà commencé à appliquer.
 outcome-requirements-resumed = Votre PC ne répond pas aux conditions requises pour l’installation, cette tentative s’est donc arrêtée. Une tentative précédente a déjà commencé à apporter des modifications. Revenez à l’étape Préparation et vérifiez à nouveau.
-outcome-not-elevated = Atlas n’avait pas l’autorisation d’administrateur. Aucune modification n’a été apportée. Relancez Atlas en tant qu’administrateur, puis réessayez.
-outcome-not-elevated-resumed = Atlas n’avait pas l’autorisation d’administrateur, cette tentative s’est donc arrêtée. Une tentative précédente a déjà commencé à apporter des modifications. Relancez Atlas en tant qu’administrateur, puis réessayez.
+outcome-not-elevated = Fluxxwave n’avait pas l’autorisation d’administrateur. Aucune modification n’a été apportée. Relancez Fluxxwave en tant qu’administrateur, puis réessayez.
+outcome-not-elevated-resumed = Fluxxwave n’avait pas l’autorisation d’administrateur, cette tentative s’est donc arrêtée. Une tentative précédente a déjà commencé à apporter des modifications. Relancez Fluxxwave en tant qu’administrateur, puis réessayez.
 # La vérification du programme d'installation a trouvé des mises à jour Windows ou Store inachevées. L'étape Préparation propose à nouveau la recherche ; « Rechercher et installer les mises à jour » est prepare-start, son bouton dans cet état.
-outcome-preparation-stale = Atlas n’a pas pu confirmer que Windows et les applications du Store sont à jour, l’installation s’est donc arrêtée avant toute modification de Windows. Revenez à l’étape Préparation et choisissez Rechercher et installer les mises à jour.
-outcome-preparation-stale-resumed = Atlas n’a pas pu confirmer que Windows et les applications du Store sont à jour, cette tentative s’est donc arrêtée. Une tentative précédente a toutefois déjà commencé à apporter des modifications. Revenez à l’étape Préparation et choisissez Rechercher et installer les mises à jour.
+outcome-preparation-stale = Fluxxwave n’a pas pu confirmer que Windows et les applications du Store sont à jour, l’installation s’est donc arrêtée avant toute modification de Windows. Revenez à l’étape Préparation et choisissez Rechercher et installer les mises à jour.
+outcome-preparation-stale-resumed = Fluxxwave n’a pas pu confirmer que Windows et les applications du Store sont à jour, cette tentative s’est donc arrêtée. Une tentative précédente a toutefois déjà commencé à apporter des modifications. Revenez à l’étape Préparation et choisissez Rechercher et installer les mises à jour.
 outcome-failed-preflight = L’installation s’est arrêtée avant toute modification. Vous pouvez réessayer. Si elle s’arrête de nouveau, choisissez Envoyer un rapport.
 outcome-failed-staging = L’installation s’est arrêtée pendant la préparation des fichiers, avant toute modification de Windows. Vous pouvez réessayer. Si elle s’arrête de nouveau, choisissez Envoyer un rapport.
 outcome-failed-applying = Certaines modifications ont peut-être déjà été appliquées. Vous pouvez réessayer. Si vous vous arrêtez ici, réactivez dans Sécurité Windows les protections que vous avez désactivées, si elles sont toujours disponibles.
@@ -516,54 +516,54 @@ outcome-failed-repeated-apps-defender-removed = Windows n’a toujours pas suppr
 outcome-not-started = Le programme d’installation n’a pas démarré à temps. Aucune modification n’a été apportée. Vous pouvez réessayer.
 outcome-lost = Le programme d’installation s’est arrêté sans indiquer de résultat, et certaines modifications ont peut-être déjà été appliquées. Vous pouvez réessayer. Si vous vous arrêtez ici, réactivez dans Sécurité Windows les protections que vous avez désactivées, si elles sont toujours disponibles.
 outcome-lost-defender-removed = Le programme d’installation s’est arrêté sans indiquer de résultat, et certaines modifications ont peut-être déjà été appliquées. Vous pouvez réessayer. S’il s’arrête de nouveau, choisissez Envoyer un rapport.
-restart-now-message = Windows redémarre pour terminer la configuration d’Atlas.
+restart-now-message = Windows redémarre pour terminer la configuration de Fluxxwave.
 restart-countdown =
     { $seconds ->
-        [one] Windows redémarre dans { $seconds } seconde pour terminer la configuration d’Atlas. Pour enregistrer d’abord votre travail, choisissez Redémarrer plus tard.
-       *[other] Windows redémarre dans { $seconds } secondes pour terminer la configuration d’Atlas. Pour enregistrer d’abord votre travail, choisissez Redémarrer plus tard.
+        [one] Windows redémarre dans { $seconds } seconde pour terminer la configuration de Fluxxwave. Pour enregistrer d’abord votre travail, choisissez Redémarrer plus tard.
+       *[other] Windows redémarre dans { $seconds } secondes pour terminer la configuration de Fluxxwave. Pour enregistrer d’abord votre travail, choisissez Redémarrer plus tard.
     }
-restart-stopped = Redémarrage automatique annulé. Enregistrez votre travail, puis redémarrez votre PC pour terminer la configuration d’Atlas.
-restart-needed = Enregistrez votre travail, puis redémarrez votre PC pour terminer la configuration d’Atlas.
+restart-stopped = Redémarrage automatique annulé. Enregistrez votre travail, puis redémarrez votre PC pour terminer la configuration de Fluxxwave.
+restart-needed = Enregistrez votre travail, puis redémarrez votre PC pour terminer la configuration de Fluxxwave.
 restart-dont-now = Redémarrer plus tard
 restart-now = Redémarrer maintenant
-restart-start-failed = Atlas n’a pas pu redémarrer votre PC. Enregistrez votre travail, puis redémarrez-le depuis le menu Démarrer. Détails : { $error }
+restart-start-failed = Fluxxwave n’a pas pu redémarrer votre PC. Enregistrez votre travail, puis redémarrez-le depuis le menu Démarrer. Détails : { $error }
 preflight-title = L’installation n’a pas démarré
-preflight-invalid-options = Atlas n’a pas pu utiliser ces choix de configuration. Revenez à l’étape Vos choix pour les revoir, puis réessayez. Détails : { $error }
+preflight-invalid-options = Fluxxwave n’a pas pu utiliser ces choix de configuration. Revenez à l’étape Vos choix pour les revoir, puis réessayez. Détails : { $error }
 # $problems est une ou deux phrases construites à partir de preflight-problem et preflight-security.
 preflight-changed = L’état de votre PC a changé depuis les vérifications précédentes. Résolvez les points suivants avant de réessayer. { $problems }
 preflight-problem = { $title } : { $detail }
 # $summary est le résumé de Sécurité Windows, par exemple « 2 encore activés ».
 preflight-security = Sécurité Windows : { $summary }.
-preflight-busy = Une autre fenêtre Atlas démarre une installation. Patientez un instant, puis choisissez à nouveau Installer Atlas.
+preflight-busy = Une autre fenêtre Fluxxwave démarre une installation. Patientez un instant, puis choisissez à nouveau Installer Fluxxwave.
 # Affiché avec le bouton home-start-over.
-preflight-taken-over = Une autre fenêtre Atlas utilise désormais cette configuration, l’installation n’a donc pas démarré. Continuez dans cette fenêtre ou choisissez Recommencer pour refaire la configuration ici.
-preflight-record-unreadable = Atlas n’a pas pu vérifier si l’installation précédente est encore en cours et n’en a donc pas démarré une autre. Revenez à l’étape Préparation pour savoir quoi faire ensuite. Détails : { $error }
-preflight-refused = Impossible de démarrer le programme d’installation. Aucune modification n’a été apportée. Choisissez Installer Atlas pour réessayer. Si le problème persiste, choisissez Envoyer un rapport. Détails : { $error }
+preflight-taken-over = Une autre fenêtre Fluxxwave utilise désormais cette configuration, l’installation n’a donc pas démarré. Continuez dans cette fenêtre ou choisissez Recommencer pour refaire la configuration ici.
+preflight-record-unreadable = Fluxxwave n’a pas pu vérifier si l’installation précédente est encore en cours et n’en a donc pas démarré une autre. Revenez à l’étape Préparation pour savoir quoi faire ensuite. Détails : { $error }
+preflight-refused = Impossible de démarrer le programme d’installation. Aucune modification n’a été apportée. Choisissez Installer Fluxxwave pour réessayer. Si le problème persiste, choisissez Envoyer un rapport. Détails : { $error }
 # Remplace preflight-refused lors d'une nouvelle tentative d'une installation qu'une tentative précédente avait déjà commencé à appliquer.
-preflight-refused-resumed = Impossible de démarrer le programme d’installation, cette tentative s’est donc arrêtée. Une tentative précédente a déjà commencé à apporter des modifications. Choisissez Installer Atlas pour réessayer. Si le problème persiste, choisissez Envoyer un rapport. Détails : { $error }
+preflight-refused-resumed = Impossible de démarrer le programme d’installation, cette tentative s’est donc arrêtée. Une tentative précédente a déjà commencé à apporter des modifications. Choisissez Installer Fluxxwave pour réessayer. Si le problème persiste, choisissez Envoyer un rapport. Détails : { $error }
 go-to-ready = Revenir à l’étape Préparation
 go-to-options = Revenir à l’étape Vos choix
 # Remplace Continuer sur un choix ouvert depuis un lien Modifier de l'étape Installation, lorsque Continuer y ramène directement.
 go-to-install = Revenir à l’étape Installation
 output-problem-title = Impossible de lire la progression de l’installation
-output-problem-message = Atlas n’a pas pu lire le journal. Cela ne signifie pas que l’installation s’est arrêtée. Laissez votre PC allumé et essayez d’ouvrir le fichier journal. Détails : { $error }
-install-elevate-title = Atlas a besoin d’une autorisation pour lancer l’installation
+output-problem-message = Fluxxwave n’a pas pu lire le journal. Cela ne signifie pas que l’installation s’est arrêtée. Laissez votre PC allumé et essayez d’ouvrir le fichier journal. Détails : { $error }
+install-elevate-title = Fluxxwave a besoin d’une autorisation pour lancer l’installation
 install-no-package-title = Choisissez d’abord vos fichiers d’installation
-install-no-package-message = Revenez à l’étape Préparation pour télécharger Atlas ou ouvrir un package Atlas (.apbx) enregistré.
+install-no-package-message = Revenez à l’étape Préparation pour télécharger Fluxxwave ou ouvrir un package Fluxxwave (.apbx) enregistré.
 # Variante de install-no-package-message pour la version de test.
-install-no-package-bundled-message = Revenez à l’étape Préparation pour préparer le package Atlas intégré à cette version de test.
+install-no-package-bundled-message = Revenez à l’étape Préparation pour préparer le package Fluxxwave intégré à cette version de test.
 # Étape 4 lorsque l'étape 1 n'est pas terminée pour cette session (vérifications ou mises à jour Windows) ; go-to-ready est le bouton.
 install-not-ready-title = Terminez d’abord l’étape Préparation
-install-not-ready-message = Atlas doit terminer la vérification de votre PC et la mise à jour de Windows avant de pouvoir lancer l’installation.
+install-not-ready-message = Fluxxwave doit terminer la vérification de votre PC et la mise à jour de Windows avant de pouvoir lancer l’installation.
 install-security-title = Vérifiez la protection antivirus avant d’installer
 install-security-reading = Nouvelle vérification des quatre paramètres de protection.
 install-security-message = { $summary }. Ouvrez Sécurité Windows et assurez-vous que les quatre paramètres sont désactivés avant de lancer l’installation.
 summary-try-again = À vérifier avant de réessayer
-summary-ready = Vérifiez votre configuration Atlas
+summary-ready = Vérifiez votre configuration Fluxxwave
 summary-activation = Activation
-summary-activation-ok = Activé. Atlas n’y changera rien.
-summary-activation-missing = Non activé. Vous pouvez continuer, mais Atlas n’activera pas Windows.
-summary-activation-unknown = Atlas ne modifiera pas l’état d’activation de Windows.
+summary-activation-ok = Activé. Fluxxwave n’y changera rien.
+summary-activation-missing = Non activé. Vous pouvez continuer, mais Fluxxwave n’activera pas Windows.
+summary-activation-unknown = Fluxxwave ne modifiera pas l’état d’activation de Windows.
 summary-duration = Durée estimée
 summary-duration-value =
     { $minutes ->
@@ -580,14 +580,14 @@ summary-not-chosen = Aucun choix pour le moment
 summary-change-a11y = Modifier le choix { $title }
 footer-still-checking = Préparation de l’installation
 footer-fix-items = Corrigez les points signalés dans Vérifications du PC pour continuer
-footer-need-package = Téléchargez Atlas ou ouvrez un package Atlas pour continuer
+footer-need-package = Téléchargez Fluxxwave ou ouvrez un package Fluxxwave pour continuer
 # Variante de footer-need-package pour la version de test.
-footer-need-package-bundled = Préparez le package Atlas intégré pour continuer
+footer-need-package-bundled = Préparez le package Fluxxwave intégré pour continuer
 footer-reading-security = Vérification des paramètres de protection
 footer-security-pending = Désactivez les quatre paramètres pour continuer
-footer-security-confirm = Pour continuer, confirmez les paramètres qu’Atlas n’a pas pu vérifier
+footer-security-confirm = Pour continuer, confirmez les paramètres que Fluxxwave n’a pas pu vérifier
 footer-install-ready = Enregistrez d’abord votre travail et fermez vos applications
-button-install = Installer Atlas
+button-install = Installer Fluxxwave
 log-earlier-lines =
     { $count ->
         [one] { $count } ligne précédente se trouve dans le fichier journal.
@@ -599,13 +599,13 @@ log-full-log-note = (journal complet : { $path })
 ## La vue d'installation en cours
 
 installing-checking-title = Dernière vérification
-installing-checking-line = Atlas vérifie votre PC avant d’apporter des modifications. Cela peut prendre un instant.
-installing-title = Installation d’Atlas
+installing-checking-line = Fluxxwave vérifie votre PC avant d’apporter des modifications. Cela peut prendre un instant.
+installing-title = Installation de Fluxxwave
 installing-phase-preflight = Vérification de votre PC et préparation des fichiers d’installation.
 installing-phase-staging = Préparation des fichiers d’installation. Laissez votre PC allumé.
 installing-phase-applying = Configuration de Windows selon vos choix. Laissez votre PC allumé et branché.
 installing-phase-done = Finalisation de l’installation. Laissez votre PC allumé.
-installing-installed-title = Atlas est installé
+installing-installed-title = Fluxxwave est installé
 # $time est une heure formatée.
 installing-started-just-now = Démarrage à { $time }, il y a moins d’une minute
 installing-started-minutes =
@@ -615,18 +615,18 @@ installing-started-minutes =
     }
 installing-restart-auto = Votre PC redémarrera automatiquement à la fin de l’installation. D’ici là, enregistrez votre travail dans vos autres applications.
 
-## La fenêtre « Atlas est installé » après le redémarrage
+## La fenêtre « Fluxxwave est installé » après le redémarrage
 
-installed-title-version = Atlas { $version } est installé
-installed-title = Atlas est installé
-installed-ready = C’est terminé. Votre PC est prêt à être utilisé avec Atlas.
+installed-title-version = Fluxxwave { $version } est installé
+installed-title = Fluxxwave est installé
+installed-ready = C’est terminé. Votre PC est prêt à être utilisé avec Fluxxwave.
 installed-security-message = Vous avez conservé Microsoft Defender, mais certaines de ses protections sont encore désactivées. Ouvrez Sécurité Windows et assurez-vous que ces paramètres sont activés : { $switches }.
 installed-defender-removed-title = Microsoft Defender a été supprimé
 installed-defender-removed-message = Votre PC n’aura aucune protection antivirus tant que vous n’aurez pas installé une autre application antivirus. SmartScreen a aussi été supprimé : Windows ne vous avertira donc pas avant que vous ouvriez des applications ou des téléchargements non reconnus.
-# Home and the "Atlas is installed" window, after an installation that kept Microsoft Defender,
-# when it is missing and no Atlas package removed it. Its title is security-banner-missing-title;
+# Home and the "Fluxxwave is installed" window, after an installation that kept Microsoft Defender,
+# when it is missing and no Fluxxwave package removed it. Its title is security-banner-missing-title;
 # "Report a problem" is home-report-problem, its button.
-installed-defender-missing-message = Vous avez choisi de conserver Microsoft Defender, mais il est introuvable, et Atlas ne l’a pas supprimé. Si vous n’utilisez pas d’autre application antivirus, installez-en une pour protéger votre PC. Si vous n’avez pas supprimé Defender vous-même, choisissez Signaler un problème.
+installed-defender-missing-message = Vous avez choisi de conserver Microsoft Defender, mais il est introuvable, et Fluxxwave ne l’a pas supprimé. Si vous n’utilisez pas d’autre application antivirus, installez-en une pour protéger votre PC. Si vous n’avez pas supprimé Defender vous-même, choisissez Signaler un problème.
 
 ## Paramètres
 
@@ -635,7 +635,7 @@ settings-theme = Thème de l’application
 settings-theme-system = Comme Windows
 settings-theme-light = Clair
 settings-theme-dark = Sombre
-settings-theme-contrast-note = Atlas utilise les couleurs de votre thème de contraste Windows.
+settings-theme-contrast-note = Fluxxwave utilise les couleurs de votre thème de contraste Windows.
 settings-theme-mica-note = Pour afficher l’arrière-plan translucide, choisissez le même thème clair ou sombre que Windows.
 settings-language = Langue
 settings-language-system = Comme Windows
@@ -650,21 +650,21 @@ preview-notice = { $language } est une traduction en aperçu et peut contenir de
 preview-notice-switch = Passer en anglais
 preview-notice-language = Changer de langue
 # $tag est une balise de langue (texte).
-settings-language-unavailable = { $tag } n’est pas disponible dans cette version d’Atlas. L’anglais est affiché pour le moment et votre choix de langue est conservé.
+settings-language-unavailable = { $tag } n’est pas disponible dans cette version de Fluxxwave. L’anglais est affiché pour le moment et votre choix de langue est conservé.
 # $languages est la liste des langues d'affichage de Windows (texte).
-settings-language-windows-unmatched = Atlas ne prend pas encore en charge vos langues d’affichage Windows ({ $languages }). L’anglais est affiché pour le moment.
-settings-language-windows-unavailable = Impossible de vérifier votre langue d’affichage Windows. Atlas utilise l’anglais pour le moment. Détails : { $error }
+settings-language-windows-unmatched = Fluxxwave ne prend pas encore en charge vos langues d’affichage Windows ({ $languages }). L’anglais est affiché pour le moment.
+settings-language-windows-unavailable = Impossible de vérifier votre langue d’affichage Windows. Fluxxwave utilise l’anglais pour le moment. Détails : { $error }
 # $locale est le nom du format régional dans sa propre langue, par exemple « français (France) ».
 settings-language-formats = Les nombres, les dates et les heures suivent votre format régional Windows ({ $locale }).
 # Remplace settings-language-formats lorsque le format régional écrit les dates ou les heures de droite à gauche. $locale est le nom anglais du format, par exemple « Arabic (Saudi Arabia) ».
-settings-language-formats-numbers-only = Les nombres suivent votre format régional Windows ({ $locale }). Les dates et les heures utilisent un format standard, car Atlas ne peut pas encore afficher le texte de droite à gauche.
+settings-language-formats-numbers-only = Les nombres suivent votre format régional Windows ({ $locale }). Les dates et les heures utilisent un format standard, car Fluxxwave ne peut pas encore afficher le texte de droite à gauche.
 settings-language-contribute = Aider à traduire Atlas sur GitHub
 settings-restart-label = Redémarrer mon PC automatiquement après l’installation
 settings-restart-locked = Vous pourrez modifier ce réglage une fois l’installation terminée.
 settings-restart-description = Lorsque cette option est activée, votre PC redémarre dans la minute qui suit la fin de l’installation, ce qui ferme vos applications ouvertes. Enregistrez votre travail avant de lancer l’installation.
 settings-help = Aide et commentaires
 settings-about = À propos
-settings-about-app = Atlas Manager
+settings-about-app = Fluxxwave Manager
 settings-about-licence = Licence
 settings-about-licence-value = GPL-3.0, libre et open source
 settings-view-source = Voir le code source sur GitHub
@@ -681,32 +681,32 @@ consequence-disable-power-saving = Désactive les fonctions d’économie d’é
 consequence-disable-core-isolation = Désactive une couche de sécurité supplémentaire de Windows, dont l’intégrité de la mémoire. Cela réduit la protection et peut affecter les applications ou les jeux qui en ont besoin.
 consequence-remove-snipping-tool = Supprime l’application Windows de capture d’écran et d’enregistrement vidéo de l’écran.
 consequence-uninstall-edge = Supprime le navigateur Microsoft Edge. Assurez-vous d’avoir un autre navigateur ou choisissez-en un ci-dessous.
-# Instead of consequence-uninstall-edge when Atlas is installed on this PC, which has the
+# Instead of consequence-uninstall-edge when Fluxxwave is installed on this PC, which has the
 # user's Edge data. "choose one below" refers to the browser choice under it.
 consequence-uninstall-edge-data = Supprime Microsoft Edge ainsi que vos favoris, votre historique et vos mots de passe enregistrés dans Edge sur ce PC. Tout ce qui n’est pas synchronisé avec votre compte Microsoft sera perdu. Assurez-vous d’avoir un autre navigateur ou choisissez-en un ci-dessous.
 # Under Remove Microsoft Edge in the Install step's summary, with a caution glyph.
 caution-uninstall-edge = Supprime vos favoris, votre historique et vos mots de passe enregistrés dans Edge sur ce PC.
-consequence-install-another-browser = Choisissez un navigateur ci-dessous et Atlas l’installera pour vous.
-consequence-install-toolbox = Ajoutez Atlas Toolbox pour gérer plus facilement vos paramètres Atlas. Toolbox est en version bêta : certaines fonctionnalités peuvent être inachevées.
+consequence-install-another-browser = Choisissez un navigateur ci-dessous et Fluxxwave l’installera pour vous.
+consequence-install-toolbox = Ajoutez Atlas Toolbox pour gérer plus facilement vos paramètres Fluxxwave. Toolbox est en version bêta : certaines fonctionnalités peuvent être inachevées.
 consequence-install-eclean = Un outil de maintenance de l’équipe d’AtlasOS pour entretenir votre PC après l’installation. Examinez les fichiers inutiles et les applications au démarrage. Nécessite un compte et une connexion Internet.
 
-# Introduction sur la page d'accueil avant l'installation d'Atlas.
-home-intro = Atlas ajuste Windows pour réduire l’activité en arrière-plan et les distractions. Installez Atlas sur une nouvelle installation de Windows, avant d’y ajouter vos propres applications et fichiers.
+# Introduction sur la page d'accueil avant l'installation d'Fluxxwave.
+home-intro = Fluxxwave ajuste Windows pour réduire l’activité en arrière-plan et les distractions. Installez Fluxxwave sur une nouvelle installation de Windows, avant d’y ajouter vos propres applications et fichiers.
 
 ## ISO creation (Beta)
 iso-home-title = Support d’installation de Windows
-iso-home-description = Créez un fichier d’installation de Windows (ISO) qui inclut Atlas, puis utilisez-le pour réinstaller Windows sur ce PC ou sur un autre.
-iso-open = Créer une ISO avec Atlas
-iso-title = Créer une ISO avec Atlas
+iso-home-description = Créez un fichier d’installation de Windows (ISO) qui inclut Fluxxwave, puis utilisez-le pour réinstaller Windows sur ce PC ou sur un autre.
+iso-open = Créer une ISO avec Fluxxwave
+iso-title = Créer une ISO avec Fluxxwave
 iso-beta = Bêta
 iso-beta-description = Testez l’ISO dans une machine virtuelle avant de l’utiliser sur un PC. Sauvegardez vos fichiers avant d’installer Windows.
-iso-admin-description = Atlas a besoin d’une autorisation d’administrateur pour lire votre ISO Windows et en créer une nouvelle. Choisissez Relancer en tant qu’administrateur, puis Oui lorsque Windows le demande.
-iso-files-description = Atlas crée une copie d’une ISO Windows 11 en y ajoutant Atlas, pour réinstaller Windows. Choisissez une ISO Windows 11 téléchargée auprès de Microsoft, téléchargez le dernier package Atlas ou choisissez-en un que vous avez déjà (.apbx), puis choisissez où enregistrer la nouvelle ISO.
+iso-admin-description = Fluxxwave a besoin d’une autorisation d’administrateur pour lire votre ISO Windows et en créer une nouvelle. Choisissez Relancer en tant qu’administrateur, puis Oui lorsque Windows le demande.
+iso-files-description = Fluxxwave crée une copie d’une ISO Windows 11 en y ajoutant Fluxxwave, pour réinstaller Windows. Choisissez une ISO Windows 11 téléchargée auprès de Microsoft, téléchargez le dernier package Fluxxwave ou choisissez-en un que vous avez déjà (.apbx), puis choisissez où enregistrer la nouvelle ISO.
 # Version de test : pas de sélecteur de package.
-iso-files-description-bundled = Atlas crée une copie d’une ISO Windows 11 en y ajoutant le package Atlas intégré à cette version de test. Choisissez une ISO Windows 11 téléchargée auprès de Microsoft, puis choisissez où enregistrer la nouvelle ISO.
+iso-files-description-bundled = Fluxxwave crée une copie d’une ISO Windows 11 en y ajoutant le package Fluxxwave intégré à cette version de test. Choisissez une ISO Windows 11 téléchargée auprès de Microsoft, puis choisissez où enregistrer la nouvelle ISO.
 iso-source = ISO Windows
 iso-source-download = Télécharger Windows 11 sur le site de Microsoft
-iso-package = Package Atlas ({ $minimum } ou plus récent)
+iso-package = Package Fluxxwave ({ $minimum } ou plus récent)
 iso-output = Enregistrer la nouvelle ISO sous
 iso-no-file = Aucun fichier sélectionné
 iso-browse = Parcourir
@@ -714,25 +714,25 @@ iso-save-as = Enregistrer sous
 # Nom accessible du bouton Parcourir ou Enregistrer sous à côté d'un champ de fichier : $action est le texte de ce bouton et $field le libellé du champ.
 iso-pick-a11y = { $action } : { $field }
 iso-inspect = Vérifier les fichiers
-iso-mode-title = Comment souhaitez-vous configurer Atlas ?
-iso-mode-interactive = Faire vos choix Atlas après la connexion
-iso-mode-interactive-description = Après votre connexion, Atlas s’ouvre et vous guide dans les mises à jour, vos choix et l’installation d’Atlas.
-iso-mode-before = Faire vos choix Atlas maintenant
-iso-mode-before-description = Atlas enregistre vos choix dans l’ISO. Après votre connexion, Atlas s’ouvre et vous guide dans les mises à jour, puis vous installez Atlas avec ces choix.
-iso-package-unsupported-title = Choisissez un package Atlas plus récent
-iso-package-unsupported = Ce package Atlas ne peut pas enregistrer les choix Atlas dans l’ISO. Choisissez un package plus récent, ou l’option Faire vos choix Atlas après la connexion.
-# Affiché lorsque Vérifier les fichiers refuse le package Atlas ; $minimum comme pour iso-package.
-iso-failed-package-unsupported = Ce package Atlas ne permet pas de créer une ISO. Choisissez un package pour Atlas { $minimum } ou une version ultérieure.
-# Version de test : le package Atlas intégré ne peut pas être remplacé ; seul le mode après connexion reste possible.
-iso-package-unsupported-bundled-title = Les choix Atlas ne peuvent pas être enregistrés dans cette ISO
-iso-package-unsupported-bundled = Le package Atlas intégré à cette version de test ne prend pas en charge la configuration par ISO. Choisissez plutôt Faire vos choix Atlas après la connexion.
-iso-atlas-options = Choix Atlas
+iso-mode-title = Comment souhaitez-vous configurer Fluxxwave ?
+iso-mode-interactive = Faire vos choix Fluxxwave après la connexion
+iso-mode-interactive-description = Après votre connexion, Fluxxwave s’ouvre et vous guide dans les mises à jour, vos choix et l’installation de Fluxxwave.
+iso-mode-before = Faire vos choix Fluxxwave maintenant
+iso-mode-before-description = Fluxxwave enregistre vos choix dans l’ISO. Après votre connexion, Fluxxwave s’ouvre et vous guide dans les mises à jour, puis vous installez Fluxxwave avec ces choix.
+iso-package-unsupported-title = Choisissez un package Fluxxwave plus récent
+iso-package-unsupported = Ce package Fluxxwave ne peut pas enregistrer les choix Fluxxwave dans l’ISO. Choisissez un package plus récent, ou l’option Faire vos choix Fluxxwave après la connexion.
+# Affiché lorsque Vérifier les fichiers refuse le package Fluxxwave ; $minimum comme pour iso-package.
+iso-failed-package-unsupported = Ce package Fluxxwave ne permet pas de créer une ISO. Choisissez un package pour Fluxxwave { $minimum } ou une version ultérieure.
+# Version de test : le package Fluxxwave intégré ne peut pas être remplacé ; seul le mode après connexion reste possible.
+iso-package-unsupported-bundled-title = Les choix Fluxxwave ne peuvent pas être enregistrés dans cette ISO
+iso-package-unsupported-bundled = Le package Fluxxwave intégré à cette version de test ne prend pas en charge la configuration par ISO. Choisissez plutôt Faire vos choix Fluxxwave après la connexion.
+iso-atlas-options = Choix Fluxxwave
 iso-review = Vérifier l’ISO
-iso-review-description = La création de l’ISO n’installe rien sur ce PC et ne modifie pas votre ISO d’origine. Ensuite, Atlas peut copier la nouvelle ISO sur une clé USB pour que vous puissiez réinstaller Windows à partir de celle-ci.
+iso-review-description = La création de l’ISO n’installe rien sur ce PC et ne modifie pas votre ISO d’origine. Ensuite, Fluxxwave peut copier la nouvelle ISO sur une clé USB pour que vous puissiez réinstaller Windows à partir de celle-ci.
 iso-review-files = Fichiers
 iso-step-windows = Installation de Windows
 iso-step-review = Récapitulatif
-iso-review-package = Package Atlas
+iso-review-package = Package Fluxxwave
 iso-review-output = Nouvelle ISO
 iso-review-editions = Éditions
 iso-architecture-x64 = x64
@@ -747,7 +747,7 @@ iso-create = Créer l’ISO
 iso-progress-title = Création de votre ISO
 iso-stage-inspect = Vérification de votre ISO Windows
 iso-stage-copy = Copie des fichiers Windows
-iso-stage-add-atlas = Ajout d’Atlas
+iso-stage-add-atlas = Ajout de Fluxxwave
 iso-stage-master = Écriture du fichier ISO
 iso-stage-verify = Vérification de la nouvelle ISO
 iso-stage-cleanup = Finalisation
@@ -758,7 +758,7 @@ iso-stage-status-current = en cours
 # The stage where creating the ISO stopped with an error.
 iso-stage-status-failed = en échec
 iso-stage-status-not-started = non commencée
-iso-progress-description = Gardez Atlas ouvert. Le traitement des images volumineuses peut prendre du temps.
+iso-progress-description = Gardez Fluxxwave ouvert. Le traitement des images volumineuses peut prendre du temps.
 iso-cancel = Annuler la création
 iso-cancelling = En attente d’un point d’arrêt sûr
 iso-cancelled = Création de l’ISO annulée
@@ -770,32 +770,32 @@ iso-failed = La création de l’ISO n’a pas pu aboutir
 iso-failed-description = Assurez-vous que vos fichiers se trouvent toujours à l’emplacement choisi et que le disque de destination est connecté, puis choisissez Créer l’ISO. Si l’échec persiste, choisissez Envoyer un rapport.
 # Titre lorsque l'étape Vérifier les fichiers échoue ; les messages ci-dessous en donnent la raison.
 iso-check-failed = Impossible de vérifier les fichiers
-iso-check-failed-description = Assurez-vous que l’ISO et le package Atlas se trouvent toujours à l’emplacement choisi et que leur téléchargement est terminé, puis choisissez Vérifier les fichiers. Si l’échec persiste, choisissez Envoyer un rapport.
+iso-check-failed-description = Assurez-vous que l’ISO et le package Fluxxwave se trouvent toujours à l’emplacement choisi et que leur téléchargement est terminé, puis choisissez Vérifier les fichiers. Si l’échec persiste, choisissez Envoyer un rapport.
 # Titre lorsque Windows a refusé la relance en administrateur (UAC refusé) ; elevation-declined est le message.
-iso-elevation-title = Atlas a besoin d’une autorisation pour créer une ISO
+iso-elevation-title = Fluxxwave a besoin d’une autorisation pour créer une ISO
 # Raisons typées signalées par le processus de traitement de l'image.
 iso-failed-output-exists = Un fichier portant ce nom existe déjà. Choisissez Enregistrer sous et saisissez un nouveau nom de fichier.
-iso-failed-destination = Atlas ne peut pas enregistrer la nouvelle ISO à cet emplacement. Choisissez Enregistrer sous et sélectionnez un dossier de ce PC, comme Téléchargements. Les emplacements réseau et les disques au format FAT32 ou exFAT, comme beaucoup de clés USB, ne peuvent pas être utilisés.
+iso-failed-destination = Fluxxwave ne peut pas enregistrer la nouvelle ISO à cet emplacement. Choisissez Enregistrer sous et sélectionnez un dossier de ce PC, comme Téléchargements. Les emplacements réseau et les disques au format FAT32 ou exFAT, comme beaucoup de clés USB, ne peuvent pas être utilisés.
 iso-failed-space = L’espace libre est insuffisant sur le disque de destination. Libérez de l’espace ou enregistrez la nouvelle ISO sur un autre disque.
 # Famille (Home) et LTSC sont les éditions que la création d'ISO écarte ; les autres sont des exemples d'éditions conservées. Noms tels que Windows les affiche en français.
 iso-failed-edition = Cette ISO ne contient aucune édition de Windows prise en charge. Les éditions Famille et LTSC ne sont pas prises en charge. Utilisez une ISO qui inclut une autre édition, comme Professionnel, Éducation ou Entreprise.
 iso-failed-customised = Cette ISO contient déjà des fichiers d’installation personnalisés, comme autounattend.xml. Choisissez une ISO Windows non modifiée provenant de Microsoft.
-iso-failed-windows-unsupported = Cette image Windows n’est pas prise en charge par le package Atlas. Utilisez une ISO Windows 11 64 bits non modifiée d’une version prise en charge par ce package.
+iso-failed-windows-unsupported = Cette image Windows n’est pas prise en charge par le package Fluxxwave. Utilisez une ISO Windows 11 64 bits non modifiée d’une version prise en charge par ce package.
 iso-failed-network-architecture = Les pilotes réseau de ce PC ne correspondent pas à l’architecture de cette ISO. Revenez en arrière et décochez Inclure les pilotes réseau de ce PC, ou choisissez une ISO pour ce PC.
-iso-failed-unstaged = Atlas n’a pas pu préparer son dossier de travail, donc rien n’a été modifié. Réessayez. Si le problème persiste, choisissez Exporter les diagnostics pour un rapport de bogue.
-iso-failed-package-changed = Le package Atlas a changé après la vérification des fichiers. Choisissez Modifier à côté de Fichiers, puis Vérifier les fichiers.
+iso-failed-unstaged = Fluxxwave n’a pas pu préparer son dossier de travail, donc rien n’a été modifié. Réessayez. Si le problème persiste, choisissez Exporter les diagnostics pour un rapport de bogue.
+iso-failed-package-changed = Le package Fluxxwave a changé après la vérification des fichiers. Choisissez Modifier à côté de Fichiers, puis Vérifier les fichiers.
 iso-diagnostics = Ouvrir le dossier des journaux
 iso-close-title = La création de l’ISO est en cours
 iso-close-message = Gardez cette fenêtre ouverte jusqu’à la fin de la création ou de l’annulation. L’annulation attend que l’opération en cours puisse s’arrêter sans risque.
-# Sur les pages ISO et USB pendant qu'Atlas met à jour Windows, ou rétablit les paramètres Windows Update, depuis une autre page. Leurs commandes restent indisponibles jusqu'à la fin.
-iso-locked = Atlas est occupé avec Windows Update. Vous pourrez continuer ici une fois l’opération terminée.
+# Sur les pages ISO et USB pendant qu'Fluxxwave met à jour Windows, ou rétablit les paramètres Windows Update, depuis une autre page. Leurs commandes restent indisponibles jusqu'à la fin.
+iso-locked = Fluxxwave est occupé avec Windows Update. Vous pourrez continuer ici une fois l’opération terminée.
 prepare-title = Mettre à jour Windows et les applications du Store
-prepare-description = Avant l’installation, Atlas met à jour Windows, le Microsoft Store et vos applications du Store. Les applications du Store ouvertes, comme le Bloc-notes, Paint ou le Terminal Windows, peuvent se fermer pendant leur mise à jour : enregistrez d’abord votre travail dans ces applications. Votre PC devra peut-être aussi redémarrer.
-prepare-complete = Atlas n’a plus trouvé de mises à jour Windows ou du Store à installer.
+prepare-description = Avant l’installation, Fluxxwave met à jour Windows, le Microsoft Store et vos applications du Store. Les applications du Store ouvertes, comme le Bloc-notes, Paint ou le Terminal Windows, peuvent se fermer pendant leur mise à jour : enregistrez d’abord votre travail dans ces applications. Votre PC devra peut-être aussi redémarrer.
+prepare-complete = Fluxxwave n’a plus trouvé de mises à jour Windows ou du Store à installer.
 prepare-reboot-title = Redémarrez votre PC pour continuer
-prepare-reboot = Votre PC doit redémarrer pour terminer l’installation des mises à jour. Atlas enregistre les choix que vous avez déjà faits et se rouvre après votre connexion.
+prepare-reboot = Votre PC doit redémarrer pour terminer l’installation des mises à jour. Fluxxwave enregistre les choix que vous avez déjà faits et se rouvre après votre connexion.
 # $reasons : les marqueurs de redémarrage en attente posés par Windows, d'après les noms prepare-reason-*.
-prepare-reboot-reasons = Votre PC doit redémarrer pour terminer l’installation des mises à jour ({ $reasons }). Atlas enregistre les choix que vous avez déjà faits et se rouvre après votre connexion.
+prepare-reboot-reasons = Votre PC doit redémarrer pour terminer l’installation des mises à jour ({ $reasons }). Fluxxwave enregistre les choix que vous avez déjà faits et se rouvre après votre connexion.
 # Sous le message de redémarrage : le bouton redémarre Windows sans compte à rebours.
 prepare-reboot-save-work = Enregistrez d’abord votre travail et fermez vos applications. Votre PC redémarre immédiatement lorsque vous choisissez Redémarrer et continuer.
 # Affiché à la place d'un nouveau redémarrage lorsque Windows en redemande un juste après avoir redémarré.
@@ -809,8 +809,8 @@ prepare-reason-update-agent = le service Windows Update
 prepare-reason-unknown = motif non indiqué
 prepare-failed = Choisissez Réessayer. En cas de nouvel échec, terminez les mises à jour restantes dans Windows Update ou le Microsoft Store, ou choisissez Envoyer un rapport.
 prepare-failed-title = Certaines mises à jour n’ont pas pu se terminer
-# La mise à jour s'est terminée sans écrire de résultat, par exemple après la fermeture d'Atlas pendant son exécution. « Rechercher et installer les mises à jour » est prepare-start.
-prepare-ended-unconfirmed = La mise à jour s’est arrêtée sans indiquer de résultat, Atlas ne peut donc pas confirmer que Windows et les applications du Store sont à jour. Choisissez Réessayer pour rechercher les mises à jour.
+# La mise à jour s'est terminée sans écrire de résultat, par exemple après la fermeture d'Fluxxwave pendant son exécution. « Rechercher et installer les mises à jour » est prepare-start.
+prepare-ended-unconfirmed = La mise à jour s’est arrêtée sans indiquer de résultat, Fluxxwave ne peut donc pas confirmer que Windows et les applications du Store sont à jour. Choisissez Réessayer pour rechercher les mises à jour.
 prepare-unconfirmed-title = Impossible de confirmer le résultat des mises à jour
 # « Rechercher et installer les mises à jour » est prepare-start, son bouton dans cet état.
 prepare-cancelled = Les mises à jour ont été arrêtées. Certaines ont peut-être déjà été installées. Choisissez Rechercher et installer les mises à jour pour les terminer avant de continuer.
@@ -820,7 +820,7 @@ prepare-windows-install = Installation des mises à jour Windows…
 prepare-windows-repair = Réparation préalable de Windows, qui signale des dommages pouvant empêcher l’installation des mises à jour. Cela peut prendre une demi-heure ou plus.
 prepare-store-search = Vérification du Microsoft Store…
 prepare-store-install = Mise à jour du Microsoft Store et de ses applications…
-prepare-stop-description = Atlas s’arrête une fois l’opération en cours terminée. Gardez Atlas ouvert jusque-là.
+prepare-stop-description = Fluxxwave s’arrête une fois l’opération en cours terminée. Gardez Fluxxwave ouvert jusque-là.
 prepare-stop = Arrêter les mises à jour
 prepare-restart = Redémarrer et continuer
 prepare-start = Rechercher et installer les mises à jour
@@ -843,7 +843,7 @@ prepare-drivers-auto = Obtenir les pilotes via Windows Update
 prepare-drivers-auto-detail = Windows recherche les pilotes adaptés à votre matériel. Recommandé pour la plupart des PC.
 prepare-drivers-manual = Installer les pilotes moi-même
 prepare-drivers-manual-detail = Windows Update n’installera pas de pilotes : vous devrez les obtenir auprès du fabricant de votre PC ou de vos périphériques. Les pilotes déjà installés sont conservés.
-prepare-drivers-description = Les pilotes permettent à Windows d’utiliser votre matériel, comme la carte graphique, le son et le Wi-Fi. Si vous modifiez ce choix après la mise à jour, Atlas devra rechercher à nouveau les mises à jour.
+prepare-drivers-description = Les pilotes permettent à Windows d’utiliser votre matériel, comme la carte graphique, le son et le Wi-Fi. Si vous modifiez ce choix après la mise à jour, Fluxxwave devra rechercher à nouveau les mises à jour.
 prepare-network-needed = Les mises à jour nécessitent une connexion Internet non limitée. Connectez-vous en Wi-Fi ou par Ethernet, puis choisissez Réessayer. Si aucun réseau Wi-Fi ne s’affiche, installez d’abord votre pilote réseau.
 # Connecté, mais Windows n'a trouvé aucun accès à Internet (portail captif, ou filtrage DNS ou pare-feu).
 prepare-network-limited = Windows indique que ce réseau n’a pas accès à Internet. Connectez-vous au réseau s’il le demande, ou vérifiez votre routeur et tout filtrage DNS ou par pare-feu, puis réessayez.
@@ -853,7 +853,7 @@ prepare-network-settings = Ouvrir les paramètres réseau
 iso-target-title = Sur quel PC allez-vous réinstaller Windows ?
 iso-target-this = Ce PC
 # Under This PC (iso-target-this), before it's chosen.
-iso-target-this-description = Atlas peut ajouter les pilotes Wi-Fi et Ethernet de ce PC à l’ISO, pour que Windows puisse se connecter à Internet dès sa réinstallation.
+iso-target-this-description = Fluxxwave peut ajouter les pilotes Wi-Fi et Ethernet de ce PC à l’ISO, pour que Windows puisse se connecter à Internet dès sa réinstallation.
 iso-target-other = Un autre PC
 iso-copy-network = Inclure les pilotes réseau de ce PC
 iso-network-detail = Réutilise les pilotes Wi-Fi et Ethernet de ce PC pendant l’installation de Windows. Vous devrez ensuite vous reconnecter au Wi-Fi.
@@ -867,14 +867,14 @@ iso-network-failed = Impossible de préparer les pilotes réseau. Consultez les 
 # drivers that come with Windows, so none were added.
 iso-network-inbox = Les cartes réseau de ce PC utilisent des pilotes fournis avec Windows : l’ISO n’a donc pas besoin de les inclure.
 iso-mode-desktop = Terminer la configuration avant le bureau
-iso-mode-desktop-description = Atlas enregistre vos choix dans l’ISO. Après votre connexion, Atlas termine les mises à jour et l’installation avant l’ouverture du bureau Windows.
-desktop-setup-description = Terminez la configuration du PC. Vos choix Atlas sont enregistrés ; vous pouvez revenir à Windows si nécessaire.
+iso-mode-desktop-description = Fluxxwave enregistre vos choix dans l’ISO. Après votre connexion, Fluxxwave termine les mises à jour et l’installation avant l’ouverture du bureau Windows.
+desktop-setup-description = Terminez la configuration du PC. Vos choix Fluxxwave sont enregistrés ; vous pouvez revenir à Windows si nécessaire.
 desktop-setup-exit = Continuer dans Windows
 
 # Windows installation USB (Beta)
 usb-title = Créer une clé d’installation
 usb-existing = Créer une clé USB depuis une ISO existante
-usb-description = Copiez une ISO sur une clé USB pour pouvoir réinstaller Windows à partir de celle-ci. Utilisez une ISO créée par Atlas pour installer Atlas en même temps.
+usb-description = Copiez une ISO sur une clé USB pour pouvoir réinstaller Windows à partir de celle-ci. Utilisez une ISO créée par Fluxxwave pour installer Fluxxwave en même temps.
 # Bouton qui ouvre le sélecteur de fichier pour une ISO, et bouton Ouvrir de ce sélecteur, sur les pages USB et ISO.
 usb-choose-iso = Choisir une ISO
 usb-drive = Clé USB
@@ -891,14 +891,14 @@ usb-detail-separator = { " · " }
 usb-review = Vérifier la clé USB
 usb-erase-title = Effacer cette clé USB ?
 usb-erase-description = Tout le contenu de { $drive } ({ $size } Go) sera définitivement effacé, y compris tous les fichiers et partitions. Copiez d’abord sur un autre disque tout ce que vous souhaitez conserver. Votre ISO ne sera pas effacée.
-usb-layout = Atlas utilise jusqu’à 32 Go de la clé et laisse le reste inutilisé. La clé USB fonctionne sur les PC qui démarrent en mode UEFI, requis par Windows 11.
+usb-layout = Fluxxwave utilise jusqu’à 32 Go de la clé et laisse le reste inutilisé. La clé USB fonctionne sur les PC qui démarrent en mode UEFI, requis par Windows 11.
 usb-ack = Je comprends que tout le contenu de cette clé USB sera effacé
 usb-write = Effacer et créer la clé
 usb-stage-prepare = Préparation des fichiers d’installation…
 usb-stage-format = Formatage de la clé USB…
 usb-stage-copy = Copie des fichiers d’installation…
 usb-stage-verify = Vérification de la clé USB…
-usb-working = Gardez Atlas ouvert et la clé USB branchée. Si vous annulez, la clé USB incomplète ne pourra pas servir à installer Windows.
+usb-working = Gardez Fluxxwave ouvert et la clé USB branchée. Si vous annulez, la clé USB incomplète ne pourra pas servir à installer Windows.
 # Titres de la barre d'erreur, de la barre de réussite et de l'invite de fermeture pendant l'écriture d'une clé.
 usb-failed-title = La création de la clé USB n’a pas pu aboutir
 usb-complete-title = Votre clé USB est prête
@@ -907,57 +907,57 @@ usb-close-title = La création de la clé USB est en cours
 usb-failed = La clé a peut-être déjà été effacée : elle ne permet donc pas encore d’installer Windows. Assurez-vous qu’elle est branchée, puis choisissez Vérifier la clé USB pour réessayer. Si vous l’avez rebranchée, choisissez d’abord Actualiser et sélectionnez-la à nouveau.
 # Avant toute modification de la clé : en général, puis pour les raisons signalées par le processus d'écriture.
 usb-failed-unchanged = Votre clé USB n’a pas été modifiée. Choisissez Ouvrir le dossier des journaux pour voir ce qui a échoué, puis Vérifier la clé USB pour réessayer.
-usb-failed-iso = Cette ISO ne permet pas de créer une clé d’installation. Choisissez une ISO créée par Atlas, ou une ISO Windows 11 de Microsoft d’une version prise en charge par Atlas. Votre clé USB n’a pas été modifiée.
-usb-failed-location = L’ISO ou Atlas Manager se trouve sur cette clé USB, sur un emplacement réseau ou dans un dossier lié. Déplacez le fichier concerné dans un dossier local de ce PC, puis réessayez. Votre clé USB n’a pas été modifiée.
+usb-failed-iso = Cette ISO ne permet pas de créer une clé d’installation. Choisissez une ISO créée par Fluxxwave, ou une ISO Windows 11 de Microsoft d’une version prise en charge par Fluxxwave. Votre clé USB n’a pas été modifiée.
+usb-failed-location = L’ISO ou Fluxxwave Manager se trouve sur cette clé USB, sur un emplacement réseau ou dans un dossier lié. Déplacez le fichier concerné dans un dossier local de ce PC, puis réessayez. Votre clé USB n’a pas été modifiée.
 usb-failed-space = L’espace libre est insuffisant sur le disque Windows pour préparer les fichiers d’installation. Libérez de l’espace, puis réessayez. Votre clé USB n’a pas été modifiée.
 usb-failed-fit = Les fichiers d’installation ne tiennent pas sur cette clé USB. Utilisez une clé de plus grande capacité, puis réessayez. Votre clé USB n’a pas été modifiée.
 usb-failed-drive-changed = La clé USB a été retirée, rebranchée ou remplacée après la lecture de la liste. Choisissez Actualiser, sélectionnez à nouveau la clé, puis choisissez Vérifier la clé USB. Votre clé USB n’a pas été modifiée.
 usb-cancelled = La clé peut contenir des fichiers d’installation incomplets. Recréez-la avant de l’utiliser pour installer Windows.
 usb-cancelled-title = Création de la clé USB annulée
 usb-cancelled-unchanged = Votre clé USB n’a pas été modifiée.
-usb-complete = Atlas a vérifié chaque fichier. Choisissez Éjecter la clé USB, puis sauvegardez les fichiers du PC à réinstaller. Branchez la clé sur ce même PC, puis démarrez-le depuis la clé USB à l’aide de son menu de démarrage (souvent F12, F11 ou Échap au démarrage du PC).
+usb-complete = Fluxxwave a vérifié chaque fichier. Choisissez Éjecter la clé USB, puis sauvegardez les fichiers du PC à réinstaller. Branchez la clé sur ce même PC, puis démarrez-le depuis la clé USB à l’aide de son menu de démarrage (souvent F12, F11 ou Échap au démarrage du PC).
 usb-eject = Éjecter la clé USB
 usb-ejected = Vous pouvez maintenant débrancher la clé USB. Sauvegardez les fichiers du PC à réinstaller. Démarrez ensuite ce même PC depuis la clé USB à l’aide de son menu de démarrage (souvent F12, F11 ou Échap au démarrage).
 usb-eject-failed = Fermez les fichiers ou fenêtres qui l’utilisent, puis réessayez.
 usb-eject-failed-title = Impossible d’éjecter la clé USB
-ready-fresh-title = Atlas est conçu pour une nouvelle installation de Windows
+ready-fresh-title = Fluxxwave est conçu pour une nouvelle installation de Windows
 ready-fresh-description = Si vous utilisez déjà Windows sur ce PC, sauvegardez vos fichiers et réinstallez Windows avant de continuer. Assurez-vous d’abord que la vérification Compatibilité de Windows réussit dans Vérifications du PC, pour réinstaller une version prise en charge.
 # Famille (Home), LTSC et Server sont les éditions que la vérification refuse ; les autres sont des exemples d'éditions acceptées. Noms tels que Windows les affiche en français.
 detail-edition-unsupported = Les éditions Famille, LTSC et Server de Windows 11 ne sont pas prises en charge. Utilisez une autre édition, comme Professionnel, Éducation ou Entreprise. Si Windows n’a pas pu identifier votre édition, résolvez ce problème avant de continuer.
 install-source-title = Installation indisponible
-install-source-unsupported = Atlas { $source } ne peut pas être mis à jour directement vers { $target }. Pour utiliser cette version, sauvegardez vos fichiers et réinstallez Windows.
+install-source-unsupported = Fluxxwave { $source } ne peut pas être mis à jour directement vers { $target }. Pour utiliser cette version, sauvegardez vos fichiers et réinstallez Windows.
 # Avant le choix d'un package : la version proposée n'est pas encore connue.
-install-source-unsupported-any = Atlas { $source } ne peut pas être mis à jour directement. Pour utiliser une version plus récente, sauvegardez vos fichiers et réinstallez Windows.
+install-source-unsupported-any = Fluxxwave { $source } ne peut pas être mis à jour directement. Pour utiliser une version plus récente, sauvegardez vos fichiers et réinstallez Windows.
 # « Ouvrir un fichier de package » est package-open-file. $folder est un chemin de dossier (texte).
-install-source-resume = Une installation d’Atlas { $target } ne s’est pas terminée, et seul le package Atlas { $target } permet de l’achever. Choisissez Ouvrir un fichier de package et sélectionnez ce package Atlas (.apbx). Si Atlas l’a téléchargé, il se trouve dans { $folder }.
-# Version de test : seul le package Atlas intégré peut être installé.
-install-source-resume-bundled = Une installation d’Atlas { $target } ne s’est pas terminée. Cette version de test ne peut installer que son package Atlas intégré : terminez donc cette installation avec le package Atlas { $target } dans une version publiée d’Atlas Manager.
-install-source-unknown = Atlas n’a pas pu confirmer ce qui est déjà installé sur ce PC et n’installera donc rien pour le moment. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
+install-source-resume = Une installation de Fluxxwave { $target } ne s’est pas terminée, et seul le package Fluxxwave { $target } permet de l’achever. Choisissez Ouvrir un fichier de package et sélectionnez ce package Fluxxwave (.apbx). Si Fluxxwave l’a téléchargé, il se trouve dans { $folder }.
+# Version de test : seul le package Fluxxwave intégré peut être installé.
+install-source-resume-bundled = Une installation de Fluxxwave { $target } ne s’est pas terminée. Cette version de test ne peut installer que son package Fluxxwave intégré : terminez donc cette installation avec le package Fluxxwave { $target } dans une version publiée de Fluxxwave Manager.
+install-source-unknown = Fluxxwave n’a pas pu confirmer ce qui est déjà installé sur ce PC et n’installera donc rien pour le moment. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
 # $problem est l'un des messages install-source-* ; $error est un message d'erreur brut (texte).
 install-source-details = { $problem } Détails : { $error }
 iso-edition-selection = Seules les éditions prises en charge sont incluses. Lors de l’installation de Windows, choisissez une édition pour laquelle vous disposez d’une licence Windows.
 detail-windows-preview = Les builds Insider ne sont pas prises en charge. Utilisez une version publique de Windows 11.
-detail-windows-release-unknown = Atlas n’a pas pu confirmer que cette build de Windows est une version publique. Connectez-vous à Internet et vérifiez à nouveau.
+detail-windows-release-unknown = Fluxxwave n’a pas pu confirmer que cette build de Windows est une version publique. Connectez-vous à Internet et vérifiez à nouveau.
 # $build is this PC's Windows build and update number, such as 26300.9807 (text).
-detail-windows-release-unlisted = La build { $build } ne figure pas dans la liste Microsoft des versions publiques de Windows 11, Atlas ne peut donc pas encore s’y installer. Les builds Release Preview et les autres builds en préversion ne sont pas prises en charge. Choisissez Vérifier à nouveau dès que Microsoft aura ajouté cette build à la liste.
-iso-release-unknown = Atlas n’a pas pu confirmer que cette ISO contient une version publique de Windows 11 prise en charge par le package Atlas. Connectez-vous à Internet, puis choisissez à nouveau Vérifier les fichiers. Si l’échec persiste, téléchargez de nouveau l’ISO auprès de Microsoft.
+detail-windows-release-unlisted = La build { $build } ne figure pas dans la liste Microsoft des versions publiques de Windows 11, Fluxxwave ne peut donc pas encore s’y installer. Les builds Release Preview et les autres builds en préversion ne sont pas prises en charge. Choisissez Vérifier à nouveau dès que Microsoft aura ajouté cette build à la liste.
+iso-release-unknown = Fluxxwave n’a pas pu confirmer que cette ISO contient une version publique de Windows 11 prise en charge par le package Fluxxwave. Connectez-vous à Internet, puis choisissez à nouveau Vérifier les fichiers. Si l’échec persiste, téléchargez de nouveau l’ISO auprès de Microsoft.
 iso-release-unlisted = La build de Windows 11 contenue dans cette ISO ne figure pas dans la liste Microsoft des versions publiques. Les builds Release Preview et les autres builds en préversion ne sont pas prises en charge. Téléchargez l’ISO auprès de Microsoft, ou choisissez à nouveau Vérifier les fichiers dès que Microsoft aura ajouté cette build à la liste.
-prepare-previous-worker = Des mises à jour lancées précédemment sont toujours en cours. Atlas attendra qu’elles se terminent, puis vous pourrez rechercher à nouveau les mises à jour.
+prepare-previous-worker = Des mises à jour lancées précédemment sont toujours en cours. Fluxxwave attendra qu’elles se terminent, puis vous pourrez rechercher à nouveau les mises à jour.
 
 ready-used-windows-title = Windows semble déjà utilisé sur ce PC
-ready-used-windows-description = Windows a été installé sur ce PC il y a au moins une semaine ou contient déjà plusieurs applications. Installer Atlas ici n’est pas pris en charge et est fortement déconseillé : vos applications et paramètres existants risquent de ne pas fonctionner comme prévu, et Atlas supprime OneDrive, si bien que les fichiers qu’il contient ne sont plus synchronisés et que vos dossiers Bureau, Documents et Images peuvent sembler vides. Sauvegardez vos fichiers et réinstallez d’abord Windows, ou ne continuez que si vous acceptez ce risque.
+ready-used-windows-description = Windows a été installé sur ce PC il y a au moins une semaine ou contient déjà plusieurs applications. Installer Fluxxwave ici n’est pas pris en charge et est fortement déconseillé : vos applications et paramètres existants risquent de ne pas fonctionner comme prévu, et Fluxxwave supprime OneDrive, si bien que les fichiers qu’il contient ne sont plus synchronisés et que vos dossiers Bureau, Documents et Images peuvent sembler vides. Sauvegardez vos fichiers et réinstallez d’abord Windows, ou ne continuez que si vous acceptez ce risque.
 ready-used-windows-dismiss = Continuer quand même
 
-prepare-resumed = Votre PC a redémarré et Atlas a restauré les choix que vous aviez déjà faits. Choisissez Poursuivre les mises à jour pour les terminer avant d’installer Atlas.
+prepare-resumed = Votre PC a redémarré et Fluxxwave a restauré les choix que vous aviez déjà faits. Choisissez Poursuivre les mises à jour pour les terminer avant d’installer Fluxxwave.
 prepare-continue = Poursuivre les mises à jour
-prepare-saving-restart = Enregistrement de vos choix et configuration de la réouverture d’Atlas après le redémarrage de Windows…
+prepare-saving-restart = Enregistrement de vos choix et configuration de la réouverture de Fluxxwave après le redémarrage de Windows…
 prepare-restart-save-failed = Vos choix n’ont pas pu être enregistrés. Réessayez avant de redémarrer.
-prepare-restart-registration-failed = Vos choix sont enregistrés, mais Atlas n’a pas pu prévoir sa réouverture après le redémarrage. Réessayez, ou redémarrez votre PC vous-même et ouvrez Atlas après votre connexion.
-prepare-restart-source-linked = Vos choix sont enregistrés, mais tant qu’Atlas Manager se trouve dans un dossier lié, Atlas ne peut pas prévoir sa réouverture après le redémarrage. Fermez Atlas et déplacez Atlas Manager dans un dossier local de ce PC. Ouvrez-le ensuite depuis ce dossier, ou redémarrez votre PC vous-même et ouvrez-le depuis ce dossier après votre connexion.
-prepare-restart-failed = Atlas n’a pas pu redémarrer votre PC. Réessayez ou redémarrez-le depuis le menu Démarrer. Vos choix sont enregistrés et Atlas se rouvrira après votre connexion.
+prepare-restart-registration-failed = Vos choix sont enregistrés, mais Fluxxwave n’a pas pu prévoir sa réouverture après le redémarrage. Réessayez, ou redémarrez votre PC vous-même et ouvrez Fluxxwave après votre connexion.
+prepare-restart-source-linked = Vos choix sont enregistrés, mais tant que Fluxxwave Manager se trouve dans un dossier lié, Fluxxwave ne peut pas prévoir sa réouverture après le redémarrage. Fermez Fluxxwave et déplacez Fluxxwave Manager dans un dossier local de ce PC. Ouvrez-le ensuite depuis ce dossier, ou redémarrez votre PC vous-même et ouvrez-le depuis ce dossier après votre connexion.
+prepare-restart-failed = Fluxxwave n’a pas pu redémarrer votre PC. Réessayez ou redémarrez-le depuis le menu Démarrer. Vos choix sont enregistrés et Fluxxwave se rouvrira après votre connexion.
 diagnostics-export = Exporter les diagnostics
 diagnostics-exporting = Collecte des diagnostics…
-diagnostics-privacy = Envoyez un rapport en privé à l’équipe Atlas, ou exportez un ZIP de diagnostic à partager quand vous demandez de l’aide. Atlas en retire votre nom d’utilisateur, le nom de votre PC et vos adresses e-mail.
+diagnostics-privacy = Envoyez un rapport en privé à l’équipe Atlas, ou exportez un ZIP de diagnostic à partager quand vous demandez de l’aide. Fluxxwave en retire votre nom d’utilisateur, le nom de votre PC et vos adresses e-mail.
 # Titre de la barre de résultat après une exportation ; son bouton est iso-open-folder.
 diagnostics-saved = ZIP de diagnostic créé
 diagnostics-failed-title = Impossible d’exporter les diagnostics
@@ -967,28 +967,28 @@ diagnostics-failed = Vérifiez que votre PC dispose d’espace disque libre, pui
 ## Tester builds (embedded-playbook feature)
 
 # One line of chrome under the title bar on a release-candidate build.
-rc-banner = Version de test Atlas { $release }. Cette application n’installe que le package Atlas intégré.
+rc-banner = Version de test Fluxxwave { $release }. Cette application n’installe que le package Fluxxwave intégré.
 home-status-bundled = Version de test { $release }
-package-bundled = Atlas { $version }, intégré à cette version de test, est prêt à être installé.
+package-bundled = Fluxxwave { $version }, intégré à cette version de test, est prêt à être installé.
 rc-about-release = Version de test
 rc-about-commit = Commit source
-rc-about-package = Package Atlas intégré (SHA-256)
-iso-package-bundled = Le package Atlas intégré à cette version de test
+rc-about-package = Package Fluxxwave intégré (SHA-256)
+iso-package-bundled = Le package Fluxxwave intégré à cette version de test
 prepare-percent = { $percent } % de cette opération
 prepare-count = Mises à jour terminées : { $completed } sur { $total }
 prepare-bytes = { $downloaded } sur environ { $total } Mo téléchargés
 prepare-elapsed = Temps écoulé : { $minutes } min { $seconds } s
 prepare-progress-waiting = En attente du service de mise à jour. Aucun pourcentage n’est disponible pour cette opération.
-prepare-progress-unchanged = Aucune progression depuis { $minutes } min. Les mises à jour volumineuses peuvent prendre du temps : gardez Atlas ouvert. Pour plus de détails, choisissez Ouvrir le dossier des journaux.
-prepare-report-delayed = Windows n’a signalé aucune progression depuis { $seconds } s. Les mises à jour sont peut-être encore en cours : gardez Atlas ouvert.
+prepare-progress-unchanged = Aucune progression depuis { $minutes } min. Les mises à jour volumineuses peuvent prendre du temps : gardez Fluxxwave ouvert. Pour plus de détails, choisissez Ouvrir le dossier des journaux.
+prepare-report-delayed = Windows n’a signalé aucune progression depuis { $seconds } s. Les mises à jour sont peut-être encore en cours : gardez Fluxxwave ouvert.
 
 prepare-affected-app = l’application concernée
 prepare-app-in-use = Fermez { $app }, puis réessayez. Windows ne peut pas mettre à jour cette application tant qu’elle est ouverte. Si vous ne trouvez pas sa fenêtre, fermez l’application dans le Gestionnaire des tâches. Si l’échec persiste, redémarrez votre PC et réessayez avant d’ouvrir { $app }.
 prepare-install-busy = Une autre installation ou un redémarrage requis bloque les mises à jour. Attendez la fin des autres installations, redémarrez votre PC si Windows vous le demande, puis réessayez.
-prepare-failed-component-store = Windows signale que son magasin de composants est endommagé, ce qui empêche l’installation des mises à jour, et Atlas n’a pas pu le réparer. Redémarrez votre PC, puis choisissez Réessayer. Si les mises à jour échouent encore, sauvegardez vos fichiers et réinstallez Windows avec une ISO Atlas.
-prepare-failed-component-store-unrepairable = Windows signale que son magasin de composants est endommagé et qu’il ne peut pas le réparer, si bien qu’il ne peut pas installer de mises à jour. Sauvegardez vos fichiers, puis réinstallez Windows avec une ISO Atlas.
+prepare-failed-component-store = Windows signale que son magasin de composants est endommagé, ce qui empêche l’installation des mises à jour, et Fluxxwave n’a pas pu le réparer. Redémarrez votre PC, puis choisissez Réessayer. Si les mises à jour échouent encore, sauvegardez vos fichiers et réinstallez Windows avec une ISO Fluxxwave.
+prepare-failed-component-store-unrepairable = Windows signale que son magasin de composants est endommagé et qu’il ne peut pas le réparer, si bien qu’il ne peut pas installer de mises à jour. Sauvegardez vos fichiers, puis réinstallez Windows avec une ISO Fluxxwave.
 # Causes signalées par le processus de mise à jour. Son propre message en anglais est affiché en dessous comme détail.
-prepare-failed-session-owner = Atlas s’exécute sous un autre compte que celui connecté à Windows. Connectez-vous à Windows avec un compte administrateur, ouvrez Atlas depuis ce compte, puis réessayez.
+prepare-failed-session-owner = Fluxxwave s’exécute sous un autre compte que celui connecté à Windows. Connectez-vous à Windows avec un compte administrateur, ouvrez Fluxxwave depuis ce compte, puis réessayez.
 prepare-failed-store-missing = Le Microsoft Store n’est pas configuré pour votre compte. Ouvrez le Microsoft Store une fois, ou réinstallez-le s’il est absent, puis réessayez.
 prepare-failed-store-battery = Le Microsoft Store a suspendu les mises à jour pour économiser la batterie. Branchez votre PC sur le secteur, puis réessayez.
 prepare-failed-store-network = Le Microsoft Store a suspendu les mises à jour jusqu’à ce que votre PC dispose d’une connexion non limitée. Connectez-vous en Wi-Fi ou par Ethernet avec une connexion non limitée, puis réessayez.
@@ -996,20 +996,20 @@ prepare-failed-store-timeout = Les applications du Store n’ont pas fini de se 
 prepare-failed-store-passes = Le Microsoft Store a continué à proposer de nouvelles mises à jour. Terminez les mises à jour restantes dans le Microsoft Store, puis réessayez.
 prepare-failed-manual-updates = Certaines mises à jour Windows doivent être terminées dans Windows Update. Ouvrez Windows Update, terminez-les, puis réessayez.
 prepare-failed-windows-passes = Windows Update a continué à proposer de nouvelles mises à jour. Terminez les mises à jour restantes dans Windows Update, puis réessayez.
-prepare-failed-source-linked = Atlas Manager se trouve dans un dossier lié. Fermez Atlas, déplacez Atlas Manager dans un dossier local de ce PC, puis ouvrez-le depuis ce dossier.
+prepare-failed-source-linked = Fluxxwave Manager se trouve dans un dossier lié. Fermez Fluxxwave, déplacez Fluxxwave Manager dans un dossier local de ce PC, puis ouvrez-le depuis ce dossier.
 prepare-error-code = Code d’erreur : { $code }
 prepare-open-store = Ouvrir Microsoft Store
 
 check-user-account = Compte utilisateur
 detail-user-account-ok = Le contrôle de compte d’utilisateur est activé et votre compte est prêt pour l’installation.
 detail-user-account-not-ready = Activez le contrôle de compte d’utilisateur (UAC), redémarrez votre PC, puis réessayez. Si vous utilisez le compte Administrateur intégré, connectez-vous avec un autre compte administrateur.
-detail-user-account-work-or-school = Atlas ne peut pas être installé depuis un compte professionnel ou scolaire (Microsoft Entra ID). Connectez-vous avec un compte local ou un compte Microsoft, puis réessayez.
-detail-user-account-unknown = Atlas n’a pas pu vérifier votre compte utilisateur. Redémarrez votre PC, puis rouvrez Atlas et vérifiez à nouveau. Si cela se reproduit, choisissez Envoyer un rapport. Windows a signalé : { $error }
+detail-user-account-work-or-school = Fluxxwave ne peut pas être installé depuis un compte professionnel ou scolaire (Microsoft Entra ID). Connectez-vous avec un compte local ou un compte Microsoft, puis réessayez.
+detail-user-account-unknown = Fluxxwave n’a pas pu vérifier votre compte utilisateur. Redémarrez votre PC, puis rouvrez Fluxxwave et vérifiez à nouveau. Si cela se reproduit, choisissez Envoyer un rapport. Windows a signalé : { $error }
 
 footer-prepare-required = Terminez la mise à jour de Windows et des applications du Store pour continuer
 footer-prepare-stopping = Arrêt des mises à jour après l’opération en cours…
 resume-choices-title = Reprise de votre installation précédente
-resume-choices-detail = Pour terminer cette installation, Atlas a restauré les choix que vous aviez faits la dernière fois. Vous ne pourrez pas les modifier à l’étape Vos choix tant que cette installation n’est pas terminée.
+resume-choices-detail = Pour terminer cette installation, Fluxxwave a restauré les choix que vous aviez faits la dernière fois. Vous ne pourrez pas les modifier à l’étape Vos choix tant que cette installation n’est pas terminée.
 
 ## Voluntary reports
 report-title = Envoyer un rapport
@@ -1028,7 +1028,7 @@ report-message-placeholder = J’essayais de…
 report-contact = Coordonnées (facultatif)
 report-contact-placeholder = Adresse e-mail ou nom d’utilisateur Discord
 report-attach = Joindre les diagnostics
-report-attach-description = Journaux et informations système qui aident à trouver la cause. Atlas retire votre nom d’utilisateur, le nom du PC, les adresses e-mail ainsi que les mots de passe ou clés connus. Les détails des erreurs, les modèles de matériel et les noms d’applications sont conservés. Vous pouvez vérifier le ZIP avant l’envoi.
+report-attach-description = Journaux et informations système qui aident à trouver la cause. Fluxxwave retire votre nom d’utilisateur, le nom du PC, les adresses e-mail ainsi que les mots de passe ou clés connus. Les détails des erreurs, les modèles de matériel et les noms d’applications sont conservés. Vous pouvez vérifier le ZIP avant l’envoi.
 report-prepare = Préparer les diagnostics
 report-review = Vérifier le ZIP
 report-prepare-failed-title = Impossible de préparer les diagnostics
@@ -1039,7 +1039,7 @@ report-website = Confidentialité et site de signalement
 report-consent = J’accepte d’envoyer ce rapport et les éventuels diagnostics joints à l’équipe Atlas
 report-failed = Votre message est conservé. Vérifiez votre connexion Internet, puis choisissez Réessayer, ou envoyez votre rapport depuis le site de signalement.
 report-failed-busy = Le service de signalement est occupé. Votre message est conservé. Réessayez plus tard.
-report-failed-outdated = Cette version d’Atlas Manager ne peut plus envoyer de rapports. Votre message est conservé : copiez-le sur le site de signalement. Si vous avez joint les diagnostics, choisissez Vérifier le ZIP et joignez aussi le ZIP sur le site.
+report-failed-outdated = Cette version de Fluxxwave Manager ne peut plus envoyer de rapports. Votre message est conservé : copiez-le sur le site de signalement. Si vous avez joint les diagnostics, choisissez Vérifier le ZIP et joignez aussi le ZIP sur le site.
 report-failed-diagnostics = Les diagnostics préparés ne peuvent pas être envoyés. Votre message est conservé. Préparez à nouveau les diagnostics ou désactivez Joindre les diagnostics.
 # Lien sous un rapport qui n'a pas été envoyé.
 report-failed-website = Ouvrir le site de signalement
@@ -1055,73 +1055,73 @@ report-validation-consent = Confirmez votre accord pour envoyer ce rapport.
 report-failed-title = Rapport non envoyé
 
 ## Windows version update
-home-plan-intro = Cette mise à jour se fait en deux temps. Vos fichiers et vos applications sont conservés. Si la mise à jour de Windows annule certaines modifications d’Atlas, Atlas les rétablit.
+home-plan-intro = Cette mise à jour se fait en deux temps. Vos fichiers et vos applications sont conservés. Si la mise à jour de Windows annule certaines modifications de Fluxxwave, Fluxxwave les rétablit.
 home-plan-windows-title = Windows 11, version { $release }
-home-plan-windows-detail = Atlas l’installe depuis Windows Update. Votre PC redémarre pour terminer l’installation.
-home-plan-windows-optional = Recommandé. Atlas l’installe depuis Windows Update. Votre PC redémarre pour terminer l’installation.
-home-plan-atlas-title = Atlas { $version }
-home-plan-atlas-detail = Atlas met à jour ses fichiers et conserve les choix que vous avez faits. Votre PC redémarre à la fin.
+home-plan-windows-detail = Fluxxwave l’installe depuis Windows Update. Votre PC redémarre pour terminer l’installation.
+home-plan-windows-optional = Recommandé. Fluxxwave l’installe depuis Windows Update. Votre PC redémarre pour terminer l’installation.
+home-plan-atlas-title = Fluxxwave { $version }
+home-plan-atlas-detail = Fluxxwave met à jour ses fichiers et conserve les choix que vous avez faits. Votre PC redémarre à la fin.
 home-end-of-updates-title = Windows 11, version { $current } cessera de recevoir des mises à jour de sécurité le { $date }
 home-end-of-updates-past-title = Windows 11, version { $current } ne reçoit plus de mises à jour de sécurité
-home-end-of-updates-message = La mise à jour vers Atlas { $version } fait aussi passer ce PC à Windows 11, version { $release }, qui reçoit des mises à jour de sécurité jusqu’au { $until }.
-install-windows-edition = Atlas { $version } fonctionne avec Windows 11 Professionnel, Entreprise et Éducation. Ce PC utilise { $product } : Atlas ne peut donc pas s’y installer.
-install-windows-edition-ending = Atlas { $version } fonctionne avec Windows 11 Professionnel, Entreprise et Éducation. Ce PC utilise { $product } : Atlas ne peut donc pas s’y installer. Windows 11, version { $current } cessera de recevoir des mises à jour de sécurité le { $date }. Windows Update peut faire passer ce PC à une version plus récente.
-install-windows-no-path = Atlas { $version } nécessite Windows 11, version { $releases }, et Windows Update ne peut pas y faire passer ce PC depuis le Windows installé. Pour utiliser Atlas { $version }, sauvegardez vos fichiers et réinstallez Windows avec une ISO Atlas.
-home-update-access-title = Paramètres Windows Update modifiés pour la mise à jour d’Atlas
-home-update-access-not-offered = Atlas a activé Windows Update pour faire passer ce PC à Windows 11, version { $release }, mais Windows Update ne l’a pas encore proposé. Choisissez Vérifier à nouveau ou Rétablir les paramètres.
-home-update-access-before = Atlas a activé Windows Update pour faire passer ce PC à Windows 11, version { $release }, et n’a pas terminé. Poursuivez la mise à jour, ou choisissez Rétablir les paramètres.
-home-update-access-after = Ce PC utilise Windows 11, version { $release }. Terminez l’installation d’Atlas, ou choisissez Rétablir les paramètres.
-home-update-access-plain = Atlas a activé Windows Update pour installer des mises à jour et n’a pas terminé. Poursuivez la mise à jour, ou choisissez Rétablir les paramètres.
-home-update-access-unreadable = Atlas ne parvient pas à lire son enregistrement des paramètres Windows Update qu’il a modifiés : il ne modifiera et ne rétablira donc rien. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
-home-update-access-failed = Atlas n’a pas pu rétablir les paramètres. Réessayez ou choisissez Envoyer un rapport. Détails : { $error }
-home-update-access-install-active = Terminez d’abord l’installation d’Atlas. Elle rétablit ces paramètres à la fin.
+home-end-of-updates-message = La mise à jour vers Fluxxwave { $version } fait aussi passer ce PC à Windows 11, version { $release }, qui reçoit des mises à jour de sécurité jusqu’au { $until }.
+install-windows-edition = Fluxxwave { $version } fonctionne avec Windows 11 Professionnel, Entreprise et Éducation. Ce PC utilise { $product } : Fluxxwave ne peut donc pas s’y installer.
+install-windows-edition-ending = Fluxxwave { $version } fonctionne avec Windows 11 Professionnel, Entreprise et Éducation. Ce PC utilise { $product } : Fluxxwave ne peut donc pas s’y installer. Windows 11, version { $current } cessera de recevoir des mises à jour de sécurité le { $date }. Windows Update peut faire passer ce PC à une version plus récente.
+install-windows-no-path = Fluxxwave { $version } nécessite Windows 11, version { $releases }, et Windows Update ne peut pas y faire passer ce PC depuis le Windows installé. Pour utiliser Fluxxwave { $version }, sauvegardez vos fichiers et réinstallez Windows avec une ISO Fluxxwave.
+home-update-access-title = Paramètres Windows Update modifiés pour la mise à jour de Fluxxwave
+home-update-access-not-offered = Fluxxwave a activé Windows Update pour faire passer ce PC à Windows 11, version { $release }, mais Windows Update ne l’a pas encore proposé. Choisissez Vérifier à nouveau ou Rétablir les paramètres.
+home-update-access-before = Fluxxwave a activé Windows Update pour faire passer ce PC à Windows 11, version { $release }, et n’a pas terminé. Poursuivez la mise à jour, ou choisissez Rétablir les paramètres.
+home-update-access-after = Ce PC utilise Windows 11, version { $release }. Terminez l’installation de Fluxxwave, ou choisissez Rétablir les paramètres.
+home-update-access-plain = Fluxxwave a activé Windows Update pour installer des mises à jour et n’a pas terminé. Poursuivez la mise à jour, ou choisissez Rétablir les paramètres.
+home-update-access-unreadable = Fluxxwave ne parvient pas à lire son enregistrement des paramètres Windows Update qu’il a modifiés : il ne modifiera et ne rétablira donc rien. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
+home-update-access-failed = Fluxxwave n’a pas pu rétablir les paramètres. Réessayez ou choisissez Envoyer un rapport. Détails : { $error }
+home-update-access-install-active = Terminez d’abord l’installation de Fluxxwave. Elle rétablit ces paramètres à la fin.
 home-continue-update = Reprendre la mise à jour
 home-put-back = Rétablir les paramètres
 home-putting-back = Rétablissement des paramètres…
 windows-card-title = Windows 11, version { $release }
-windows-card-required = Atlas { $version } nécessite une version plus récente de Windows. Lorsqu’Atlas met à jour Windows ci-dessous, il installe aussi Windows 11, version { $release }, depuis Windows Update.
+windows-card-required = Fluxxwave { $version } nécessite une version plus récente de Windows. Lorsque Fluxxwave met à jour Windows ci-dessous, il installe aussi Windows 11, version { $release }, depuis Windows Update.
 windows-card-question = Quelle version de Windows ce PC doit-il utiliser ?
 windows-choice-move = Mettre à jour vers Windows 11, version { $release }
 windows-choice-move-detail = Recommandé. Mises à jour de sécurité jusqu’au { $date }. Un redémarrage de plus.
 windows-choice-keep = Conserver Windows 11, version { $current }
-windows-choice-keep-detail = Votre PC reste sur cette version. Windows Update ne le fera pas passer à une version plus récente : pour en changer plus tard, il faudra une autre mise à jour dans Atlas Manager.
+windows-choice-keep-detail = Votre PC reste sur cette version. Windows Update ne le fera pas passer à une version plus récente : pour en changer plus tard, il faudra une autre mise à jour dans Fluxxwave Manager.
 windows-card-facts = Ce qui change
-windows-fact-keep = Vos fichiers et vos applications sont conservés. Si la mise à jour annule certaines modifications d’Atlas, Atlas les rétablit lors de son installation.
+windows-fact-keep = Vos fichiers et vos applications sont conservés. Si la mise à jour annule certaines modifications de Fluxxwave, Fluxxwave les rétablit lors de son installation.
 windows-fact-restart = Votre PC redémarre au moins une fois de plus pour la terminer.
-transition-offer-expectation = Windows Update propose généralement cette version en quelques minutes, mais cela peut prendre jusqu’à 2 heures : Atlas attend et vérifie pour vous.
+transition-offer-expectation = Windows Update propose généralement cette version en quelques minutes, mais cela peut prendre jusqu’à 2 heures : Fluxxwave attend et vérifie pour vous.
 windows-fact-stays = Ensuite, Windows reste sur la version { $release } et ne passe pas de lui-même à une version plus récente.
 windows-fact-removed = La version { $release } n’inclut ni Windows PowerShell 2.0 ni l’outil WMIC.
-windows-card-undo = Pour l’annuler plus tard, désinstallez la mise à jour dans Windows Update > Historique des mises à jour. Si Windows s’est réinstallé pour se mettre à jour, choisissez plutôt Retour en arrière dans Paramètres > Système > Récupération, dans les 10 jours. Atlas { $version } ne prend pas en charge la version { $current } : n’annulez donc pas la mise à jour une fois Atlas { $version } installé.
+windows-card-undo = Pour l’annuler plus tard, désinstallez la mise à jour dans Windows Update > Historique des mises à jour. Si Windows s’est réinstallé pour se mettre à jour, choisissez plutôt Retour en arrière dans Paramètres > Système > Récupération, dans les 10 jours. Fluxxwave { $version } ne prend pas en charge la version { $current } : n’annulez donc pas la mise à jour une fois Fluxxwave { $version } installé.
 windows-card-undo-optional = Pour l’annuler plus tard, désinstallez la mise à jour dans Windows Update > Historique des mises à jour. Si Windows s’est réinstallé pour se mettre à jour, choisissez plutôt Retour en arrière dans Paramètres > Système > Récupération, dans les 10 jours.
 windows-terms = J’accepte les termes du contrat de licence logiciel Microsoft pour Windows 11, version { $release }
 windows-terms-link = Lire les termes du contrat de licence
 windows-card-locked = Pour conserver la version { $current }, choisissez Annuler, puis Arrêter les mises à jour.
-prepare-description-transition = Avant l’installation, Atlas installe les mises à jour Windows en attente, puis Windows 11, version { $release }, puis met à jour le Microsoft Store et vos applications du Store. Les applications du Store ouvertes peuvent se fermer pendant leur mise à jour : enregistrez d’abord votre travail dans ces applications. Votre PC redémarre au moins une fois.
+prepare-description-transition = Avant l’installation, Fluxxwave installe les mises à jour Windows en attente, puis Windows 11, version { $release }, puis met à jour le Microsoft Store et vos applications du Store. Les applications du Store ouvertes peuvent se fermer pendant leur mise à jour : enregistrez d’abord votre travail dans ces applications. Votre PC redémarre au moins une fois.
 prepare-start-transition = Mettre à jour Windows vers la version { $release }
 prepare-needs-terms = Disponible lorsque vous acceptez les termes du contrat de licence dans la carte Windows 11, version { $release }.
 ready-banner-not-offered-message = Consultez « Mettre à jour Windows et les applications du Store » pour savoir ce que vous pouvez faire maintenant.
 ready-banner-transition-failed-message = Consultez « Mettre à jour Windows et les applications du Store » pour savoir quoi faire ensuite.
 ready-banner-terms-title = Acceptez les termes du contrat de licence pour continuer
 ready-banner-terms-message = Ils se trouvent dans la carte Windows 11, version { $release }, plus bas sur cette page. Choisissez ensuite Mettre à jour Windows vers la version { $release }.
-access-notice-title = Atlas active temporairement Windows Update
-access-off = Windows Update est désactivé sur ce PC. Atlas le réactive pendant qu’il met à jour Windows.
-access-paused = Les mises à jour Windows sont suspendues sur ce PC. Atlas lève cette suspension pendant qu’il met à jour Windows.
-access-delayed = Les mises à jour mensuelles sont différées sur ce PC. Atlas supprime ce report pendant qu’il met à jour Windows.
-access-back-chosen = Une fois Atlas { $version } installé, ces paramètres sont rétablis selon vos choix.
-access-back = Une fois Atlas { $version } installé, ces paramètres sont rétablis tels qu’ils étaient.
-access-back-stop = Si vous arrêtez avant, Atlas les rétablit.
-prepare-reboot-transition = Windows 11, version { $release } est installé. Choisissez Redémarrer et continuer pour terminer son installation. Atlas se rouvre après votre connexion.
-prepare-reboot-commit = Windows doit redémarrer une fois de plus pour terminer l’installation de la version { $release }. Atlas se rouvre après votre connexion.
+access-notice-title = Fluxxwave active temporairement Windows Update
+access-off = Windows Update est désactivé sur ce PC. Fluxxwave le réactive pendant qu’il met à jour Windows.
+access-paused = Les mises à jour Windows sont suspendues sur ce PC. Fluxxwave lève cette suspension pendant qu’il met à jour Windows.
+access-delayed = Les mises à jour mensuelles sont différées sur ce PC. Fluxxwave supprime ce report pendant qu’il met à jour Windows.
+access-back-chosen = Une fois Fluxxwave { $version } installé, ces paramètres sont rétablis selon vos choix.
+access-back = Une fois Fluxxwave { $version } installé, ces paramètres sont rétablis tels qu’ils étaient.
+access-back-stop = Si vous arrêtez avant, Fluxxwave les rétablit.
+prepare-reboot-transition = Windows 11, version { $release } est installé. Choisissez Redémarrer et continuer pour terminer son installation. Fluxxwave se rouvre après votre connexion.
+prepare-reboot-commit = Windows doit redémarrer une fois de plus pour terminer l’installation de la version { $release }. Fluxxwave se rouvre après votre connexion.
 prepare-restart-commit-failed = Windows n’a pas pu préparer la fin de l’installation de la version { $release } au redémarrage : votre PC n’a donc pas redémarré. Choisissez Redémarrer et continuer pour réessayer.
 prepare-reason-feature-update = la nouvelle version de Windows
 prepare-reason-feature-commit = la finalisation de la nouvelle version de Windows
-prepare-resumed-transition = Votre PC a redémarré. Choisissez Poursuivre les mises à jour pour qu’Atlas vérifie que l’installation de Windows 11, version { $release } est terminée et installe les mises à jour restantes.
-prepare-waiting-offer = Atlas attend que Windows Update propose Windows 11, version { $release }. Cela prend généralement quelques minutes, mais peut durer jusqu’à 2 heures. Vous pouvez continuer à utiliser votre PC, mais laissez Atlas ouvert.
-prepare-resumed-before-move = Votre PC a redémarré pour terminer l’installation des mises à jour. Choisissez Poursuivre les mises à jour pour qu’Atlas installe les mises à jour restantes, puis Windows 11, version { $release }.
+prepare-resumed-transition = Votre PC a redémarré. Choisissez Poursuivre les mises à jour pour que Fluxxwave vérifie que l’installation de Windows 11, version { $release } est terminée et installe les mises à jour restantes.
+prepare-waiting-offer = Fluxxwave attend que Windows Update propose Windows 11, version { $release }. Cela prend généralement quelques minutes, mais peut durer jusqu’à 2 heures. Vous pouvez continuer à utiliser votre PC, mais laissez Fluxxwave ouvert.
+prepare-resumed-before-move = Votre PC a redémarré pour terminer l’installation des mises à jour. Choisissez Poursuivre les mises à jour pour que Fluxxwave installe les mises à jour restantes, puis Windows 11, version { $release }.
 prepare-not-offered-title = En attente de Windows 11, version { $release } dans Windows Update
 prepare-transition-failed-title = Windows n’a pas pu passer à la version { $release }
 prepare-failed-feature-not-offered = Windows Update peut mettre du temps à proposer Windows 11, version { $release } à un PC. Votre PC utilise toujours la version { $current }.
-prepare-offer-rechecking = Atlas vérifie à nouveau toutes les 10 minutes et poursuit automatiquement dès que Windows Update propose cette version. Vous pouvez aussi choisir Vérifier à nouveau.
+prepare-offer-rechecking = Fluxxwave vérifie à nouveau toutes les 10 minutes et poursuit automatiquement dès que Windows Update propose cette version. Vous pouvez aussi choisir Vérifier à nouveau.
 prepare-offer-waited =
     { $minutes ->
         [one] En attente depuis { $minutes } minute.
@@ -1135,85 +1135,85 @@ prepare-offer-next-check =
 prepare-offer-checking-now = Vérification en cours.
 prepare-offer-check-again = Choisissez Vérifier à nouveau pour lancer une recherche maintenant.
 prepare-offer-wait-ended-title = Windows Update n’a pas encore proposé Windows 11, version { $release }
-prepare-offer-wait-ended = Windows Update n’a pas proposé Windows 11, version { $release } dans les 2 heures : Atlas a donc cessé d’attendre et a rétabli vos paramètres Windows Update. Choisissez Vérifier à nouveau plus tard. Si vous ne pouvez pas attendre, sauvegardez vos fichiers et réinstallez Windows avec une ISO Atlas.
-prepare-offer-wait-put-back-failed = Windows Update n’a pas proposé Windows 11, version { $release } dans les 2 heures, et Atlas n’a pas pu rétablir vos paramètres Windows Update. Choisissez Rétablir les paramètres pour réessayer. Détails : { $error }
-prepare-failed-feature-hardware = Ce PC ne répond pas à la configuration matérielle requise pour Windows 11 ({ $missing }) : Windows Update ne le fera donc pas passer à la version { $release }. Votre PC utilise toujours la version { $current }. Pour utiliser Atlas { $version }, sauvegardez vos fichiers et réinstallez Windows avec une ISO Atlas.
+prepare-offer-wait-ended = Windows Update n’a pas proposé Windows 11, version { $release } dans les 2 heures : Fluxxwave a donc cessé d’attendre et a rétabli vos paramètres Windows Update. Choisissez Vérifier à nouveau plus tard. Si vous ne pouvez pas attendre, sauvegardez vos fichiers et réinstallez Windows avec une ISO Fluxxwave.
+prepare-offer-wait-put-back-failed = Windows Update n’a pas proposé Windows 11, version { $release } dans les 2 heures, et Fluxxwave n’a pas pu rétablir vos paramètres Windows Update. Choisissez Rétablir les paramètres pour réessayer. Détails : { $error }
+prepare-failed-feature-hardware = Ce PC ne répond pas à la configuration matérielle requise pour Windows 11 ({ $missing }) : Windows Update ne le fera donc pas passer à la version { $release }. Votre PC utilise toujours la version { $current }. Pour utiliser Fluxxwave { $version }, sauvegardez vos fichiers et réinstallez Windows avec une ISO Fluxxwave.
 hardware-tpm = TPM 2.0
 hardware-uefi = microprogramme UEFI
 prepare-failed-feature-hidden = Windows 11, version { $release } est masqué dans Windows Update sur ce PC. Affichez-le à nouveau avec l’outil qui a servi à le masquer, puis choisissez Réessayer.
-prepare-failed-feature-disk-space = Windows a besoin d’au moins { $needed } Go d’espace libre sur le lecteur { $drive } pour cette mise à jour, alors qu’il n’y en a que { $free } Go. Atlas n’a rien modifié. Libérez de l’espace, puis choisissez Réessayer.
-prepare-failed-feature-servicing = Windows signale que son magasin de composants est endommagé et qu’il ne peut pas le réparer : Atlas n’a donc rien modifié. Réparez Windows, puis choisissez Réessayer.
-prepare-failed-feature-managed = Ce PC reçoit ses mises à jour du serveur de mise à jour d’une organisation : Atlas ne peut donc pas le faire passer à la version { $release }. Atlas n’a rien modifié.
-prepare-failed-feature-policy = Un élément de ce PC annule sans cesse les modifications qu’Atlas apporte à { $setting } : Atlas ne peut donc pas mettre à jour Windows. Si ce PC est géré par une organisation, adressez-vous à elle. Atlas rétablit ce qu’il a modifié lorsque vous arrêtez.
-prepare-failed-feature-blocked = Un paramètre qu’Atlas n’a pas modifié empêche Windows Update de fonctionner : { $setting }. Modifiez-le pour que Windows Update puisse fonctionner, puis choisissez Réessayer.
+prepare-failed-feature-disk-space = Windows a besoin d’au moins { $needed } Go d’espace libre sur le lecteur { $drive } pour cette mise à jour, alors qu’il n’y en a que { $free } Go. Fluxxwave n’a rien modifié. Libérez de l’espace, puis choisissez Réessayer.
+prepare-failed-feature-servicing = Windows signale que son magasin de composants est endommagé et qu’il ne peut pas le réparer : Fluxxwave n’a donc rien modifié. Réparez Windows, puis choisissez Réessayer.
+prepare-failed-feature-managed = Ce PC reçoit ses mises à jour du serveur de mise à jour d’une organisation : Fluxxwave ne peut donc pas le faire passer à la version { $release }. Fluxxwave n’a rien modifié.
+prepare-failed-feature-policy = Un élément de ce PC annule sans cesse les modifications que Fluxxwave apporte à { $setting } : Fluxxwave ne peut donc pas mettre à jour Windows. Si ce PC est géré par une organisation, adressez-vous à elle. Fluxxwave rétablit ce qu’il a modifié lorsque vous arrêtez.
+prepare-failed-feature-blocked = Un paramètre que Fluxxwave n’a pas modifié empêche Windows Update de fonctionner : { $setting }. Modifiez-le pour que Windows Update puisse fonctionner, puis choisissez Réessayer.
 prepare-failed-feature-rolled-back = Windows n’a pas pu terminer l’installation de la version { $release } pendant le redémarrage et est revenu à la version { $current }. Vos fichiers et vos applications ne sont pas touchés. Choisissez Réessayer ou Envoyer un rapport.
-prepare-failed-feature-components-lost = Certaines modifications d’Atlas ont disparu après la mise à jour de Windows, et rien n’indique que Windows s’est réinstallé : Atlas ne peut donc pas savoir ce qui s’est passé. Atlas { $version } n’a pas été installé. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
-prepare-failed-feature-build = La version de Windows de ce PC a changé pendant qu’Atlas la mettait à jour. Choisissez Rétablir les paramètres, puis recommencez depuis l’accueil.
-prepare-failed-feature-journal = Atlas ne parvient pas à lire son enregistrement des paramètres Windows Update qu’il a modifiés : il ne modifiera et ne rétablira donc rien. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
-prepare-failed-feature-pin = Une stratégie Windows Update de ce PC, { $setting }, a une valeur qu’Atlas ne peut pas enregistrer : Atlas n’a donc rien modifié. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
+prepare-failed-feature-components-lost = Certaines modifications de Fluxxwave ont disparu après la mise à jour de Windows, et rien n’indique que Windows s’est réinstallé : Fluxxwave ne peut donc pas savoir ce qui s’est passé. Fluxxwave { $version } n’a pas été installé. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
+prepare-failed-feature-build = La version de Windows de ce PC a changé pendant que Fluxxwave la mettait à jour. Choisissez Rétablir les paramètres, puis recommencez depuis l’accueil.
+prepare-failed-feature-journal = Fluxxwave ne parvient pas à lire son enregistrement des paramètres Windows Update qu’il a modifiés : il ne modifiera et ne rétablira donc rien. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
+prepare-failed-feature-pin = Une stratégie Windows Update de ce PC, { $setting }, a une valeur que Fluxxwave ne peut pas enregistrer : Fluxxwave n’a donc rien modifié. Choisissez Envoyer un rapport pour que l’équipe Atlas puisse vous aider.
 prepare-failed-feature-terms = Acceptez les termes du contrat de licence de Windows 11, version { $release }, puis choisissez Réessayer.
 prepare-failed-feature-failed = Windows n’a pas pu installer la version { $release }. Votre PC utilise toujours la version { $current }. Choisissez Réessayer. En cas de nouvel échec, choisissez Envoyer un rapport.
 prepare-check-again = Vérifier à nouveau
 prepare-keep-version = Conserver la version { $current }
-stop-update-title = Arrêter la mise à jour vers Atlas { $version } ?
+stop-update-title = Arrêter la mise à jour vers Fluxxwave { $version } ?
 stop-update-title-windows = Arrêter la mise à jour de Windows ?
-stop-update-before = Atlas rétablit les paramètres Windows Update qu’il a modifiés. Les mises à jour déjà installées par Windows le restent, et votre PC conserve Windows 11, version { $current }.
-stop-update-after = Votre PC conserve Windows 11, version { $release }. Atlas rétablit les paramètres Windows Update qu’il a modifiés.
-stop-update-access = Atlas rétablit les paramètres Windows Update qu’il a modifiés. Les mises à jour déjà installées par Windows le restent.
+stop-update-before = Fluxxwave rétablit les paramètres Windows Update qu’il a modifiés. Les mises à jour déjà installées par Windows le restent, et votre PC conserve Windows 11, version { $current }.
+stop-update-after = Votre PC conserve Windows 11, version { $release }. Fluxxwave rétablit les paramètres Windows Update qu’il a modifiés.
+stop-update-access = Fluxxwave rétablit les paramètres Windows Update qu’il a modifiés. Les mises à jour déjà installées par Windows le restent.
 stop-update-keep = Continuer la mise à jour
 # Boîte de dialogue affichée si la fenêtre est fermée pendant que Windows Update est activé pour une mise à jour. Ses boutons sont window-close-keep et window-close-put-back.
-window-close-update-access-title = Fermer Atlas ?
-window-close-update-access-message = Avant de se fermer, Atlas rétablit les paramètres Windows Update qu’il a modifiés. Vous pourrez recommencer la mise à jour depuis l’accueil.
+window-close-update-access-title = Fermer Fluxxwave ?
+window-close-update-access-message = Avant de se fermer, Fluxxwave rétablit les paramètres Windows Update qu’il a modifiés. Vous pourrez recommencer la mise à jour depuis l’accueil.
 window-close-put-back = Rétablir et fermer
 window-close-put-back-failed-title = Fermer sans rétablir les paramètres ?
-window-close-put-back-failed-message = Si vous fermez Atlas maintenant, les paramètres Windows Update restent tels qu’Atlas les a modifiés. Lorsque vous rouvrirez Atlas, l’accueil vous proposera de les rétablir.
+window-close-put-back-failed-message = Si vous fermez Fluxxwave maintenant, les paramètres Windows Update restent tels que Fluxxwave les a modifiés. Lorsque vous rouvrirez Fluxxwave, l’accueil vous proposera de les rétablir.
 installed-update-off-again = Windows Update est de nouveau désactivé, comme vous l’avez choisi. Tant qu’il est désactivé, votre PC ne reçoit aucune mise à jour de sécurité.
 installed-update-paused-again = Les mises à jour Windows sont de nouveau suspendues, comme vous l’avez choisi. Tant qu’elles sont suspendues, votre PC ne reçoit aucune mise à jour de sécurité.
-detail-build-transition = Ce PC utilise Windows 11, version { $current }, que cette version d’Atlas ne prend pas en charge. Atlas fait passer Windows à la version { $release } lorsqu’il met à jour Windows ci-dessous.
-report-transition-intro = La mise à jour de Windows pour Atlas ne s’est pas terminée. Détails pour l’équipe Atlas :
+detail-build-transition = Ce PC utilise Windows 11, version { $current }, que cette version de Fluxxwave ne prend pas en charge. Fluxxwave fait passer Windows à la version { $release } lorsqu’il met à jour Windows ci-dessous.
+report-transition-intro = La mise à jour de Windows pour Fluxxwave ne s’est pas terminée. Détails pour l’équipe Atlas :
 mode-rebase = Réinstallation après une mise à jour de Windows
 history-mode-rebase = réinstallation après une mise à jour de Windows
 ready-rebase-title = Windows s’est réinstallé pendant sa mise à jour
-ready-rebase-message = Windows 11, version { $release } a remplacé le Windows de ce PC : certaines modifications d’Atlas ont donc disparu. Atlas { $version } les rétablit, avec les choix que vous aviez faits pour Atlas { $previous }.
-update-path-update-title = Comment souhaitez-vous passer à Atlas { $version } ?
-update-path-reinstall-title = Comment souhaitez-vous réinstaller Atlas { $version } ?
+ready-rebase-message = Windows 11, version { $release } a remplacé le Windows de ce PC : certaines modifications de Fluxxwave ont donc disparu. Fluxxwave { $version } les rétablit, avec les choix que vous aviez faits pour Fluxxwave { $previous }.
+update-path-update-title = Comment souhaitez-vous passer à Fluxxwave { $version } ?
+update-path-reinstall-title = Comment souhaitez-vous réinstaller Fluxxwave { $version } ?
 update-path-keep = Conserver mes choix
-update-path-keep-detail = Atlas conserve chaque choix tel qu’il est actuellement sur ce PC et n’en modifie aucun. C’est la méthode la plus rapide.
+update-path-keep-detail = Fluxxwave conserve chaque choix tel qu’il est actuellement sur ce PC et n’en modifie aucun. C’est la méthode la plus rapide.
 update-path-choose = Refaire mes choix
-update-path-choose-detail = Refaites chaque choix en partant de la configuration actuelle de ce PC. Atlas applique chacun d’eux comme le ferait une première installation. Vos applications, vos fichiers, le menu Démarrer, la barre des tâches et le thème restent tels quels, de même que les paramètres que vous avez modifiés depuis le dossier Atlas et que ces choix ne couvrent pas.
+update-path-choose-detail = Refaites chaque choix en partant de la configuration actuelle de ce PC. Fluxxwave applique chacun d’eux comme le ferait une première installation. Vos applications, vos fichiers, le menu Démarrer, la barre des tâches et le thème restent tels quels, de même que les paramètres que vous avez modifiés depuis le dossier Fluxxwave et que ces choix ne couvrent pas.
 update-path-now-title = Vos choix actuels sur ce PC
-update-path-unknown = Atlas ne peut pas le déterminer d’après votre PC : il vous pose donc la question
-update-path-differs = Ce qu’Atlas a enregistré lors de votre dernière installation ne correspond pas à ce PC pour { $choices }. Cette liste montre l’état actuel du PC.
+update-path-unknown = Fluxxwave ne peut pas le déterminer d’après votre PC : il vous pose donc la question
+update-path-differs = Ce que Fluxxwave a enregistré lors de votre dernière installation ne correspond pas à ce PC pour { $choices }. Cette liste montre l’état actuel du PC.
 keep-choices-title = Vous conservez vos choix
-keep-choices-partial = Atlas conserve la configuration actuelle de ce PC. Faites vous-même ces choix, qu’il ne peut pas déterminer d’après votre PC : { $missing }
+keep-choices-partial = Fluxxwave conserve la configuration actuelle de ce PC. Faites vous-même ces choix, qu’il ne peut pas déterminer d’après votre PC : { $missing }
 choose-again-title = Vous refaites vos choix
-choose-again-detail = Chaque choix part de la configuration actuelle de ce PC. Atlas applique vos choix pendant l’installation.
+choose-again-detail = Chaque choix part de la configuration actuelle de ce PC. Fluxxwave applique vos choix pendant l’installation.
 option-now = Actuellement sur ce PC
-change-defender-enable = Atlas rétablit Microsoft Defender. Après le redémarrage, activez sa protection dans Sécurité Windows.
-change-mitigations-default = Atlas réactive les protections du processeur avec les paramètres par défaut de Windows. Cela prend effet après le redémarrage.
+change-defender-enable = Fluxxwave rétablit Microsoft Defender. Après le redémarrage, activez sa protection dans Sécurité Windows.
+change-mitigations-default = Fluxxwave réactive les protections du processeur avec les paramètres par défaut de Windows. Cela prend effet après le redémarrage.
 change-mitigations-all-on = Toutes les protections du processeur sont actuellement activées. Si vous les conservez, elles restent toutes activées.
-change-auto-updates-default = Atlas laisse de nouveau Windows installer les mises à jour automatiquement.
-change-hibernation-on = Atlas réactive la mise en veille prolongée.
-change-power-saving-on = Atlas réactive les économies d’énergie et rétablit votre mode de gestion de l’alimentation précédent, ou, à défaut, le mode Utilisation normale.
-change-core-isolation-on = Atlas réactive la sécurité basée sur la virtualisation (VBS), sauf si une stratégie de ce PC la contrôle. Cela prend effet après le redémarrage.
-change-remove-snipping-tool = Supprime l’Outil Capture d’écran pour tous les utilisateurs de ce PC. Atlas ne pourra pas le rétablir ensuite, mais vous pourrez le réinstaller depuis le Microsoft Store.
-fixed-uninstall-edge = Microsoft Edge a déjà été supprimé, et la mise à jour d’Atlas ne peut pas le rétablir. Pour le réinstaller, utilisez Install or Remove Edge dans le dossier Atlas.
-fixed-installed = { $app } est installé. Atlas ne désinstalle pas d’applications ; pour le supprimer, ouvrez Applications installées dans les Paramètres Windows.
-browser-also = { $installed } reste installé, et Atlas installe aussi { $browser }.
+change-auto-updates-default = Fluxxwave laisse de nouveau Windows installer les mises à jour automatiquement.
+change-hibernation-on = Fluxxwave réactive la mise en veille prolongée.
+change-power-saving-on = Fluxxwave réactive les économies d’énergie et rétablit votre mode de gestion de l’alimentation précédent, ou, à défaut, le mode Utilisation normale.
+change-core-isolation-on = Fluxxwave réactive la sécurité basée sur la virtualisation (VBS), sauf si une stratégie de ce PC la contrôle. Cela prend effet après le redémarrage.
+change-remove-snipping-tool = Supprime l’Outil Capture d’écran pour tous les utilisateurs de ce PC. Fluxxwave ne pourra pas le rétablir ensuite, mais vous pourrez le réinstaller depuis le Microsoft Store.
+fixed-uninstall-edge = Microsoft Edge a déjà été supprimé, et la mise à jour de Fluxxwave ne peut pas le rétablir. Pour le réinstaller, utilisez Install or Remove Edge dans le dossier Fluxxwave.
+fixed-installed = { $app } est installé. Fluxxwave ne désinstalle pas d’applications ; pour le supprimer, ouvrez Applications installées dans les Paramètres Windows.
+browser-also = { $installed } reste installé, et Fluxxwave installe aussi { $browser }.
 summary-update-path = Mode de mise à jour
 step-heading-update-path-a11y = { $heading }. { $question }
-security-banner-removed-title = Atlas a supprimé Microsoft Defender de ce PC
-security-banner-restore-title = Atlas rétablit Microsoft Defender lors de cette installation
+security-banner-removed-title = Fluxxwave a supprimé Microsoft Defender de ce PC
+security-banner-restore-title = Fluxxwave rétablit Microsoft Defender lors de cette installation
 security-banner-restore-message = Defender ne fonctionne pas encore : il n’y a donc rien à désactiver à cette étape. Après le redémarrage, activez sa protection dans Sécurité Windows. Choisissez Continuer.
 security-banner-missing-title = Microsoft Defender est introuvable
-security-banner-missing-message = Atlas ne l’a pas supprimé et ne peut donc pas le rétablir. Vous pouvez continuer, mais votre PC n’aura aucun antivirus tant que vous n’aurez pas installé une autre application antivirus ou réparé Windows.
+security-banner-missing-message = Fluxxwave ne l’a pas supprimé et ne peut donc pas le rétablir. Vous pouvez continuer, mais votre PC n’aura aucun antivirus tant que vous n’aurez pas installé une autre application antivirus ou réparé Windows.
 installed-defender-not-restored-title = Microsoft Defender est toujours supprimé
-installed-defender-not-restored-message = Vous avez choisi de conserver Microsoft Defender, mais une mise à jour précédente d’Atlas ne l’a pas rétabli : votre PC n’a donc aucun antivirus. Pour le rétablir, mettez à jour ou réinstallez Atlas et sélectionnez Refaire mes choix, ou ouvrez 7. Security > Defender dans le dossier Atlas de votre bureau, lancez Toggle Defender, choisissez Enable Windows Defender, puis redémarrez votre PC.
+installed-defender-not-restored-message = Vous avez choisi de conserver Microsoft Defender, mais une mise à jour précédente de Fluxxwave ne l’a pas rétabli : votre PC n’a donc aucun antivirus. Pour le rétablir, mettez à jour ou réinstallez Fluxxwave et sélectionnez Refaire mes choix, ou ouvrez 7. Security > Defender dans le dossier Fluxxwave de votre bureau, lancez Toggle Defender, choisissez Enable Windows Defender, puis redémarrez votre PC.
 choices-not-applied-title = Certains choix n’ont pas pris effet
-choices-not-applied-message = Atlas a enregistré l’état actuel de ce PC pour { $choices }. Le journal d’installation en indique la raison.
-rebase-choices-title = Vos choix d’Atlas { $previous }
-rebase-choices-detail = Atlas reprend les choix que vous aviez faits pour Atlas { $previous } : il n’y a donc rien à choisir ici. Pour les modifier ensuite, choisissez Réinstaller Atlas, puis sélectionnez Refaire mes choix.
-rebase-choices-partial = Atlas reprend les choix que vous aviez faits pour Atlas { $previous }. Vérifiez les choix suivants, qu’il n’a pas retrouvés : { $missing }
+choices-not-applied-message = Fluxxwave a enregistré l’état actuel de ce PC pour { $choices }. Le journal d’installation en indique la raison.
+rebase-choices-title = Vos choix de Fluxxwave { $previous }
+rebase-choices-detail = Fluxxwave reprend les choix que vous aviez faits pour Fluxxwave { $previous } : il n’y a donc rien à choisir ici. Pour les modifier ensuite, choisissez Réinstaller Fluxxwave, puis sélectionnez Refaire mes choix.
+rebase-choices-partial = Fluxxwave reprend les choix que vous aviez faits pour Fluxxwave { $previous }. Vérifiez les choix suivants, qu’il n’a pas retrouvés : { $missing }
 restart-other-title = Une autre personne est connectée à ce PC
 restart-others-title = D’autres personnes sont connectées à ce PC
 restart-others-message = Le redémarrage fermera leurs applications, et elles perdront leur travail non enregistré. Comptes connectés : { $names }.
@@ -1221,11 +1221,11 @@ restart-others-keep = Ne pas redémarrer
 restart-others-restart = Redémarrer quand même
 prepare-store-self-update = Mise à jour préalable du Microsoft Store, qui n’est pas à jour sur ce PC.
 prepare-store-repair = Réparation du Microsoft Store. Cela peut prendre quelques minutes.
-prepare-store-updated = Le Microsoft Store n’était pas à jour : Atlas l’a donc mis à jour avant vos applications.
-prepare-store-bootstrapped = Le Microsoft Store n’a pas pu se mettre à jour lui-même : Atlas a donc installé les dernières versions du Programme d’installation d’application et du Microsoft Store, fournies par Microsoft.
-prepare-store-repaired = Le Microsoft Store ne fonctionnait pas : Atlas l’a donc réparé.
-prepare-store-skipped-removed = Le Microsoft Store est désactivé sur ce PC : Atlas a donc ignoré les mises à jour des applications du Store.
-prepare-failed-store-repair-failed = Le Microsoft Store ne peut pas installer ni mettre à jour d’applications sur ce PC, et Atlas n’a pas pu le réparer. Atlas a besoin qu’il fonctionne, car installer Atlas alors qu’il est endommagé peut laisser le Store et ses applications hors d’usage. Choisissez Réparer Microsoft Store pour réessayer. Si le problème persiste, sauvegardez vos fichiers et réinstallez Windows avec une ISO Atlas, ou choisissez Envoyer un rapport.
+prepare-store-updated = Le Microsoft Store n’était pas à jour : Fluxxwave l’a donc mis à jour avant vos applications.
+prepare-store-bootstrapped = Le Microsoft Store n’a pas pu se mettre à jour lui-même : Fluxxwave a donc installé les dernières versions du Programme d’installation d’application et du Microsoft Store, fournies par Microsoft.
+prepare-store-repaired = Le Microsoft Store ne fonctionnait pas : Fluxxwave l’a donc réparé.
+prepare-store-skipped-removed = Le Microsoft Store est désactivé sur ce PC : Fluxxwave a donc ignoré les mises à jour des applications du Store.
+prepare-failed-store-repair-failed = Le Microsoft Store ne peut pas installer ni mettre à jour d’applications sur ce PC, et Fluxxwave n’a pas pu le réparer. Fluxxwave a besoin qu’il fonctionne, car installer Fluxxwave alors qu’il est endommagé peut laisser le Store et ses applications hors d’usage. Choisissez Réparer Microsoft Store pour réessayer. Si le problème persiste, sauvegardez vos fichiers et réinstallez Windows avec une ISO Fluxxwave, ou choisissez Envoyer un rapport.
 prepare-repair-store = Réparer Microsoft Store
 
 screen-keyboard-title = Langues du clavier

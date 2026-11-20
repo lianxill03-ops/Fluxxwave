@@ -23,7 +23,7 @@ try {
     $sections = [System.Collections.Generic.List[string]]::new()
     $inventory = [System.Collections.Generic.List[object]]::new()
     $unresolved = [System.Collections.Generic.List[string]]::new()
-    $sections.Add("ATLAS THIRD-PARTY NOTICES`n`nThis conservative inventory includes the locked Windows dependency resolution, including build and development packages. Inclusion does not assert that a package is linked into AtlasManager.exe. Original license and notice texts follow; SPDX expressions are metadata, not a substitute for those texts. Generated with app/tools/Export-DependencyNotices.ps1.`n")
+    $sections.Add("ATLAS THIRD-PARTY NOTICES`n`nThis conservative inventory includes the locked Windows dependency resolution, including build and development packages. Inclusion does not assert that a package is linked into FluxxwaveManager.exe. Original license and notice texts follow; SPDX expressions are metadata, not a substitute for those texts. Generated with app/tools/Export-DependencyNotices.ps1.`n")
     foreach ($package in ($metadata.packages | Sort-Object name, version)) {
         if ($package.name -eq 'atlas-app') { continue }
         $root = Split-Path $package.manifest_path

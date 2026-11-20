@@ -32,7 +32,7 @@ shows the same privacy notice, or share the ZIP yourself.
 
 - Export after a failure, before deleting app data or reinstalling Windows. Retrying
   and reopening the app keep earlier app logs.
-- If the window cannot open, run `AtlasManager.exe --export-diagnostics`.
+- If the window cannot open, run `FluxxwaveManager.exe --export-diagnostics`.
 - Archives go to `%LOCALAPPDATA%\AtlasOS\App\Diagnostics` (`ATLAS_APP_DATA` overrides
   the root for isolated testing), including those **Send a report** collects. Atlas
   never deletes them; remove them when the investigation is over.

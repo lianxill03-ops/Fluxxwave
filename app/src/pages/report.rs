@@ -230,7 +230,7 @@ impl ReportPage {
         };
         if filled {
             fill(
-                "Atlas stopped at the Windows Security step and didn't install.",
+                "Fluxxwave stopped at the Windows Security step and didn't install.",
                 "someone@example.org".into(),
                 cx,
             );

@@ -147,7 +147,7 @@ function Copy-AtlasRecoveryExecutable {
         finally { $hasher.Dispose() }
         $inputStream.Position = 0
         $directory = New-AtlasRecoveryDirectory (Join-Path $rootPath $digest)
-        $destination = Join-Path $directory 'AtlasManager.exe'
+        $destination = Join-Path $directory 'FluxxwaveManager.exe'
         if (-not [IO.File]::Exists($destination)) {
             $temporary = Join-Path $directory ('.copy-' + [guid]::NewGuid().ToString('N'))
             $outputStream = New-Object IO.FileStream($temporary, [IO.FileMode]::CreateNew, [Security.AccessControl.FileSystemRights]::Write, [IO.FileShare]::None, 4096, [IO.FileOptions]::None, (Get-AtlasRecoveryFileSecurity))

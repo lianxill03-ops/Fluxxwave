@@ -1,6 +1,6 @@
 ATLAS THIRD-PARTY NOTICES
 
-This conservative inventory includes the locked Windows dependency resolution, including build and development packages. Inclusion does not assert that a package is linked into AtlasManager.exe. Original license and notice texts follow; SPDX expressions are metadata, not a substitute for those texts. Generated with app/tools/Export-DependencyNotices.ps1.
+This conservative inventory includes the locked Windows dependency resolution, including build and development packages. Inclusion does not assert that a package is linked into FluxxwaveManager.exe. Original license and notice texts follow; SPDX expressions are metadata, not a substitute for those texts. Generated with app/tools/Export-DependencyNotices.ps1.
 
 
 ========================================================================

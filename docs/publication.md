@@ -67,7 +67,7 @@ delete a file merely because it is untracked.
 fallback, and why eligibility is not an authenticity check.
 
 **App dependencies.** The app embeds its generated dependency notices, also shown in
-Settings and by `AtlasManager.exe --licenses`. The production build checks the locked
+Settings and by `FluxxwaveManager.exe --licenses`. The production build checks the locked
 inventory and notice text before compiling. [The notice workflow](../app/licenses/README.md)
 covers its conservative scope, pinned supplementary texts and remaining manual review.
 Generated notices are source artifacts: do not replace them with SPDX labels alone, and do

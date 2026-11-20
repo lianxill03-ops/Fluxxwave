@@ -719,7 +719,7 @@ fn apply_home(model: &mut AppModel, state: &str) {
     model.release = ReleaseCheck::Ready {
         release: Release {
             tag_name: "0.6.0".into(),
-            body: "## Atlas 0.6.0\n\nAtlas Manager installs and updates Atlas.".into(),
+            body: "## Fluxxwave 0.6.0\n\nFluxxwave Manager installs and updates Fluxxwave.".into(),
             html_url: String::new(),
             published_at: "2026-10-14T12:00:00Z".into(),
             assets: vec![],

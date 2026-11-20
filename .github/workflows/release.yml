@@ -85,9 +85,9 @@ jobs:
           }
 
           # The app takes its version (About, diagnostics, file properties) from app/Cargo.toml.
-          $exe = Get-Item -LiteralPath 'app\target\x86_64-pc-windows-msvc\release\AtlasManager.exe' -ErrorAction Stop
+          $exe = Get-Item -LiteralPath 'app\target\x86_64-pc-windows-msvc\release\FluxxwaveManager.exe' -ErrorAction Stop
           if ($exe.VersionInfo.ProductVersion -cne $version) {
-              throw "AtlasManager.exe is version '$($exe.VersionInfo.ProductVersion)', not playbook.conf's '$version'."
+              throw "FluxxwaveManager.exe is version '$($exe.VersionInfo.ProductVersion)', not playbook.conf's '$version'."
           }
 
           $playbookName = "Atlas $tag"
@@ -222,7 +222,7 @@ jobs:
           }
           if ($apbxFiles[0].Name -cne "Atlas-$tag.apbx" -or
               $zipFiles[0].Name -cne "Atlas-$tag.zip" -or
-              $exeFiles[0].Name -cne 'AtlasManager.exe') {
+              $exeFiles[0].Name -cne 'FluxxwaveManager.exe') {
               throw 'The promotion bundle filenames do not match the release tag.'
           }
 
@@ -246,7 +246,7 @@ jobs:
           }
           if ([string]::Join('|', @($manifestNames | Sort-Object)) -cne
               [string]::Join('|', $expectedNames)) {
-              throw 'SHA256SUMS.txt does not bind exactly the APBX, the release ZIP and AtlasManager.exe.'
+              throw 'SHA256SUMS.txt does not bind exactly the APBX, the release ZIP and FluxxwaveManager.exe.'
           }
 
       - name: Create a draft release
@@ -261,7 +261,7 @@ jobs:
           $bundle = Join-Path $env:RUNNER_TEMP 'atlas-release'
           $apbx = Get-Item -LiteralPath (Join-Path $bundle "Atlas-$tag.apbx") -ErrorAction Stop
           $zip = Get-Item -LiteralPath (Join-Path $bundle "Atlas-$tag.zip") -ErrorAction Stop
-          $exe = Get-Item -LiteralPath (Join-Path $bundle 'AtlasManager.exe') -ErrorAction Stop
+          $exe = Get-Item -LiteralPath (Join-Path $bundle 'FluxxwaveManager.exe') -ErrorAction Stop
           $hashes = Get-Item -LiteralPath (Join-Path $bundle 'SHA256SUMS.txt') -ErrorAction Stop
           & gh release create $tag --draft --verify-tag --title "Atlas $tag" `
               $apbx.FullName $zip.FullName $exe.FullName $hashes.FullName

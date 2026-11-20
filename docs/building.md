@@ -71,7 +71,7 @@ also runs the verifier independently.
 
 ## Linux desktop cross-build
 
-Builds the Windows MSVC desktop app, `AtlasManager.exe`, on Linux with cargo-xwin.
+Builds the Windows MSVC desktop app, `FluxxwaveManager.exe`, on Linux with cargo-xwin.
 
 1. Install with your distribution's package manager (the setup script installs no system
    packages): PowerShell 7 (`pwsh`), 7-Zip, `sha256sum`, Rust/rustup, and LLVM with
@@ -102,7 +102,7 @@ Builds the Windows MSVC desktop app, `AtlasManager.exe`, on Linux with cargo-xwi
 - Unset `RUSTFLAGS` and `CARGO_ENCODED_RUSTFLAGS`; they would override the target-scoped
   static CRT flag, which must reach the Windows build without affecting host tools.
 
-The result is `app/target/x86_64-pc-windows-msvc/release/AtlasManager.exe`; `7z l` shows
+The result is `app/target/x86_64-pc-windows-msvc/release/FluxxwaveManager.exe`; `7z l` shows
 its icon, version information and manifest. A Linux link is only a build check: run
 installation and recovery checks on Windows.
 
@@ -112,7 +112,7 @@ installation and recovery checks on Windows.
 
 1. the production Atlas package, with every eligibility gate, built from the commit's
    `playbook/` rather than the working tree and verified with `Test-Apbx.ps1`;
-2. `AtlasManager.exe` built with the `embedded-playbook` feature, carrying exactly that
+2. `FluxxwaveManager.exe` built with the `embedded-playbook` feature, carrying exactly that
    package;
 3. a ZIP of both, the license notices and a tester note.
 
@@ -173,13 +173,13 @@ SxS CAB candidates are separate artifacts; review them before committing them un
 `playbook/`.
 
 A canonical `vX.Y.Z` tag matching `playbook.conf` builds and verifies the APBX, the release
-ZIP and the stable `AtlasManager.exe`. It records their hashes in `SHA256SUMS.txt`, attests
+ZIP and the stable `FluxxwaveManager.exe`. It records their hashes in `SHA256SUMS.txt`, attests
 them, and creates a draft GitHub release through the `release` environment. That environment
 must set the variable `ATLAS_RELEASE_ENABLED` to `true`.
 
-The release files are `Atlas-vX.Y.Z.apbx`, `Atlas-vX.Y.Z.zip` and `AtlasManager.exe`. They
+The release files are `Atlas-vX.Y.Z.apbx`, `Atlas-vX.Y.Z.zip` and `FluxxwaveManager.exe`. They
 have no spaces because GitHub renames asset files that do, and the checksum file would then
-name files the release doesn't have. The workflow also stops if `AtlasManager.exe` reports a
+name files the release doesn't have. The workflow also stops if `FluxxwaveManager.exe` reports a
 version other than the one in `playbook.conf`.
 
 ## Version bumps
@@ -198,7 +198,7 @@ into `<UpgradableFrom>`, and points every `onUpgradeVersions` entry in
 It also sets the `[package]` `version` in `app/Cargo.toml` and the `atlas-app` entry in
 `app/Cargo.lock`, which the `--locked` builds need. Atlas Manager shows that version in its
 file properties, under **About** in Settings and in diagnostics. A tester build fails when
-`ATLAS_RC_ID` doesn't start with it, and so does the tag release when `AtlasManager.exe`
+`ATLAS_RC_ID` doesn't start with it, and so does the tag release when `FluxxwaveManager.exe`
 and `playbook.conf` disagree.
 
 It also rewrites the `Atlas vX.Y.Z for Windows 11 …` options in

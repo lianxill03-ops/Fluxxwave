@@ -69,7 +69,7 @@ Describe 'USB worker request and module resolution' {
     It 'reads a request with non-ASCII paths and names exactly as the app writes it' {
         # Built from code points so this file's own encoding cannot hide a decoding fault.
         $source = "C:\Users\Jos$([char]0xE9)\Downloads\Windows.iso"
-        $app = "C:\Users\$([char]0x674E)\Downloads\AtlasManager.exe"
+        $app = "C:\Users\$([char]0x674E)\Downloads\FluxxwaveManager.exe"
         $name = "Cl$([char]0xE9) $([char]0x424)"
         $path = Join-Path $TestDrive 'usb-request.json'
         $json = @{ source=$source; app=$app; drive=@{ name=$name } } | ConvertTo-Json -Compress
@@ -344,8 +344,8 @@ Describe 'USB destination safety' {
         try { { Assert-AtlasUsbPaths $script:Disk @(Join-Path $junction 'source.iso') } | Should -Throw 'source-location|*Linked*' }
         finally { [IO.Directory]::Delete($junction) }
         # OneDrive Files On-Demand marks backed-up folders such as the Desktop this way.
-        Mock Get-Item { [pscustomobject]@{ FullName='C:\Users\Someone\OneDrive\Desktop\AtlasManager.exe'; Attributes=[IO.FileAttributes]'Archive, ReparsePoint'; LinkType=$null; Parent=$null } }
-        { Assert-AtlasUsbPaths $script:Disk @('C:\Users\Someone\OneDrive\Desktop\AtlasManager.exe') } | Should -Not -Throw
+        Mock Get-Item { [pscustomobject]@{ FullName='C:\Users\Someone\OneDrive\Desktop\FluxxwaveManager.exe'; Attributes=[IO.FileAttributes]'Archive, ReparsePoint'; LinkType=$null; Parent=$null } }
+        { Assert-AtlasUsbPaths $script:Disk @('C:\Users\Someone\OneDrive\Desktop\FluxxwaveManager.exe') } | Should -Not -Throw
     }
     Context 'the write worker' {
         BeforeAll {

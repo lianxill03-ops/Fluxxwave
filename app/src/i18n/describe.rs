@@ -1617,7 +1617,7 @@ mod tests {
             assert!(!message.contains("Real-time") && !message.contains("sample"), "{message}");
 
             let left = reminder(ReminderReason::LeftFlow, &reading).unwrap().message();
-            assert!(left.contains("Atlas isn't installing anything"), "{left}");
+            assert!(left.contains("Fluxxwave isn't installing anything"), "{left}");
             assert!(left.contains("Cloud-delivered protection and Tamper Protection"), "{left}");
 
             // Nothing reads off: what couldn't be read is named, without claiming it is off.

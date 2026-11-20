@@ -1,3 +1,18 @@
+# Fluxxwave
+
+> [!IMPORTANT]
+> Fluxxwave is a modified version of [AtlasOS](https://github.com/Atlas-OS/Atlas), changed from the original starting on 20 November 2026 and distributed under the same [GPL-3.0 license](LICENSE). It is an independent project: the AtlasOS team does not make, endorse or support it.
+
+The rename from Atlas to Fluxxwave is in progress:
+
+- **Renamed:** the desktop app's on-screen text in all 15 languages, its window title and file properties, and its executable, now `FluxxwaveManager.exe`.
+- **Not renamed yet:** the package (`playbook/`), the folders, registry keys and script names it installs, the documentation under `docs/` and `app/docs/`, and the logo and icons.
+- **Still Atlas's:** the app downloads Atlas releases from the Atlas repository, and its Send a report, guide, GitHub and Discord links go to the Atlas team. The app says "Atlas" wherever that is the case. Point these at Fluxxwave's own services, or remove them, before giving Fluxxwave to anyone else.
+
+Everything below this line is the original Atlas README. It describes Atlas and its releases, not Fluxxwave.
+
+---
+
 <h1 align="center">
   <a href="https://atlasos.net" target="_blank"><img src="https://gcore.jsdelivr.net/gh/Atlas-OS/branding@main/banners/banner-v3.png" alt="Atlas" width="800"></a>
 </h1>

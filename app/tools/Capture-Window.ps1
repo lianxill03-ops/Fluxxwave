@@ -1,7 +1,7 @@
 # Captures a top-level window into a PNG through PrintWindow, so overlapping
 # windows do not end up in the picture. Developer tooling for UI review.
 param(
-    [string]$ProcessName = 'AtlasManager',
+    [string]$ProcessName = 'FluxxwaveManager',
     [int]$ProcessId = 0,
     [Parameter(Mandatory = $true)][string]$OutFile
 )

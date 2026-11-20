@@ -56,7 +56,7 @@ runtime means the new PC needs no Visual C++ runtime. See
 
 **Export diagnostics** creates a ZIP of app and Atlas installation evidence for
 a bug report, with the user name, PC name, email addresses and known passwords
-or keys removed; `AtlasManager.exe --export-diagnostics` does the same if the
+or keys removed; `FluxxwaveManager.exe --export-diagnostics` does the same if the
 window cannot open. **Send a report** sends a message privately to the Atlas
 team ([Atlas reports](../services/reports/README.md)), with diagnostics it
 collects as the page opens unless the user turns **Include diagnostics** off.
@@ -91,7 +91,7 @@ performance with the release executable.
 
 `tools/Build-Release.ps1` checks the third-party notices
 (`tools/Export-DependencyNotices.ps1 -Check`), then builds
-`target/x86_64-pc-windows-msvc/release/AtlasManager.exe` with a static C
+`target/x86_64-pc-windows-msvc/release/FluxxwaveManager.exe` with a static C
 runtime, so a clean Windows installation needs no Visual C++ runtime. The
 explicit Cargo target keeps that setting out of host build scripts and
 procedural macros. The script sets `CARGO_INCREMENTAL=0` because stale
@@ -436,7 +436,7 @@ starts.
 ### Preparation and restart recovery
 
 - Before preparation or an install, the app copies itself to the immutable,
-  hash-named `%ProgramFiles%\Atlas Setup Recovery\<SHA-256>\AtlasManager.exe`.
+  hash-named `%ProgramFiles%\Atlas Setup Recovery\<SHA-256>\FluxxwaveManager.exe`.
   Restart registrations use this copy, so deleting the download or unplugging
   its drive does not break recovery. Before-desktop ISO setup already runs from
   the protected `%windir%\AtlasISO` and skips the copy.

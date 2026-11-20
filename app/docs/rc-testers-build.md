@@ -2,7 +2,7 @@
 
 For maintainers who build release candidates and testers who verify them.
 
-A tester build is `AtlasManager.exe` compiled with the `embedded-playbook`
+A tester build is `FluxxwaveManager.exe` compiled with the `embedded-playbook`
 feature. It carries exactly one Atlas package inside the executable and
 installs nothing else, so every tester of candidate N runs the same bytes and no
 candidate can turn into a different package. Apart from
@@ -42,7 +42,7 @@ tools/release/build-rc.sh --rc N [--allow-dirty]
 2. After `tools/Export-DependencyNotices.ps1 -Check` confirms the third-party
    notices are current, `cargo xwin build --release --locked --target x86_64-pc-windows-msvc
    --features embedded-playbook` compiles the app with a static C runtime.
-3. `AtlasManager-<rc id>-windows-x64.zip` gets the executable, the same package as
+3. `FluxxwaveManager-<rc id>-windows-x64.zip` gets the executable, the same package as
    a standalone file (for AME Wizard users), `LICENSE.txt`,
    `THIRD-PARTY-NOTICES.txt`, `GPUI-LICENSE-APACHE.txt` and `README-RC.txt`
    (`tools/release/README-RC.txt` with the RC id, the commit and any bundled
@@ -118,7 +118,7 @@ the `playbook/` files compiled into the app.
 
 By hand, after the build:
 
-- `7z l AtlasManager.exe` (or Explorer > Properties > Details) shows the icon,
+- `7z l FluxxwaveManager.exe` (or Explorer > Properties > Details) shows the icon,
   `AtlasOS` as the company and the RC id in the version fields.
 - The checksum lines match what was posted.
 
@@ -139,7 +139,7 @@ By hand for each candidate, on a disposable Windows 11 25H2 installation:
 - **ISO**: create an ISO from the bundled package in each of the three modes,
   and check the before-desktop handoff ([ISO creation](iso-creation.md)).
 - **Diagnostics**: **Export diagnostics** in Settings > Help and feedback and
-  `AtlasManager.exe --export-diagnostics` both produce a ZIP under
+  `FluxxwaveManager.exe --export-diagnostics` both produce a ZIP under
   `%LOCALAPPDATA%\AtlasOS\App\Diagnostics` with the right `rcId`. **Send a
   report** collects its diagnostics as the page opens, with no separate step.
 - **Reports**: the report service and website run the privacy notice version

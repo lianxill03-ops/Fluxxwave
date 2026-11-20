@@ -49,7 +49,7 @@ fn home_offers_the_restart_a_finished_install_still_owes() {
         };
         // Arming writes the launch record, as the app's own arming does.
         env.adapters.arm_completion = Arc::new(|paths| {
-            session::write_launcher(paths, Path::new(r"C:\Atlas\AtlasManager.exe")).map(|_| ())
+            session::write_launcher(paths, Path::new(r"C:\Atlas\FluxxwaveManager.exe")).map(|_| ())
         });
         let (package, _) = marking_package(&temp, 0);
         let model = new_model(&mut cx, env.clone());
@@ -481,7 +481,7 @@ fn get_ready_and_home_ask_before_restarting_over_others() {
     run_model_test(async move |mut cx| {
         let (temp, machine, mut env) = fixture("model-restart-others-home");
         env.adapters.arm_completion = Arc::new(|paths| {
-            session::write_launcher(paths, Path::new(r"C:\Atlas\AtlasManager.exe")).map(|_| ())
+            session::write_launcher(paths, Path::new(r"C:\Atlas\FluxxwaveManager.exe")).map(|_| ())
         });
         env.restart = RestartTiming {
             countdown: Duration::from_secs(30),

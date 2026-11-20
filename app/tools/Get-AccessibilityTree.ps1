@@ -2,7 +2,7 @@
 # name, and the states assistive technology sees), so accessibility changes
 # can be checked without a screen reader. Developer tooling for UI review.
 param(
-    [string]$ProcessName = 'AtlasManager',
+    [string]$ProcessName = 'FluxxwaveManager',
     [int]$ProcessId = 0,
     # Invoke the control with this exact UI Automation name before dumping
     # (exercises the accessible Click action, as voice control would).

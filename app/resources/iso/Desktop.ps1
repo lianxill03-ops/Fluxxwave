@@ -80,7 +80,7 @@ try {
     if ([IO.File]::ReadAllText($marker).Trim() -ne $sid) { throw 'This account does not own Atlas setup.' }
     New-Item -Path $state -Force | Out-Null
     Remove-ItemProperty -LiteralPath $state -Name RestartRequested -ErrorAction SilentlyContinue
-    $app = Join-Path $root 'AtlasManager.exe'
+    $app = Join-Path $root 'FluxxwaveManager.exe'
     if (-not (Test-Path -LiteralPath $app)) { throw 'The Atlas setup app is missing.' }
     # Windows Update and Store preparation need this user's elevated token.
     # Declining UAC returns to the desktop.

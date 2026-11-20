@@ -114,13 +114,13 @@ export ATLAS_RC_ID="$rc_id"
     CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUSTFLAGS='-C target-feature=+crt-static' \
         cargo xwin build --release --locked --target x86_64-pc-windows-msvc --features embedded-playbook
 )
-exe="app/target/x86_64-pc-windows-msvc/release/AtlasManager.exe"
+exe="app/target/x86_64-pc-windows-msvc/release/FluxxwaveManager.exe"
 [[ -f "$exe" ]] || { echo "Missing $exe" >&2; exit 1; }
 
 # 3. The ZIP: executable, standalone APBX, notices and the tester note.
 stage="$work/zip"
 mkdir -p "$stage"
-cp "$exe" "$stage/AtlasManager.exe"
+cp "$exe" "$stage/FluxxwaveManager.exe"
 cp "$work/$apbx_name" "$stage/"
 cp LICENSE "$stage/LICENSE.txt"
 cp app/licenses/THIRD-PARTY-NOTICES.txt "$stage/"
@@ -131,15 +131,15 @@ if [[ -n "$toolbox" ]]; then
 fi
 sed -e "s/@RC_ID@/$rc_id/g" -e "s/@COMMIT@/$commit/g" -e "$toolbox_note" \
     tools/release/README-RC.txt >"$stage/README-RC.txt"
-zip_name="AtlasManager-$rc_id-windows-x64.zip"
+zip_name="FluxxwaveManager-$rc_id-windows-x64.zip"
 (cd "$stage" && 7z a -tzip -bso0 -bsp0 "../$zip_name" .)
 
 # 4. Checksums for what testers receive, in the release workflow's format.
 (
     cd "$work"
-    cp "zip/AtlasManager.exe" "AtlasManager.exe"
-    sha256sum "$zip_name" "$apbx_name" "AtlasManager.exe" | tee SHA256SUMS.txt
-    rm -f "AtlasManager.exe"
+    cp "zip/FluxxwaveManager.exe" "FluxxwaveManager.exe"
+    sha256sum "$zip_name" "$apbx_name" "FluxxwaveManager.exe" | tee SHA256SUMS.txt
+    rm -f "FluxxwaveManager.exe"
     rm -rf zip source
 )
 

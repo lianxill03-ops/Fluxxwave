@@ -5,7 +5,7 @@
 // The one place the Windows-only assumption is enforced; no other code needs
 // a `cfg(windows)` guard.
 #[cfg(not(windows))]
-compile_error!("Atlas Manager builds only for Windows.");
+compile_error!("Fluxxwave Manager builds only for Windows.");
 
 mod assets;
 mod cli;
@@ -117,7 +117,7 @@ fn main() {
         if !cfg!(feature = "embedded-playbook")
             && services::settings::read_from(&paths.settings()).settings.draft.is_none()
         {
-            // Installation media stages Atlas.apbx beside AtlasManager.exe.
+            // Installation media stages Atlas.apbx beside FluxxwaveManager.exe.
             start.playbook =
                 std::env::current_exe().ok().and_then(|p| p.parent().map(|p| p.join("Atlas.apbx")));
         }
@@ -178,7 +178,7 @@ fn main() {
                 WindowBounds::Windowed(bounds)
             }),
             titlebar: Some(TitlebarOptions {
-                title: Some("Atlas Manager".into()),
+                title: Some("Fluxxwave Manager".into()),
                 appears_transparent: true,
                 traffic_light_position: None,
             }),
@@ -189,7 +189,7 @@ fn main() {
             ..Default::default()
         };
         cx.open_window(options, move |window, cx| cx.new(|cx| Shell::new(start, window, cx)))
-            .expect("open the Atlas Manager window");
+            .expect("open the Fluxxwave Manager window");
         cx.on_window_closed(|cx, _| {
             if cx.windows().is_empty() {
                 cx.quit();

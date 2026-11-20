@@ -1167,7 +1167,7 @@ $record | ConvertTo-Json -Compress | Set-Content -LiteralPath (Join-Path $PSScri
     #[test]
     fn the_recovery_entry_is_registered_within_the_run_limit() {
         let test = TestKey::new("resume");
-        let exe = Path::new(r"C:\Program Files\Atlas Setup Recovery\hash\AtlasManager.exe");
+        let exe = Path::new(r"C:\Program Files\Atlas Setup Recovery\hash\FluxxwaveManager.exe");
         register_at(&test.key, exe).unwrap();
         let command = test.key.get_string(RESUME_VALUE).unwrap();
         assert_eq!(command, format!("\"{}\" --after-preparation-restart", exe.display()));

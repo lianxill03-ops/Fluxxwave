@@ -3,7 +3,7 @@ Atlas @RC_ID@ test build (source commit @COMMIT@)
 Thank you for testing. Please read this before installing.
 
 What this is
-- AtlasManager.exe is a release candidate of Atlas Manager with the
+- FluxxwaveManager.exe is a release candidate of Atlas Manager with the
   Atlas @RC_ID@ package built in. It installs only that package. It does
   not check GitHub for Atlas releases or open other Atlas packages. Setup
   still downloads Windows/Store updates and selected software from their
@@ -49,7 +49,7 @@ Reporting problems
 - You can still choose Export diagnostics (Settings > Help and feedback) and
   share the ZIP in the bug report channel, or use the report website if
   sending from the app does not work.
-- If the window will not open, run: AtlasManager.exe --export-diagnostics
+- If the window will not open, run: FluxxwaveManager.exe --export-diagnostics
   The ZIP is saved under %LOCALAPPDATA%\AtlasOS\App\Diagnostics and a message
   box shows the exact path.
 - If the app crashed before it could export anything, its logs are in

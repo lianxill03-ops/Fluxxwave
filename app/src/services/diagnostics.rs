@@ -47,7 +47,7 @@ static LOG_LOCATION: OnceLock<PathBuf> = OnceLock::new();
 static PANIC_SHOWN: AtomicBool = AtomicBool::new(false);
 /// Not translated: it is shown when the app has no window (or no working
 /// one) to speak through, and must never depend on anything that can fail.
-const DIALOG_TITLE: &str = "Atlas Manager";
+const DIALOG_TITLE: &str = "Fluxxwave Manager";
 
 /// A message box owned by no window, for the moments the app has none: a
 /// panic, or a headless command-line run. Blocks until dismissed.
@@ -195,7 +195,7 @@ pub fn init_logging() {
         open(std::env::temp_dir().join("AtlasDiagnostics"))
     });
     let mut builder =
-        env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn,AtlasManager=info"));
+        env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn,FluxxwaveManager=info"));
     builder.format_timestamp_millis();
     // Keep Atlas's support history even when the launching shell sets a broad
     // RUST_LOG=warn/off filter. Dependency verbosity remains configurable.
@@ -223,7 +223,7 @@ pub fn init_logging() {
             if !cfg!(test) && !PANIC_SHOWN.swap(true, Ordering::SeqCst) {
                 message_box(
                     &format!(
-                        "Atlas Manager stopped unexpectedly. Details were written to {}.",
+                        "Fluxxwave Manager stopped unexpectedly. Details were written to {}.",
                         log_path.display()
                     ),
                     MB_ICONERROR,
@@ -240,7 +240,7 @@ pub fn init_logging() {
         (None, None) => String::new(),
     };
     log::info!(
-        "Atlas Manager {}{candidate} started; pid={}; Windows={:?}; elevated={}",
+        "Fluxxwave Manager {}{candidate} started; pid={}; Windows={:?}; elevated={}",
         env!("CARGO_PKG_VERSION"),
         std::process::id(),
         super::system::SystemInfo::read(),
@@ -249,10 +249,10 @@ pub fn init_logging() {
 }
 
 /// The archive's READ-ME.txt.
-const README_TEXT: &str = "Atlas diagnostics\n\nPrepared for a bug report. \"Send a report\" in Atlas Manager shares it privately with the Atlas team; posts in community or development channels are public. Known credential formats and personal account details are automatically redacted; consistent anonymous labels keep related evidence connected.\n\nError details, timestamps, versions, hardware models, application names and operation IDs are kept to help investigate. Nothing is uploaded automatically. See BUG-REPORT.txt for what to include with your report and manifest.json for collection details.\n";
+const README_TEXT: &str = "Fluxxwave diagnostics\n\nPrepared for a bug report. \"Send a report\" in Fluxxwave Manager shares it privately with the Atlas team; posts in community or development channels are public. Known credential formats and personal account details are automatically redacted; consistent anonymous labels keep related evidence connected.\n\nError details, timestamps, versions, hardware models, application names and operation IDs are kept to help investigate. Nothing is uploaded automatically. See BUG-REPORT.txt for what to include with your report and manifest.json for collection details.\n";
 
 /// The archive's BUG-REPORT.txt.
-const BUG_REPORT_TEXT: &str = "What were you doing?\nWhat did you expect?\nWhat happened (include exact message)?\nApproximate time and timezone:\nDoes it happen again?\nAttach this ZIP to your report. \"Send a report\" in Atlas Manager shares it privately with the Atlas team; posts in community or development channels are public.\n";
+const BUG_REPORT_TEXT: &str = "What were you doing?\nWhat did you expect?\nWhat happened (include exact message)?\nApproximate time and timezone:\nDoes it happen again?\nAttach this ZIP to your report. \"Send a report\" in Fluxxwave Manager shares it privately with the Atlas team; posts in community or development channels are public.\n";
 
 struct Bundle {
     zip: ZipWriter<File>,
@@ -870,7 +870,7 @@ mod tests {
         fs::create_dir(&root).unwrap();
         fs::create_dir(&working).unwrap();
         fs::write(working.join(PARTIAL_REPORT), "1. Machine\nfinished section").unwrap();
-        let exe = Path::new("C:\\Program Files\\Atlas Setup Recovery\\AtlasManager.exe");
+        let exe = Path::new("C:\\Program Files\\Atlas Setup Recovery\\FluxxwaveManager.exe");
         super::super::session::write_launcher(&super::super::session::SessionPaths::under(&root), exe)
             .unwrap();
         let collector = "machine collector timed out after 60 seconds in section '2. Slow'";
@@ -885,7 +885,7 @@ mod tests {
             text
         };
         assert_eq!(read(&format!("report/{PARTIAL_REPORT}")), "1. Machine\nfinished section");
-        assert!(read("app/launcher.json").contains("AtlasManager.exe"));
+        assert!(read("app/launcher.json").contains("FluxxwaveManager.exe"));
         // The report service refuses an archive whose manifest says otherwise.
         let manifest: Value = serde_json::from_str(&read("manifest.json")).unwrap();
         assert_eq!(manifest["schema"], 2);

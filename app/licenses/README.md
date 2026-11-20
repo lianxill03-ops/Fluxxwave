@@ -2,7 +2,7 @@
 
 The standalone executable embeds the project GPL license, the GPUI input adaptation
 license and `THIRD-PARTY-NOTICES.txt`. Open them from Settings > About > Licence, or
-run `AtlasManager.exe --licenses` to open a text copy. `AtlasManager.exe --licenses <new-file>`
+run `FluxxwaveManager.exe --licenses` to open a text copy. `FluxxwaveManager.exe --licenses <new-file>`
 exports without overwriting an existing file. ISO staging also carries the notices.
 
 Run `../tools/Export-DependencyNotices.ps1` after changing Cargo dependencies.

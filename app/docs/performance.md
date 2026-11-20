@@ -9,7 +9,7 @@ Run from `app/`:
 
 ```powershell
 pwsh -NoProfile -File tools/Build-Release.ps1
-.\tools\Measure-AppPerformance.ps1 -Executable .\target\x86_64-pc-windows-msvc\release\AtlasManager.exe -Runs 3 -OutFile measurements.json
+.\tools\Measure-AppPerformance.ps1 -Executable .\target\x86_64-pc-windows-msvc\release\FluxxwaveManager.exe -Runs 3 -OutFile measurements.json
 ```
 
 The harness uses isolated app data, runs the app in English and never starts an
