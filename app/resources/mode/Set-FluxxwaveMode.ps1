@@ -1,7 +1,7 @@
 # Fluxxwave mode: a small, fixed set of Windows settings that cut background
 # activity, applied with one switch and put back exactly as they were with the
 # other. It works on a Windows 11 PC as it is: it does not need Fluxxwave
-# installed, and it installs and removes nothing.
+# installed, and the switch installs and removes nothing.
 #
 # Turning the mode on first records what it is about to change (whether each
 # registry value existed, its type and data; the service's start type and
@@ -20,6 +20,12 @@
 # machine settings need an administrator, so a run that is not elevated does the
 # user half itself and starts an elevated copy of this script for the rest.
 #
+# Apart from the switch, the menu can clean the user's temporary folder. That
+# is deletion and has no way back, so it is a choice of its own, asks first,
+# and leaves anything changed within the last day, anything in use and
+# anything with a link in it. It only looks in %LOCALAPPDATA%\Temp, never
+# where a TEMP variable points, and never needs an administrator.
+#
 # Exit codes: 0 done, 2 something could not be changed or put back,
 # 3 administrator permission was not given, so the machine half was left alone.
 # 1 is PowerShell's own, for a script that could not run at all.
@@ -28,7 +34,7 @@
 # without a byte-order mark in the PC's own code page, so the Korean menu text
 # is written as \u escapes.
 param(
-    [ValidateSet('On', 'Off', 'Status', 'Menu')][string]$State = 'Menu',
+    [ValidateSet('On', 'Off', 'Status', 'Menu', 'Clean')][string]$State = 'Menu',
     # The elevated half of a run that was started from the user's own session.
     [switch]$MachineOnly,
     [switch]$FunctionsOnly
@@ -433,7 +439,8 @@ function Get-FluxxwaveModeText {
         MenuOn = @('[1] Turn on', '[1] \uCF1C\uAE30')
         MenuOff = @('[2] Turn off (put everything back)', '[2] \uB044\uAE30(\uBAA8\uB450 \uC6D0\uB798\uB300\uB85C)')
         MenuQuit = @('[3] Close', '[3] \uB2EB\uAE30')
-        Prompt = @('Choose 1, 2 or 3', '1, 2, 3 \uC911\uC5D0\uC11C \uC120\uD0DD\uD558\uC138\uC694')
+        MenuClean = @('[4] Clean up temporary files', '[4] \uC784\uC2DC \uD30C\uC77C \uC815\uB9AC')
+        Prompt = @('Choose 1, 2, 3 or 4', '1, 2, 3, 4 \uC911\uC5D0\uC11C \uC120\uD0DD\uD558\uC138\uC694')
         TurningOn = @('Turning Fluxxwave mode on...', 'Fluxxwave \uBAA8\uB4DC\uB97C \uCF1C\uB294 \uC911...')
         TurningOff = @('Turning Fluxxwave mode off...', 'Fluxxwave \uBAA8\uB4DC\uB97C \uB044\uB294 \uC911...')
         NeedsAdmin = @('Windows will now ask for administrator permission to change the machine settings.', '\uC2DC\uC2A4\uD15C \uC124\uC815\uC744 \uBC14\uAFB8\uAE30 \uC704\uD574 Windows\uAC00 \uAD00\uB9AC\uC790 \uAD8C\uD55C\uC744 \uC694\uCCAD\uD569\uB2C8\uB2E4.')
@@ -444,6 +451,14 @@ function Get-FluxxwaveModeText {
         Skipped = @('skipped', '\uAC74\uB108\uB700')
         Failed = @('FAILED', '\uC2E4\uD328')
         Close = @('Press Enter to close.', '\uB2EB\uC73C\uB824\uBA74 Enter \uD0A4\uB97C \uB204\uB974\uC138\uC694.')
+        CleanLooking = @('Looking for temporary files...', '\uC784\uC2DC \uD30C\uC77C\uC744 \uCC3E\uB294 \uC911...')
+        CleanNothing = @('There are no temporary files to remove.', '\uC9C0\uC6B8 \uC784\uC2DC \uD30C\uC77C\uC774 \uC5C6\uC2B5\uB2C8\uB2E4.')
+        CleanFound = @('Temporary files that can be removed: {0} ({1} MB)', '\uC9C0\uC6B8 \uC218 \uC788\uB294 \uC784\uC2DC \uD30C\uC77C: {0}\uAC1C, {1} MB')
+        CleanKept = @('Anything changed within the last day, anything in use and any folder with a link in it is kept.', '\uD558\uB8E8 \uC548\uC5D0 \uBC14\uB010 \uAC83, \uC0AC\uC6A9 \uC911\uC778 \uAC83, \uB9C1\uD06C\uAC00 \uB4E0 \uD3F4\uB354\uB294 \uB0A8\uAE41\uB2C8\uB2E4.')
+        CleanConfirm = @('Removed files cannot be brought back. Remove them? (Y/N)', '\uC9C0\uC6B4 \uD30C\uC77C\uC740 \uB418\uB3CC\uB9B4 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uC9C0\uC6B8\uAE4C\uC694? (Y/N)')
+        CleanCancelled = @('Nothing was removed.', '\uC544\uBB34\uAC83\uB3C4 \uC9C0\uC6B0\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.')
+        CleanDone = @('Files removed: {0} ({1} MB)', '\uC9C0\uC6E0\uC2B5\uB2C8\uB2E4: {0}\uAC1C, {1} MB')
+        CleanInUse = @('Kept because they were in use: {0}', '\uC0AC\uC6A9 \uC911\uC774\uB77C \uB0A8\uAE34 \uAC83: {0}\uAC1C')
         'background-apps' = @('Background apps', '\uBC31\uADF8\uB77C\uC6B4\uB4DC \uC571')
         'background-apps-search' = @('Background apps (search)', '\uBC31\uADF8\uB77C\uC6B4\uB4DC \uC571(\uAC80\uC0C9)')
         'game-dvr' = @('Game DVR background recording', '\uAC8C\uC784 DVR \uBC31\uADF8\uB77C\uC6B4\uB4DC \uB179\uD654')
@@ -551,6 +566,175 @@ function Invoke-FluxxwaveMode {
     return 0
 }
 
+# The user's own temporary folder, where Windows puts it by default. Not where
+# the TEMP variable points: a variable must not decide what gets deleted.
+function Get-FluxxwaveTempFolder {
+    return (Join-Path ([Environment]::GetFolderPath('LocalApplicationData')) 'Temp')
+}
+
+# What one entry of a temporary folder holds, or nothing when it has to be
+# left alone: something in it was created or changed after $Before, there is a
+# link in it, or part of it cannot be read.
+function Get-FluxxwaveTempEntry {
+    param([IO.FileSystemInfo]$Entry, [datetime]$Before)
+    $link = [IO.FileAttributes]::ReparsePoint
+    try {
+        if (($Entry.Attributes -band $link) -ne 0) { return }
+        if ($Entry.CreationTimeUtc -ge $Before -or $Entry.LastWriteTimeUtc -ge $Before) { return }
+        if ($Entry -isnot [IO.DirectoryInfo]) {
+            return @{ Path = $Entry.FullName; Directory = $false; Files = 1; Bytes = [long]$Entry.Length }
+        }
+        $files = 0
+        $bytes = [long]0
+        $pending = New-Object System.Collections.Stack
+        $pending.Push($Entry)
+        while ($pending.Count -gt 0) {
+            foreach ($child in $pending.Pop().GetFileSystemInfos()) {
+                if (($child.Attributes -band $link) -ne 0) { return }
+                if ($child.CreationTimeUtc -ge $Before -or $child.LastWriteTimeUtc -ge $Before) { return }
+                if ($child -is [IO.DirectoryInfo]) {
+                    $pending.Push($child)
+                } else {
+                    $files++
+                    $bytes += $child.Length
+                }
+            }
+        }
+        return @{ Path = $Entry.FullName; Directory = $true; Files = $files; Bytes = $bytes }
+    } catch {
+        return
+    }
+}
+
+# Every entry of the temporary folder that can be removed, with what it holds.
+# Nothing at all when the folder cannot be read through to the end.
+function Get-FluxxwaveTempCandidates {
+    param(
+        [string]$Path = (Get-FluxxwaveTempFolder),
+        [datetime]$Before = ([datetime]::UtcNow.AddDays(-1))
+    )
+    $found = New-Object System.Collections.Generic.List[object]
+    try {
+        $folder = New-Object IO.DirectoryInfo($Path)
+        # A temporary folder that is itself a link is somebody's own arrangement.
+        if (-not $folder.Exists -or ($folder.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) { return @() }
+        foreach ($entry in $folder.GetFileSystemInfos()) {
+            $item = Get-FluxxwaveTempEntry -Entry $entry -Before $Before
+            if ($item) { $found.Add($item) }
+        }
+    } catch {
+        return @()
+    }
+    return $found.ToArray()
+}
+
+# Deletes a folder and everything in it. A link met on the way is removed as a
+# link and never followed. Returns $false when something could not be deleted.
+function Remove-FluxxwaveTempTree {
+    param([string]$Path)
+    $gone = $true
+    try {
+        $directory = New-Object IO.DirectoryInfo($Path)
+        foreach ($child in $directory.GetFileSystemInfos()) {
+            $isLink = ($child.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0
+            if ($child -is [IO.DirectoryInfo] -and -not $isLink) {
+                if (-not (Remove-FluxxwaveTempTree -Path $child.FullName)) { $gone = $false }
+                continue
+            }
+            try {
+                try {
+                    $child.Delete()
+                } catch [UnauthorizedAccessException] {
+                    # Read-only: it has to stop being read-only before it can go.
+                    $child.Attributes = [IO.FileAttributes]::Normal
+                    $child.Delete()
+                }
+            } catch {
+                $gone = $false
+            }
+        }
+        if ($gone) { $directory.Delete() }
+    } catch {
+        $gone = $false
+    }
+    return $gone
+}
+
+# Removes one entry found by Get-FluxxwaveTempCandidates. Returns $true when
+# it is gone and $false when it is in use and has been left as it was.
+function Remove-FluxxwaveTempEntry {
+    param([hashtable]$Item)
+    try {
+        if (-not $Item.Directory) {
+            $file = New-Object IO.FileInfo($Item.Path)
+            try {
+                $file.Delete()
+            } catch [UnauthorizedAccessException] {
+                $file.Attributes = [IO.FileAttributes]::Normal
+                $file.Delete()
+            }
+            return $true
+        }
+        # A folder can only be renamed while nothing in it is open, so a folder
+        # that takes a new name is one no running program is working from.
+        $aside = "$($Item.Path).fluxxwave-remove"
+        [IO.Directory]::Move($Item.Path, $aside)
+    } catch {
+        return $false
+    }
+    return (Remove-FluxxwaveTempTree -Path $aside)
+}
+
+# Removes the entries given. Returns how many files and bytes are gone, and how
+# many entries were in use and have been kept.
+function Remove-FluxxwaveTempFiles {
+    param([object[]]$Candidates)
+    $result = @{ Files = 0; Bytes = [long]0; Kept = 0 }
+    foreach ($item in $Candidates) {
+        if (Remove-FluxxwaveTempEntry -Item $item) {
+            $result.Files += $item.Files
+            $result.Bytes += $item.Bytes
+        } else {
+            $result.Kept++
+        }
+    }
+    return $result
+}
+
+# Whether an answer means yes. The Y key types U+315B while the Korean keyboard
+# is on, so that counts too.
+function Test-FluxxwaveYes {
+    param([string]$Answer)
+    $text = "$Answer".Trim()
+    return ($text -like 'y*' -or $text -eq [string][char]0x315B)
+}
+
+# Shows what can be removed from the temporary folder, asks, and removes it.
+function Invoke-FluxxwaveClean {
+    Write-Host (Get-FluxxwaveModeText -Key 'CleanLooking')
+    $candidates = @(Get-FluxxwaveTempCandidates)
+    if ($candidates.Count -eq 0) {
+        Write-Host (Get-FluxxwaveModeText -Key 'CleanNothing')
+        return 0
+    }
+    $files = 0
+    $bytes = [long]0
+    foreach ($item in $candidates) {
+        $files += $item.Files
+        $bytes += $item.Bytes
+    }
+    Write-Host ((Get-FluxxwaveModeText -Key 'CleanFound') -f ('{0:N0}' -f $files), ('{0:N1}' -f ($bytes / 1MB)))
+    Write-Host (Get-FluxxwaveModeText -Key 'CleanKept')
+    if (-not (Test-FluxxwaveYes -Answer (Read-Host (Get-FluxxwaveModeText -Key 'CleanConfirm')))) {
+        Write-Host (Get-FluxxwaveModeText -Key 'CleanCancelled')
+        return 0
+    }
+    $result = Remove-FluxxwaveTempFiles -Candidates $candidates
+    Write-Host ((Get-FluxxwaveModeText -Key 'CleanDone') -f ('{0:N0}' -f $result.Files), ('{0:N1}' -f ($result.Bytes / 1MB)))
+    if ($result.Kept -gt 0) { Write-Host ((Get-FluxxwaveModeText -Key 'CleanInUse') -f $result.Kept) }
+    return 0
+}
+
 function Write-FluxxwaveModeStatus {
     $key = switch (Get-FluxxwaveModeStatus) { 'On' { 'StatusOn' } 'Partial' { 'StatusPartial' } default { 'StatusOff' } }
     Write-Host (Get-FluxxwaveModeText -Key $key)
@@ -564,6 +748,7 @@ function Show-FluxxwaveModeMenu {
     Write-Host (Get-FluxxwaveModeText -Key 'MenuOn')
     Write-Host (Get-FluxxwaveModeText -Key 'MenuOff')
     Write-Host (Get-FluxxwaveModeText -Key 'MenuQuit')
+    Write-Host (Get-FluxxwaveModeText -Key 'MenuClean')
     # A space typed before or after the number still counts.
     $choice = "$(Read-Host (Get-FluxxwaveModeText -Key 'Prompt'))".Trim()
     $code = 0
@@ -573,6 +758,12 @@ function Show-FluxxwaveModeMenu {
     } elseif ($choice -eq '2') {
         Write-Host (Get-FluxxwaveModeText -Key 'TurningOff')
         $code = Invoke-FluxxwaveMode -State 'Off'
+    } elseif ($choice -eq '4') {
+        # Cleaning is not part of the switch, so the mode's state is not shown again.
+        Write-Host ''
+        $code = Invoke-FluxxwaveClean
+        [void](Read-Host (Get-FluxxwaveModeText -Key 'Close'))
+        return $code
     } else {
         return 0
     }
@@ -585,6 +776,7 @@ function Show-FluxxwaveModeMenu {
 if (-not $FunctionsOnly) {
     switch ($State) {
         'Menu' { exit (Show-FluxxwaveModeMenu) }
+        'Clean' { exit (Invoke-FluxxwaveClean) }
         'Status' {
             Write-FluxxwaveModeStatus
             exit 0

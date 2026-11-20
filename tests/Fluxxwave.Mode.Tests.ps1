@@ -478,7 +478,11 @@ Describe 'Fluxxwave mode settings' {
     It 'names every setting and outcome in English and in Korean' {
         Mock Get-UICulture { $script:TestCulture }
         Mock Get-Culture { $script:TestCulture }
-        $keys = @($script:Settings | ForEach-Object { $_.Id }) + @('Changed', 'Restored', 'Skipped', 'Failed', 'StatusOn', 'StatusOff', 'StatusPartial', 'MachineFailed', 'Declined')
+        $keys = @($script:Settings | ForEach-Object { $_.Id }) + @(
+            'Title', 'StatusOn', 'StatusOff', 'StatusPartial', 'MenuOn', 'MenuOff', 'MenuQuit', 'MenuClean', 'Prompt'
+            'TurningOn', 'TurningOff', 'NeedsAdmin', 'Declined', 'MachineFailed', 'Changed', 'Restored', 'Skipped', 'Failed', 'Close'
+            'CleanLooking', 'CleanNothing', 'CleanFound', 'CleanKept', 'CleanConfirm', 'CleanCancelled', 'CleanDone', 'CleanInUse'
+        )
         foreach ($key in $keys) {
             $script:TestCulture = [Globalization.CultureInfo]'en-GB'
             # A key without a text comes back as it is, which the Korean check below catches.
@@ -698,6 +702,345 @@ Describe 'Fluxxwave mode Windows tools' {
     }
 }
 
+Describe 'Fluxxwave temporary file cleaning' {
+    BeforeAll {
+        function New-ModeTestFile {
+            param([string]$Path, [int]$Bytes = 10)
+            [void](New-Item -ItemType Directory -Force -Path (Split-Path -Parent $Path))
+            [IO.File]::WriteAllBytes($Path, [byte[]]::new($Bytes))
+        }
+
+        # Makes a file, or a folder and everything in it, look left behind that many days ago.
+        function Set-ModeTestAge {
+            param([string]$Path, [double]$Days)
+            $when = [datetime]::UtcNow.AddDays(-$Days)
+            $items = @(Get-Item -LiteralPath $Path -Force)
+            if ($items[0].PSIsContainer) { $items += @(Get-ChildItem -LiteralPath $Path -Recurse -Force) }
+            foreach ($item in $items) {
+                $item.CreationTimeUtc = $when
+                $item.LastWriteTimeUtc = $when
+            }
+        }
+
+        # A directory junction, or $false on a host that cannot make one.
+        function New-ModeTestJunction {
+            param([string]$Path, [string]$Target)
+            $null = cmd.exe /d /c mklink /J "$Path" "$Target"
+            return (Test-Path -LiteralPath $Path)
+        }
+    }
+
+    BeforeEach {
+        $script:Temp = Join-Path $TestDrive ([guid]::NewGuid().ToString('N'))
+        [void](New-Item -ItemType Directory -Path $script:Temp)
+        $script:DayAgo = [datetime]::UtcNow.AddDays(-1)
+    }
+
+    It 'looks in the default temporary folder of the profile, whatever TEMP says' {
+        $kept = $env:TEMP
+        try {
+            $env:TEMP = $script:Temp
+            Get-FluxxwaveTempFolder | Should -Be (Join-Path ([Environment]::GetFolderPath('LocalApplicationData')) 'Temp')
+        } finally {
+            $env:TEMP = $kept
+        }
+    }
+
+    It 'offers an old file and keeps a new one' {
+        New-ModeTestFile -Path (Join-Path $script:Temp 'old.tmp') -Bytes 100
+        New-ModeTestFile -Path (Join-Path $script:Temp 'new.tmp') -Bytes 100
+        Set-ModeTestAge -Path (Join-Path $script:Temp 'old.tmp') -Days 3
+
+        $found = @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo)
+
+        $found.Count | Should -Be 1
+        $found[0].Path | Should -Be (Join-Path $script:Temp 'old.tmp')
+        $found[0].Directory | Should -BeFalse
+        $found[0].Files | Should -Be 1
+        $found[0].Bytes | Should -Be 100
+    }
+
+    It 'keeps an old file that was put there today' {
+        # Copied or unpacked today: made now, with the date it was last changed long ago.
+        $file = Join-Path $script:Temp 'copied.tmp'
+        New-ModeTestFile -Path $file
+        (Get-Item -LiteralPath $file).LastWriteTimeUtc = [datetime]::UtcNow.AddDays(-30)
+
+        @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo).Count | Should -Be 0
+    }
+
+    It 'offers an old folder as one piece, with everything in it counted' {
+        New-ModeTestFile -Path (Join-Path $script:Temp 'app\a.bin') -Bytes 30
+        New-ModeTestFile -Path (Join-Path $script:Temp 'app\deep\er\b.bin') -Bytes 70
+        Set-ModeTestAge -Path (Join-Path $script:Temp 'app') -Days 5
+
+        $found = @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo)
+
+        $found.Count | Should -Be 1
+        $found[0].Directory | Should -BeTrue
+        $found[0].Files | Should -Be 2
+        $found[0].Bytes | Should -Be 100
+    }
+
+    It 'keeps a whole folder when one thing in it is new' {
+        New-ModeTestFile -Path (Join-Path $script:Temp 'app\old.bin')
+        New-ModeTestFile -Path (Join-Path $script:Temp 'app\deep\fresh.bin')
+        Set-ModeTestAge -Path (Join-Path $script:Temp 'app') -Days 5
+        (Get-Item -LiteralPath (Join-Path $script:Temp 'app\deep\fresh.bin')).LastWriteTimeUtc = [datetime]::UtcNow
+
+        @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo).Count | Should -Be 0
+    }
+
+    It 'finds nothing in a folder that is not there' {
+        @(Get-FluxxwaveTempCandidates -Path (Join-Path $script:Temp 'missing') -Before $script:DayAgo).Count | Should -Be 0
+    }
+
+    It 'removes an old file, a read-only one too' {
+        $file = Join-Path $script:Temp 'read-only.tmp'
+        New-ModeTestFile -Path $file -Bytes 40
+        Set-ModeTestAge -Path $file -Days 3
+        (Get-Item -LiteralPath $file).IsReadOnly = $true
+
+        $result = Remove-FluxxwaveTempFiles -Candidates @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo)
+
+        $result.Files | Should -Be 1
+        $result.Bytes | Should -Be 40
+        $result.Kept | Should -Be 0
+        Test-Path -LiteralPath $file | Should -BeFalse
+    }
+
+    It 'removes an old folder with everything in it, hidden and read-only files too' {
+        $folder = Join-Path $script:Temp 'app'
+        New-ModeTestFile -Path (Join-Path $folder 'a.bin') -Bytes 10
+        New-ModeTestFile -Path (Join-Path $folder 'deep\hidden.bin') -Bytes 20
+        New-ModeTestFile -Path (Join-Path $folder 'deep\er\read-only.bin') -Bytes 30
+        [void](New-Item -ItemType Directory -Path (Join-Path $folder 'empty'))
+        Set-ModeTestAge -Path $folder -Days 5
+        (Get-Item -LiteralPath (Join-Path $folder 'deep\hidden.bin')).Attributes = 'Hidden'
+        (Get-Item -LiteralPath (Join-Path $folder 'deep\er\read-only.bin')).IsReadOnly = $true
+
+        $result = Remove-FluxxwaveTempFiles -Candidates @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo)
+
+        $result.Files | Should -Be 3
+        $result.Bytes | Should -Be 60
+        $result.Kept | Should -Be 0
+        @(Get-ChildItem -LiteralPath $script:Temp -Force).Count | Should -Be 0 -Because 'neither the folder nor the name it was moved to is left'
+    }
+
+    It 'keeps a file that is open in a program' {
+        $file = Join-Path $script:Temp 'open.tmp'
+        New-ModeTestFile -Path $file
+        Set-ModeTestAge -Path $file -Days 3
+        $found = @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo)
+        $found.Count | Should -Be 1
+
+        $open = [IO.File]::Open($file, [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::Read)
+        try {
+            $result = Remove-FluxxwaveTempFiles -Candidates $found
+        } finally {
+            $open.Dispose()
+        }
+
+        $result.Files | Should -Be 0
+        $result.Kept | Should -Be 1
+        Test-Path -LiteralPath $file | Should -BeTrue
+    }
+
+    It 'keeps a whole folder when one file in it is open, the other files too' {
+        $folder = Join-Path $script:Temp 'running-app'
+        New-ModeTestFile -Path (Join-Path $folder 'in-use.dll')
+        New-ModeTestFile -Path (Join-Path $folder 'data\not-open.dat')
+        Set-ModeTestAge -Path $folder -Days 5
+        $found = @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo)
+        $found.Count | Should -Be 1
+
+        $open = [IO.File]::Open((Join-Path $folder 'in-use.dll'), [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::ReadWrite)
+        try {
+            $result = Remove-FluxxwaveTempFiles -Candidates $found
+        } finally {
+            $open.Dispose()
+        }
+
+        $result.Kept | Should -Be 1
+        $result.Files | Should -Be 0
+        Test-Path -LiteralPath (Join-Path $folder 'in-use.dll') | Should -BeTrue
+        Test-Path -LiteralPath (Join-Path $folder 'data\not-open.dat') | Should -BeTrue -Because 'a program that is running keeps all of its folder'
+        @(Get-ChildItem -LiteralPath $script:Temp -Force).Count | Should -Be 1 -Because 'the folder still has its own name'
+    }
+
+    It 'adds up what it removed and what it kept' {
+        New-ModeTestFile -Path (Join-Path $script:Temp 'one.tmp') -Bytes 5
+        New-ModeTestFile -Path (Join-Path $script:Temp 'two\a.bin') -Bytes 7
+        New-ModeTestFile -Path (Join-Path $script:Temp 'two\b.bin') -Bytes 9
+        New-ModeTestFile -Path (Join-Path $script:Temp 'held.tmp') -Bytes 11
+        foreach ($name in @('one.tmp', 'two', 'held.tmp')) { Set-ModeTestAge -Path (Join-Path $script:Temp $name) -Days 2 }
+        $found = @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:DayAgo)
+
+        $open = [IO.File]::Open((Join-Path $script:Temp 'held.tmp'), [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::Read)
+        try {
+            $result = Remove-FluxxwaveTempFiles -Candidates $found
+        } finally {
+            $open.Dispose()
+        }
+
+        $result.Files | Should -Be 3
+        $result.Bytes | Should -Be 21
+        $result.Kept | Should -Be 1
+    }
+
+    It 'takes <Answer> as yes: <Expected>' -ForEach @(
+        @{ Answer = 'y'; Expected = $true }
+        @{ Answer = 'Y'; Expected = $true }
+        @{ Answer = ' yes '; Expected = $true }
+        # What the Y key types while the Korean keyboard is on.
+        @{ Answer = [string][char]0x315B; Expected = $true }
+        @{ Answer = 'n'; Expected = $false }
+        @{ Answer = ''; Expected = $false }
+        @{ Answer = '1'; Expected = $false }
+        @{ Answer = 'maybe'; Expected = $false }
+    ) {
+        Test-FluxxwaveYes -Answer $Answer | Should -Be $Expected
+    }
+
+    Context 'with links' {
+        BeforeEach {
+            # Everything counts as old here, so only the rule about links decides.
+            $script:Later = [datetime]::UtcNow.AddDays(1)
+            $script:Outside = Join-Path $TestDrive ([guid]::NewGuid().ToString('N'))
+            New-ModeTestFile -Path (Join-Path $script:Outside 'precious.txt')
+            $script:Links = @()
+        }
+
+        AfterEach {
+            # Removed as links before the test drive is cleared, so nothing is followed then either.
+            foreach ($link in $script:Links) {
+                if (Test-Path -LiteralPath $link) { [IO.Directory]::Delete($link) }
+            }
+        }
+
+        It 'leaves a link alone, and what it points to' {
+            $link = Join-Path $script:Temp 'link'
+            if (-not (New-ModeTestJunction -Path $link -Target $script:Outside)) {
+                Set-ItResult -Skipped -Because 'this host cannot create directory junctions'
+                return
+            }
+            $script:Links += $link
+
+            $found = @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:Later)
+
+            $found.Count | Should -Be 0
+            [void](Remove-FluxxwaveTempFiles -Candidates $found)
+            Test-Path -LiteralPath $link | Should -BeTrue
+            Test-Path -LiteralPath (Join-Path $script:Outside 'precious.txt') | Should -BeTrue
+        }
+
+        It 'leaves a folder that has a link somewhere in it' {
+            New-ModeTestFile -Path (Join-Path $script:Temp 'app\deep\a.bin')
+            $link = Join-Path $script:Temp 'app\deep\link'
+            if (-not (New-ModeTestJunction -Path $link -Target $script:Outside)) {
+                Set-ItResult -Skipped -Because 'this host cannot create directory junctions'
+                return
+            }
+            $script:Links += $link
+
+            @(Get-FluxxwaveTempCandidates -Path $script:Temp -Before $script:Later).Count | Should -Be 0
+        }
+
+        It 'removes a link it meets while deleting as a link, and does not follow it' {
+            $folder = Join-Path $script:Temp 'app'
+            New-ModeTestFile -Path (Join-Path $folder 'deep\a.bin')
+            $link = Join-Path $folder 'deep\link'
+            if (-not (New-ModeTestJunction -Path $link -Target $script:Outside)) {
+                Set-ItResult -Skipped -Because 'this host cannot create directory junctions'
+                return
+            }
+            $script:Links += $link
+
+            Remove-FluxxwaveTempTree -Path $folder | Should -BeTrue
+
+            Test-Path -LiteralPath $folder | Should -BeFalse
+            Test-Path -LiteralPath (Join-Path $script:Outside 'precious.txt') | Should -BeTrue -Because 'the link went, what it pointed to did not'
+        }
+
+        It 'does nothing when the temporary folder itself is a link' {
+            $link = Join-Path $TestDrive ([guid]::NewGuid().ToString('N'))
+            if (-not (New-ModeTestJunction -Path $link -Target $script:Outside)) {
+                Set-ItResult -Skipped -Because 'this host cannot create directory junctions'
+                return
+            }
+            $script:Links += $link
+
+            @(Get-FluxxwaveTempCandidates -Path $link -Before $script:Later).Count | Should -Be 0
+            Test-Path -LiteralPath (Join-Path $script:Outside 'precious.txt') | Should -BeTrue
+        }
+    }
+
+    Context 'from the menu' {
+        BeforeEach {
+            $script:Old = Join-Path $script:Temp 'old.tmp'
+            New-ModeTestFile -Path $script:Old -Bytes (2MB)
+            Set-ModeTestAge -Path $script:Old -Days 3
+            Mock Get-FluxxwaveTempFolder { $script:Temp }
+            Mock Get-UICulture { [Globalization.CultureInfo]'en-GB' }
+            Mock Get-Culture { [Globalization.CultureInfo]'en-GB' }
+            Mock Write-Host {}
+        }
+
+        It 'shows what it found and removes nothing when the answer is no' {
+            Mock Read-Host { 'n' }
+
+            Invoke-FluxxwaveClean | Should -Be 0
+
+            Should -Invoke Write-Host -Times 1 -Exactly -ParameterFilter { "$Object" -like 'Temporary files that can be removed: 1 (2?0 MB)' }
+            Should -Invoke Write-Host -Times 1 -Exactly -ParameterFilter { "$Object" -eq 'Nothing was removed.' }
+            Test-Path -LiteralPath $script:Old | Should -BeTrue
+        }
+
+        It 'removes what it found when the answer is yes' {
+            Mock Read-Host { 'y' }
+
+            Invoke-FluxxwaveClean | Should -Be 0
+
+            Should -Invoke Write-Host -Times 1 -Exactly -ParameterFilter { "$Object" -like 'Files removed: 1 (2?0 MB)' }
+            Test-Path -LiteralPath $script:Old | Should -BeFalse
+        }
+
+        It 'removes nothing when the question is left unanswered' {
+            Mock Read-Host { $null }
+
+            Invoke-FluxxwaveClean | Should -Be 0
+
+            Test-Path -LiteralPath $script:Old | Should -BeTrue
+        }
+
+        It 'says there is nothing to remove, without asking' {
+            Remove-Item -LiteralPath $script:Old
+            Mock Read-Host { throw 'there is nothing to ask about' }
+
+            Invoke-FluxxwaveClean | Should -Be 0
+
+            Should -Invoke Write-Host -Times 1 -Exactly -ParameterFilter { "$Object" -eq 'There are no temporary files to remove.' }
+        }
+
+        It 'is the fourth choice of the menu, and leaves the mode as it is' {
+            # A question these do not expect fails the test instead of waiting for a keyboard.
+            Mock Read-Host { throw "unexpected question: $Prompt" }
+            Mock Read-Host { '4' } -ParameterFilter { "$Prompt" -like 'Choose*' }
+            Mock Read-Host { 'n' } -ParameterFilter { "$Prompt" -like '*Remove them*' }
+            Mock Read-Host { '' } -ParameterFilter { "$Prompt" -like 'Press Enter*' }
+            Mock Invoke-FluxxwaveMode { throw 'cleaning must not switch the mode' }
+            Mock Get-FluxxwaveModeRecordPath { Join-Path $script:Temp "no-record-$Scope.json" }
+
+            Show-FluxxwaveModeMenu | Should -Be 0
+
+            Should -Invoke Write-Host -Times 1 -Exactly -ParameterFilter { "$Object" -like '*4*Clean up temporary files' }
+            Should -Invoke Write-Host -Times 1 -Exactly -ParameterFilter { "$Object" -eq 'Nothing was removed.' }
+            Should -Invoke Read-Host -Times 3 -Exactly
+            Test-Path -LiteralPath $script:Old | Should -BeTrue
+        }
+    }
+}
+
 # The real settings, on a machine that is thrown away afterwards. Never on a
 # developer's own PC, where a failed test would leave their settings changed.
 Describe 'Fluxxwave mode on a real Windows installation' -Skip:($env:GITHUB_ACTIONS -ne 'true') {
@@ -827,8 +1170,9 @@ Describe 'Fluxxwave mode on a real Windows installation' -Skip:($env:GITHUB_ACTI
         $before = Get-ModeTestSnapshot -Settings $settings
         $runs = @()
         try {
-            # Close, turn on, turn off.
-            foreach ($choice in @('3', '1', '2')) {
+            # Close, turn on, turn off, then look at the temporary files and leave
+            # the question about removing them unanswered.
+            foreach ($choice in @('3', '1', '2', '4')) {
                 $start = New-Object System.Diagnostics.ProcessStartInfo
                 $start.FileName = $env:ComSpec
                 # The answer is piped in by echo: written from here, it would
@@ -859,13 +1203,33 @@ Describe 'Fluxxwave mode on a real Windows installation' -Skip:($env:GITHUB_ACTI
             }) -join ' || '
         Write-Host "::notice title=Fluxxwave mode from its launcher::Same as before: $($after -eq $before). $told"
 
-        $runs.Count | Should -Be 3
+        $runs.Count | Should -Be 4
         $runs[0].Code | Should -Be 0
         $runs[0].Text | Should -BeLike '*Fluxxwave mode is OFF.*Turn on*'
         $runs[1].Code | Should -Be 0
         $runs[1].Text | Should -BeLike '*Background apps: applied*Fluxxwave mode is ON.*'
         $runs[2].Code | Should -Be 0
         $runs[2].Text | Should -BeLike '*Background apps: put back*Fluxxwave mode is OFF.*'
+        $runs[3].Code | Should -Be 0
+        $runs[3].Text | Should -BeLike '*Looking for temporary files...*'
+        $runs[3].Text | Should -Match 'Nothing was removed|There are no temporary files to remove' -Because 'no answer means no'
         $after | Should -Be $before
+    }
+
+    # A real temporary folder, with whatever a real Windows has left in it and
+    # is still using.
+    It 'cleans the runner''s own temporary folder and leaves what is in use' {
+        # One moment for both looks, so nothing turns a day old in between.
+        $dayAgo = [datetime]::UtcNow.AddDays(-1)
+        $folder = Get-FluxxwaveTempFolder
+        $found = @(Get-FluxxwaveTempCandidates -Path $folder -Before $dayAgo)
+
+        $result = Remove-FluxxwaveTempFiles -Candidates $found
+
+        $left = @(Get-FluxxwaveTempCandidates -Path $folder -Before $dayAgo)
+        $megabytes = [math]::Round($result.Bytes / 1MB, 1)
+        Write-Host "::notice title=Fluxxwave temporary files on the runner::Offered $($found.Count) entries. Removed $($result.Files) files, $megabytes MB. Kept because in use: $($result.Kept). Still offered afterwards: $($left.Count)."
+        $left.Count | Should -BeLessOrEqual $result.Kept -Because 'what is still offered is what was in use'
+        Test-Path -LiteralPath $TestDrive | Should -BeTrue -Because 'the test drive is in that folder, made today and in use'
     }
 }
