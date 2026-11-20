@@ -814,4 +814,59 @@ Describe 'Fluxxwave mode on a real Windows installation' -Skip:($env:GITHUB_ACTI
             if ($runnerPlan) { [void](Set-FluxxwavePowerScheme -Scheme $runnerPlan) }
         }
     }
+
+    # The file people double-click, with its menu answered from a pipe instead
+    # of a keyboard. The runner is elevated, so the script does both halves itself.
+    It 'opens from its launcher, and turns the mode on and off from the menu' {
+        if (-not (Test-FluxxwaveAdministrator)) {
+            Set-ItResult -Skipped -Because 'machine settings need an administrator'
+            return
+        }
+        $launcher = Join-Path $script:ModeFolder 'Fluxxwave Mode.cmd'
+        $settings = @(Get-FluxxwaveModeSettings)
+        $before = Get-ModeTestSnapshot -Settings $settings
+        $runs = @()
+        try {
+            # Close, turn on, turn off.
+            foreach ($choice in @('3', '1', '2')) {
+                $start = New-Object System.Diagnostics.ProcessStartInfo
+                $start.FileName = $env:ComSpec
+                $start.Arguments = '/d /c ""' + $launcher + '""'
+                $start.UseShellExecute = $false
+                $start.CreateNoWindow = $true
+                $start.RedirectStandardInput = $true
+                $start.RedirectStandardOutput = $true
+                $process = [System.Diagnostics.Process]::Start($start)
+                try {
+                    $reading = $process.StandardOutput.ReadToEndAsync()
+                    $process.StandardInput.WriteLine($choice)
+                    $process.StandardInput.Close()
+                    $code = 'none, it did not finish'
+                    if ($process.WaitForExit(180000)) { $code = $process.ExitCode } else { [void](taskkill.exe /T /F /PID $process.Id) }
+                    $runs += @{ Choice = $choice; Code = $code; Text = $reading.Result.Replace("`r", '') }
+                } finally {
+                    $process.Dispose()
+                }
+            }
+        } finally {
+            if ((Get-FluxxwaveModeStatus) -ne 'Off') { [void](Invoke-FluxxwaveMode -State 'Off') }
+        }
+        $after = Get-ModeTestSnapshot -Settings $settings
+
+        # Written before anything is asserted, so a failure can be read from the run's page too.
+        $told = @($runs | ForEach-Object {
+                $flat = $_.Text.Trim().Replace("`n", ' / ')
+                "Choice $($_.Choice), exit $($_.Code): $flat"
+            }) -join ' || '
+        Write-Host "::notice title=Fluxxwave mode from its launcher::Same as before: $($after -eq $before). $told"
+
+        $runs.Count | Should -Be 3
+        $runs[0].Code | Should -Be 0
+        $runs[0].Text | Should -BeLike '*Fluxxwave mode is OFF.*Turn on*'
+        $runs[1].Code | Should -Be 0
+        $runs[1].Text | Should -BeLike '*Background apps: applied*Fluxxwave mode is ON.*'
+        $runs[2].Code | Should -Be 0
+        $runs[2].Text | Should -BeLike '*Background apps: put back*Fluxxwave mode is OFF.*'
+        $after | Should -Be $before
+    }
 }
