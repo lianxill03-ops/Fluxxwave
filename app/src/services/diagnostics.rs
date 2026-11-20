@@ -194,8 +194,9 @@ pub fn init_logging() {
         eprintln!("Cannot create Atlas app log in {}: {error}", primary.display());
         open(std::env::temp_dir().join("AtlasDiagnostics"))
     });
-    let mut builder =
-        env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("warn,FluxxwaveManager=info"));
+    let mut builder = env_logger::Builder::from_env(
+        env_logger::Env::default().default_filter_or("warn,FluxxwaveManager=info"),
+    );
     builder.format_timestamp_millis();
     // Keep Atlas's support history even when the launching shell sets a broad
     // RUST_LOG=warn/off filter. Dependency verbosity remains configurable.
